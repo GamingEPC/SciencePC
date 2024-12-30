@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=VT323&display=swap" rel="stylesheet">
+  <style>
+    /* Стили для сезонных эффектов */
+#effect-container {
+  position: fixed; /* Фиксированное положение поверх всего контента */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Устанавливаем z-index выше, чем у остального контента */
+  pointer-events: none; /* Позволяет кликать сквозь эффекты */
+  overflow: hidden;
+}
+
+/* Снег */
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: white;
+  font-size: 1em;
+  animation: fall 10s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Лепестки цветов */
+.flower-petal {
+  position: absolute;
+  top: -10px;
+  color: pink;
+  font-size: 1.2em;
+  animation: fall-petal 12s linear infinite;
+}
+
+@keyframes fall-petal {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Солнечные лучи */
+.sunray {
+  position: absolute;
+  background: radial-gradient(circle, rgba(255,255,0,0.7) 0%, rgba(255,255,0,0.1) 70%, rgba(255,255,0,0) 100%);
+  border-radius: 50%;
+  animation: sunlight 5s infinite alternate;
+}
+
+@keyframes sunlight {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+/* Листья */
+.leaf {
+  position: absolute;
+  top: -10px;
+  color: orange;
+  font-size: 1.2em;
+  animation: fall-leaf 8s linear infinite;
+}
+
+@keyframes fall-leaf {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Дождь */
+.rain-drop {
+  position: absolute;
+  top: -10px;
+  width: 2px;
+  height: 20px;
+  background: lightblue;
+  animation: rain-fall 1s linear infinite;
+}
+
+@keyframes rain-fall {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalog of PC's</title>
+  <style>
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @font-face {
+      font-family: 'Cyberpunk';
+      src: url('fonts/Cyberpunk-Regular.ttf') format('truetype');
+    }
+
+    @keyframes shadowPulse {
+      0% {
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+      }
+      50% {
+        text-shadow: 0 0 20px #ff5733, 0 0 40px #ff5733, 0 0 60px #ff5733;
+      }
+      100% {
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+      }
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 3rem;
+      color: #ff5733;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+      font-family: 'Cyberpunk', Arial, sans-serif;
+      animation: shadowPulse 6s infinite alternate;
+    }
+
+    /* Основные стили */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: url('https://wallpapercave.com/wp/wp5102664.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      filter: blur(8px); /* Устанавливает уровень размытия */
+      z-index: -1; /* Размытие остаётся на заднем плане */
+    }
+
+    /* Кнопка переключения языка */
+    .language-switcher {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #000;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0, 102, 255, 0.5), 0 0 30px rgba(255, 204, 0, 0.5);
+      transition: all 0.3s ease;
+      z-index: 10;
+      animation: pulseBorder 5s infinite alternate;
+    }
+
+    @keyframes pulseBorder {
+      0% {
+        border-color: #0066ff;
+        box-shadow: 0 0 15px rgba(0, 102, 255, 0.7), 0 0 30px rgba(255, 204, 0, 0.5);
+        background: #0066ff;
+      }
+      50% {
+        border-color: #ffcc00;
+        box-shadow: 0 0 15px rgba(255, 204, 0, 0.7), 0 0 30px rgba(0, 102, 255, 0.5);
+        background: #ffcc00;
+      }
+      100% {
+        border-color: #0066ff;
+        box-shadow: 0 0 15px rgba(0, 102, 255, 0.7), 0 0 30px rgba(255, 204, 0, 0.5);
+        background: #0066ff;
+      }
+    }
+
+    .language-switcher:hover {
+      background: #ffcc00;
+      box-shadow: 0 0 25px rgba(0, 102, 255, 0.7), 0 0 40px rgba(255, 204, 0, 0.7);
+      transform: translateY(-5px);
+    }
+
+    .language-switcher:active {
+      transform: translateY(2px);
+      box-shadow: none;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #00ffff;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4);
+      border-radius: 10px;
+      width: 250px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    @keyframes rgb-gradient {
+      0% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000; }
+      25% { border-color: #00ff00; box-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00; }
+      50% { border-color: #0000ff; box-shadow: 0 0 15px #0000ff, 0 0 30px #0000ff; }
+      75% { border-color: #ffff00; box-shadow: 0 0 15px #ffff00, 0 0 30px #ffff00; }
+      100% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000; }
+    }
+
+    .card:hover {
+      animation: rgb-gradient 5s infinite;
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.7), 0 0 40px rgba(0, 255, 255, 0.5);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #fff;
+      margin: 10px 0;
+      font-family: 'Cyberpunk', Arial, sans-serif; /* Применение шрифта Cyberpunk */
+    }
+
+    .card p {
+      text-align: center;
+      font-size: 1rem;
+      color: #d1d1d1;
+      margin-bottom: 15px;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0 15px;
+      margin: 0 0 15px;
+      color: #00ffff;
+      font-size: 0.9rem;
+    }
+
+    .card button {
+      display: block;
+      margin: 0 auto 15px;
+      padding: 10px 20px;
+      background: #00ffff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .card button:hover {
+      background: #fff;
+      color: #00ffff;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    }
+
+    /* Центрируем ссылки снизу */
+    .bottom-links {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .bottom-links a {
+      color: #fff;
+      text-decoration: none;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 5px;
+      transition: background 0.3s ease, transform 0.3s ease;
+      display: block;
+      text-align: center;
+    }
+
+    .bottom-links a:hover {
+      background: #ff5733;
+      transform: translateY(-5px);
+    }
+
+    .bottom-links .profile-photo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 5px;
+    }
+
+    .bottom-links .contact-info {
+      font-size: 0.9rem;
+    }
+    ul {
+  list-style-type: disc;
+  padding-left: 25px;
+}
+li {
+  margin-bottom: 8px;
+}
+.vt323-regular {
+  font-family: "VT323", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.large-text {
+  font-size: 5em; /* Еще больший размер шрифта */
+}
+.orbitron-regular {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 425;
+  font-style: normal;
+}
+  </style>
+</head>
+<body>
+  <div id="effect-container"></div> <!-- Контейнер для сезонных эффектов -->
+  
+  <script>
+    function switchLanguage() {
+      // Смена текста на кнопке для примера
+      const button = document.querySelector('.language-switcher');
+      if (button.textContent === 'UA') {
+        button.textContent = 'EN';
+      } else {
+        button.textContent = 'UA';
+      }
+    }
+    function switchLanguage() {
+  const button = document.querySelector('.language-switcher');
+  button.textContent = button.textContent === 'UA' ? 'EN' : 'UA';
+}
+
+function createElement(className, container, content = "") {
+  const element = document.createElement("div");
+  element.className = className;
+  element.style.left = Math.random() * 100 + "vw";
+  element.style.animationDelay = Math.random() * 5 + "s";
+  element.textContent = content;
+  container.appendChild(element);
+}
+
+function applySeasonalEffect() {
+  const container = document.getElementById("effect-container");
+
+  if (!container) {
+    console.error("Ошибка: контейнер с ID 'effect-container' не найден.");
+    return;
+  }
+
+  container.innerHTML = "";
+
+  const now = new Date();
+  const month = now.getMonth();
+
+  console.log(`Текущая дата: ${now}. Применяем эффекты для месяца ${month + 1}.`);
+
+  if (month === 11 || month <= 1 || (month === 2 && now.getDate() < 29)) { // Условие для зимы, учитывающее високосные годы
+    console.log("Применяем зимний эффект: падающий снег.");
+    for (let i = 0; i < 50; i++) {
+      createElement("snowflake", container, "❄");
+    }
+  } else if (month >= 2 && month <= 4) {
+    console.log("Применяем весенний эффект: лепестки цветов.");
+    for (let i = 0; i < 50; i++) {
+      createElement("flower-petal", container, "🌸");
+    }
+  } else if (month >= 5 && month <= 7) {
+    console.log("Применяем летний эффект: солнечные лучи.");
+    for (let i = 0; i < 10; i++) {
+      createElement("sunray", container, "☀️"); // sunray не нуждается в текстовом содержимом
+    }
+  } else if (month >= 8 && month <= 10) {
+    console.log("Применяем осенний эффект: листья и дождь.");
+    for (let i = 0; i < 30; i++) {
+      createElement("leaf", container, "🍁");
+    }
+    for (let i = 0; i < 50; i++) {
+      createElement("rain-drop", container, "💧"); // Добавил символ капли дождя
+    }
+  }
+}
+
+window.onload = applySeasonalEffect;
+  </script>
+
+  <!-- Кнопка переключения языка -->
+  <button class="language-switcher" onclick="switchLanguage()">UA</button>
+
+  <h1>Science PC</h1>
+  <div class="container">
+    <!-- Карточка 1 -->
+    <div class="card">
+      <img src="photo pc's/1.png" alt="ПК 1">
+      <h3>Bird of Gaming </h3>
+      <p class="orbitron-regular">Powerfull RGB PC for You</p>
+      
+      <ul class="vt323-regular">
+       <li style="font-size: 20px;">GPU: AMD RX 5500XT</li>
+        <li style="font-size: 20px;">CPU: Intel Xeon 2680V4</li>
+        <li style="font-size: 20px;">RAM: 32 GB DDR4 3200 MHZ</li>
+        <li style="font-size: 20px;">SSD Nvme: 512 GB</li>
+      </ul>
+      <button onclick="window.location.href='index.pc.en.html'">More</button>
+    </div>
+    <!-- Карточка 2 -->
+     <style>
+  .small-img {
+  display: block; /* Изображения по умолчанию — inline. Задаем block для работы с margin */
+  margin: 0 auto; /* Центрируем изображение горизонтально */
+  width: 160px !important;
+  height: 185px !important;
+  object-fit: cover !important;
+}
+.small-img2 {
+  display: block; /* Изображения по умолчанию — inline. Задаем block для работы с margin */
+  margin: 0 auto; /* Центрируем изображение горизонтально */
+  width: 160px !important;
+  height: 205px !important;
+  object-fit: cover !important;
+}
+.small-img3 {
+  display: block; /* Изображения по умолчанию — inline. Задаем block для работы с margin */
+  margin: 0 auto; /* Центрируем изображение горизонтально */
+  width: 200px !important;
+  height: 200px !important;
+  object-fit: cover !important;
+}
+    </style>
+    <div class="card">
+      <img class="small-img" src="photo pc's/file.png" alt="ПК 2">
+      <h3>Cyber Runner</h3>
+      <p class="orbitron-regular">Awesome choice for Cyberpunk 2077</p>
+      <ul class="vt323-regular">
+        <li style="font-size: 20px;">GPU: NVIDIA RTX 2060</li>
+        <li style="font-size: 20px;">CPU: AMD Ryzen 5 2600X</li>
+        <li style="font-size: 20px;">RAM: 32 GB DDR4 3200 MHZ</li>
+        <li style="font-size: 20px;">SSD Nvme: 512 GB</li>
+      </ul>
+      <button>More</button>
+    </div>
+    <!-- Карточка 3 -->
+    <div class="card">
+      <img class="small-img2" src="photo pc's/file (2).png"alt="ПК 3">
+      <h3>Neon Beast</h3>
+      <p class="orbitron-regular">Powerfull and Compact</p>
+      <ul class="vt323-regular">
+        <li style="font-size: 20px;">GPU: NVIDIA GTX 1660 Super</li>
+        <li style="font-size: 20px;">CPU: AMD Ryzen 5 2600</li>
+        <li style="font-size: 20px;">RAM: 32 GB DDR4 2667 MHZ</li>
+        <li style="font-size: 20px;">SSD Nvme: 512 GB</li>
+      </ul>
+      <button>More</button>
+    </div>
+    <!-- Карточка 4 -->
+    <div class="card">
+      <img class="small-img3" src="photo pc's/2.png" alt="ПК 4">
+      <h3>Shadow Hacker</h3>
+      <p class="orbitron-regular">For futer hackers and gamers</p>
+      <ul class="vt323-regular">
+        <li style="font-size: 20px;">GPU: RTX 2060 Super</li>
+        <li style="font-size: 20px;">CPU: AMD Ryzen 5 2600</li>
+        <li style="font-size: 20px;">RAM: 32 GB DDR4 3200 MHZ</li>
+        <li style="font-size: 20px;">SSD Nvme: 1 TB</li>
+      </ul>
+      <button>More</button>
+    </div>
+  </div>
+  <div class="bottom-links">
+    <a href="https://www.youtube.com/@SciencePC" target="_blank">
+      <img class="profile-photo" src="video-game.png" alt="YouTube">
+      <div class="contact-info">YouTube</div>
+    </a>
+    <a href="https://www.olx.ua/uk/list/user/5YDry/?tab=ads" target="_blank">
+      <img class="profile-photo" src="OLX-01.svg" alt="OLX">
+      <div class="contact-info">OLX</div>
+    </a>
+    <a href="tel:+380971277928">
+      <img class="profile-photo" src="123.png" alt="Smartphone">
+      <div class="contact-info">+380971277928</div>
+    </a>
+    <a href="mailto:deluxe.history@outlook.com">
+      <img class="profile-photo" src="Outlook.png" alt="Email">
+      <div class="contact-info">deluxe.history@outlook.com</div>
+    </a>
+  </div>
+  <script>
+    function switchLanguage() {
+      // Смена текста на кнопке для примера
+      const button = document.querySelector('.language-switcher');
+      if (button.textContent === 'UA') {
+        button.textContent = 'EN';
+      } else {
+        button.textContent = 'UA';
+      }
+    }
+  </script>
+</body>
+</html>
