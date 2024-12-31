@@ -128,6 +128,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catalog of PC's</title>
+  <link rel="icon" href="neon-controller.png" type="image/png">
   <style>
 
     @media (max-width: 768px) {
@@ -300,7 +301,7 @@
       display: block;
       margin: 0 auto 15px;
       padding: 10px 20px;
-      background: #00ffff;
+      background: hsl(49deg 98% 60%);
       color: #000;
       border: none;
       border-radius: 5px;
@@ -315,46 +316,40 @@
       box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
     }
 
-    /* Центрируем ссылки снизу */
-    .bottom-links {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      align-items: center;
-      z-index: 100;
-    }
+    /* Фиксируем ссылки снизу */
+.bottom-links {
+  position: fixed; /* Закрепляем меню */
+  bottom: 0; /* Располагаем его внизу окна */
+  left: 0;
+  width: 100%; /* Меню занимает всю ширину окна */
+  display: flex;
+  gap: 20px;
+  justify-content: center; /* Центрируем содержимое */
+  align-items: center;
+  z-index: 1000; /* Высокий приоритет отображения */
+  background: rgba(0, 0, 0, 0.8); /* Фон меню */
+  padding: 10px 20px; /* Отступы для эстетики */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Тень для стиля */
+}
 
-    .bottom-links a {
-      color: #fff;
-      text-decoration: none;
-      padding: 15px;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 5px;
-      transition: background 0.3s ease, transform 0.3s ease;
-      display: block;
-      text-align: center;
-    }
+/* Стили ссылок в меню */
 
-    .bottom-links a:hover {
-      background: #ff5733;
-      transform: translateY(-5px);
-    }
+/* Эффект при наведении */
 
-    .bottom-links .profile-photo {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 5px;
-    }
 
-    .bottom-links .contact-info {
-      font-size: 0.9rem;
-    }
+/* Стили изображений в меню */
+.bottom-links .profile-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+/* Текст под иконками */
+.bottom-links .contact-info {
+  font-size: 0.9rem;
+}
     ul {
   list-style-type: disc;
   padding-left: 25px;
@@ -459,7 +454,6 @@ window.onload = applySeasonalEffect;
       <img src="photo pc's/1.png" alt="ПК 1">
       <h3>Bird of Gaming </h3>
       <p class="orbitron-regular">Powerfull RGB PC for You</p>
-      
       <ul class="vt323-regular">
        <li style="font-size: 20px;">GPU: AMD RX 5500XT</li>
         <li style="font-size: 20px;">CPU: Intel Xeon 2680V4</li>
@@ -467,6 +461,98 @@ window.onload = applySeasonalEffect;
         <li style="font-size: 20px;">SSD Nvme: 512 GB</li>
       </ul>
       <button onclick="window.location.href='index.pc.en.html'">More</button>
+      <style>
+        /* From Uiverse.io by barisdogansutcu */
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          padding: 0 10px;
+          color: white;
+          text-shadow: 2px 2px rgb(116, 116, 116);
+          text-transform: uppercase;
+          cursor: pointer;
+          border: solid 2px black;
+          letter-spacing: 1px;
+          font-weight: 600;
+          font-size: 17px;
+          background-color: hsl(49deg 98% 60%);
+          border-radius: 50px;
+          position: relative;
+          overflow: hidden;
+          transition: all 0.5s ease;
+        }
+    
+        button:active {
+          transform: scale(0.9);
+          transition: all 100ms ease;
+        }
+    
+        button svg {
+          transition: all 0.5s ease;
+          z-index: 2;
+        }
+    
+        .play {
+          transition: all 0.5s ease;
+          transition-delay: 300ms;
+        }
+    
+        button:hover svg {
+          transform: scale(3) translate(50%);
+        }
+    
+        .now {
+          position: absolute;
+          left: 0;
+          transform: translateX(-100%);
+          transition: all 0.5s ease;
+          z-index: 2;
+        }
+    
+        button:hover .now {
+          transform: translateX(10px);
+          transition-delay: 300ms;
+        }
+    
+        button:hover .play {
+          transform: translateX(200%);
+          transition-delay: 300ms;
+        }
+      </style>
+       <script>
+// Wait for the DOM to fully load
+document.addEventListener('DOMContentLoaded', () => {
+
+// Function to style the button (defined OUTSIDE the loop)
+function styleButton(button) {
+  button.innerHTML = `
+    <div class="svg-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36px" height="36px">
+        <rect width="36" height="36" x="0" y="0" fill="#fdd835"></rect>
+        <path fill="#e53935" d="M38.67,42H11.52C11.27,40.62,11,38.57,11,36c0-5,0-11,0-11s1.44-7.39,3.22-9.59 c1.67-2.06,2.76-3.48,6.78-4.41c3-0.7,7.13-0.23,9,1c2.15,1.42,3.37,6.67,3.81,11.29c1.49-0.3,5.21,0.2,5.5,1.28 C40.89,30.29,39.48,38.31,38.67,42z"></path>
+        <path fill="#b71c1c" d="M39.02,42H11.99c-0.22-2.67-0.48-7.05-0.49-12.72c0.83,4.18,1.63,9.59,6.98,9.79 c3.48,0.12,8.27,0.55,9.83-2.45c1.57-3,3.72-8.95,3.51-15.62c-0.19-5.84-1.75-8.2-2.13-8.7c0.59,0.66,3.74,4.49,4.01,11.7 c0.03,0.83,0.06,1.72,0.08,2.66c4.21-0.15,5.93,1.5,6.07,2.35C40.68,33.85,39.8,38.9,39.02,42z"></path>
+        <path fill="#212121" d="M35,27.17c0,3.67-0.28,11.2-0.42,14.83h-2C32.72,38.42,33,30.83,33,27.17 c0-5.54-1.46-12.65-3.55-14.02c-1.65-1.08-5.49-1.48-8.23-0.85c-3.62,0.83-4.57,1.99-6.14,3.92L15,16.32 c-1.31,1.6-2.59,6.92-3,8.96v10.8c0,2.58,0.28,4.61,0.54,5.92H10.5c-0.25-1.41-0.5-3.42-0.5-5.92l0.02-11.09 c0.15-0.77,1.55-7.63,3.43-9.94l0.08-0.09c1.65-2.03,2.96-3.63,7.25-4.61c3.28-0.76,7.67-0.25,9.77,1.13 C33.79,13.6,35,22.23,35,27.17z"></path>
+        <path fill="#01579b" d="M17.165,17.283c5.217-0.055,9.391,0.283,9,6.011c-0.391,5.728-8.478,5.533-9.391,5.337 c-0.913-0.196-7.826-0.043-7.696-5.337C9.209,18,13.645,17.32,17.165,17.283z"></path>
+        <path fill="#212121" d="M40.739,37.38c-0.28,1.99-0.69,3.53-1.22,4.62h-2.43c0.25-0.19,1.13-1.11,1.67-4.9 c0.57-4-0.23-11.79-0.93-12.78c-0.4-0.4-2.63-0.8-4.37-0.89l0.1-1.99c1.04,0.05,4.53,0.31,5.71,1.49 C40.689,24.36,41.289,33.53,40.739,37.38z"></path>
+        <path fill="#81d4fa" d="M10.154,20.201c0.261,2.059-0.196,3.351,2.543,3.546s8.076,1.022,9.402-0.554 c1.326-1.576,1.75-4.365-0.891-5.267C19.336,17.287,12.959,16.251,10.154,20.201z"></path>
+        <path fill="#212121" d="M17.615,29.677c-0.502,0-0.873-0.03-1.052-0.069c-0.086-0.019-0.236-0.035-0.434-0.06 c-5.344-0.679-8.053-2.784-8.052-6.255c0.001-2.698,1.17-7.238,8.986-7.32l0.181-0.002c3.444-0.038,6.414-0.068,8.272,1.818 c1.173,1.191,1.712,3,1.647,5.53c-0.044,1.688-0.785,3.147-2.144,4.217C22.785,29.296,19.388,29.677,17.615,29.677z M17.086,17.973 c-7.006,0.074-7.008,4.023-7.008,5.321c-0.001,3.109,3.598,3.926,6.305,4.27c0.273,0.035,0.48,0.063,0.601,0.089 c0.563,0.101,4.68,0.035,6.855-1.732c0.865-0.702,1.299-1.57,1.326-2.653c0.051-1.958-0.301-3.291-1.073-4.075 c-1.262-1.281-3.834-1.255-6.825-1.222L17.086,17.973z"></path>
+        <path fill="#e1f5fe" d="M15.078,19.043c1.957-0.326,5.122-0.529,4.435,1.304c-0.489,1.304-7.185,2.185-7.185,0.652 C12.328,19.467,15.078,19.043,15.078,19.043z"></path>
+      </svg>
+      <span class="now">now!</span>
+      <span class="play">Buy</span>
+    </div>`;
+}
+// Find all buttons and style the "More" buttons
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => {
+  if (button.textContent.trim() === 'More') {
+    styleButton(button);
+  }
+});
+});
+      </script>
     </div>
     <!-- Карточка 2 -->
      <style>
@@ -502,7 +588,8 @@ window.onload = applySeasonalEffect;
         <li style="font-size: 20px;">RAM: 32 GB DDR4 3200 MHZ</li>
         <li style="font-size: 20px;">SSD Nvme: 512 GB</li>
       </ul>
-      <button>More</button>
+      <button onclick="window.location.href='index.pc.en.html'">More</button>
+      
     </div>
     <!-- Карточка 3 -->
     <div class="card">
@@ -515,7 +602,7 @@ window.onload = applySeasonalEffect;
         <li style="font-size: 20px;">RAM: 32 GB DDR4 2667 MHZ</li>
         <li style="font-size: 20px;">SSD Nvme: 512 GB</li>
       </ul>
-      <button>More</button>
+      <button onclick="window.location.href='index.pc.en.html'">More</button>
     </div>
     <!-- Карточка 4 -->
     <div class="card">
@@ -528,27 +615,221 @@ window.onload = applySeasonalEffect;
         <li style="font-size: 20px;">RAM: 32 GB DDR4 3200 MHZ</li>
         <li style="font-size: 20px;">SSD Nvme: 1 TB</li>
       </ul>
-      <button>More</button>
+      <button onclick="window.location.href='index.pc.en.html'">More</button>
     </div>
   </div>
-  <div class="bottom-links">
-    <a href="https://www.youtube.com/@SciencePC" target="_blank">
-      <img class="profile-photo" src="video-game.png" alt="YouTube">
-      <div class="contact-info">YouTube</div>
-    </a>
-    <a href="https://www.olx.ua/uk/list/user/5YDry/?tab=ads" target="_blank">
-      <img class="profile-photo" src="OLX-01.svg" alt="OLX">
-      <div class="contact-info">OLX</div>
-    </a>
-    <a href="tel:+380971277928">
-      <img class="profile-photo" src="123.png" alt="Smartphone">
-      <div class="contact-info">+380971277928</div>
-    </a>
-    <a href="mailto:deluxe.history@outlook.com">
-      <img class="profile-photo" src="Outlook.png" alt="Email">
-      <div class="contact-info">deluxe.history@outlook.com</div>
-    </a>
-  </div>
+<!-- Кнопка для мобильной версии -->
+<button class="menu-toggle" onclick="toggleMenu()">
+  <span class="text">Menu</span>
+  <span class="icon">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </span>
+</button>
+
+<!-- Скрытое меню -->
+<div class="bottom-links hidden" onclick="closeMenu(event)">
+  <a href="https://www.youtube.com/@SciencePC" target="_blank">
+    <img class="profile-photo" src="video-game.png" alt="YouTube">
+    <div class="contact-info">YouTube</div>
+  </a>
+  <a href="https://www.olx.ua/uk/list/user/5YDry/?tab=ads" target="_blank">
+    <img class="profile-photo" src="OLX-01.svg" alt="OLX">
+    <div class="contact-info">OLX</div>
+  </a>
+  <a href="tel:+380971277928">
+    <img class="profile-photo" src="123.png" alt="Smartphone">
+    <div class="contact-info">+380971277928</div>
+  </a>
+  <a href="mailto:deluxe.history@outlook.com">
+    <img class="profile-photo" src="Outlook.png" alt="Email">
+    <div class="contact-info">deluxe.history@outlook.com</div>
+  </a>
+</div>
+
+<style>
+/* Кнопка открытия меню */
+.menu-toggle {
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.5s ease-in-out;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  background: #040f16;
+  color: #f5f5f5;
+  cursor: pointer; /* Ensure the button is clickable */
+  position: fixed; /* Maintain fixed positioning */
+  bottom: 20px; /* Maintain bottom positioning */
+  right: 20px; /* Maintain right positioning */
+  z-index: 1000; /* Maintain z-index */
+}
+
+.menu-toggle .icon {
+  position: relative;
+  width: 30px;
+  height: 20px;
+  display: none; /* Скрываем иконку по умолчанию */
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-toggle.open .icon {
+  display: flex; /* Показываем иконку при клике на кнопку */
+}
+
+.menu-toggle .icon .bar {
+  background-color: #fff;
+  height: 4px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.menu-toggle .text {
+  transition: all 0.5s;
+  display: block;
+}
+
+.menu-toggle.open .text {
+  opacity: 0; /* Прячем текст при открытии */
+}
+
+/* Стили для скрытого меню */
+.bottom-links {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 20px;
+  z-index: 1000;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.bottom-links.open {
+  display: flex;
+  transform: translateY(0);
+}
+
+/* Стили ссылок */
+.bottom-links a {
+  color: #fff;
+  text-decoration: none;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Добавляем тень только к отдельным блокам */
+}
+
+.bottom-links a:hover {
+  background: #ff5733;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); /* Увеличиваем тень при наведении */
+}
+
+.bottom-links.hidden {
+  display: none; /* По умолчанию скрываем меню */
+}
+
+.bottom-links {
+  box-shadow: none; /* Убираем тень */
+  background: none; /* Убираем возможный фон */
+  padding: 0;       /* Убираем внутренние отступы */
+  margin: 0;        /* Убираем внешние отступы */
+}
+
+/* Для мобильной версии */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Показываем кнопку на мобильных устройствах */
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .bottom-links.hidden {
+    display: none; /* По умолчанию скрываем меню на мобильных устройствах */
+  }
+
+  .bottom-links.open {
+    display: flex; /* Показываем меню при открытии */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Добавляем тень для контейнера при открытии */
+    background: rgba(0, 0, 0, 0.8); /* Добавляем фон для выделения */
+    border-radius: 10px; /* Закругляем углы контейнера */
+    padding: 10px; /* Добавляем внутренние отступы */
+  }
+}
+
+/* Для ПК версии */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none; /* Скрываем кнопку на ПК */
+  }
+
+  .bottom-links {
+    position: fixed;
+    bottom: 0px;
+    left: 0%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    display: flex; /* Всегда показываем меню на ПК */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    z-index: 100;
+    background: none; /* Оставляем без фона */
+    box-shadow: none; /* Убираем тень */
+  }
+
+  .bottom-links.hidden {
+    display: flex !important; /* Принудительно отображаем меню на ПК */
+    transform: translateY(0); /* Убираем смещение */
+  }
+}
+</style>
+
+<script>
+
+function toggleMenu() {
+  const menu = document.querySelector('.bottom-links');
+  const button = document.querySelector('.menu-toggle');
+  
+  menu.classList.toggle('open');
+  menu.classList.toggle('hidden');
+  
+  // Переключаем класс "open" на кнопке
+  button.classList.toggle('open');
+}
+
+// Закрываем меню при клике вне его
+function closeMenu(event) {
+  const menu = document.querySelector('.bottom-links');
+  if (!event.target.closest('.bottom-links') && !event.target.closest('.menu-toggle')) {
+    menu.classList.add('hidden');
+    menu.classList.remove('open');
+    document.querySelector('.menu-toggle').classList.remove('open'); // Убираем класс "open" с кнопки
+  }
+}
+
+// Добавляем обработчик события для кликов по документу
+document.addEventListener('click', closeMenu);
+
+
+</script>
+
   <script>
     function switchLanguage() {
       // Смена текста на кнопке для примера
