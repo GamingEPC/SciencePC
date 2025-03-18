@@ -5,11 +5,12 @@
     "version": "0.2.0",
     "configurations": [
 
+
         {
             "type": "msedge",
             "request": "launch",
             "name": "Open index.html",
-            "file": "C:\\Users\\Alexander\\Documents\\GitHub\\Science-PC\\index.html"
+            "file": "D:\\My Fold\\My Web-sites\\SciencePC\\index.html"
         }
     ]
 }

@@ -170,7 +170,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Arial', sans-serif;
-      background: url('https://wallpapercave.com/wp/wp5102664.jpg') no-repeat center center fixed;
+      background: url('https://wallpaperaccess.com/full/2510382.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       overflow-x: hidden;
@@ -376,21 +376,56 @@ li {
 <body>
   <div id="effect-container"></div> <!-- Контейнер для сезонных эффектов -->
   
-  <script>
-    function switchLanguage() {
-      // Смена текста на кнопке для примера
-      const button = document.querySelector('.language-switcher');
-      if (button.textContent === 'UA') {
-        button.textContent = 'EN';
-      } else {
-        button.textContent = 'UA';
-      }
-    }
-    function switchLanguage() {
-  const button = document.querySelector('.language-switcher');
-  button.textContent = button.textContent === 'UA' ? 'EN' : 'UA';
-}
+    <button class="language-switcher" onclick="switchLanguage()">UA</button>
+    
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const button = document.querySelector(".language-switcher");
+    let currentLang = localStorage.getItem("selectedLang") || "EN"; // Сохраняем язык в localStorage
 
+    button.textContent = currentLang; // Устанавливаем начальный язык на кнопке
+    applyTranslation(currentLang);
+
+    button.addEventListener("click", () => {
+        currentLang = currentLang === "UA" ? "EN" : "UA"; // Переключаем язык
+        button.textContent = currentLang;
+        localStorage.setItem("selectedLang", currentLang); // Сохраняем в localStorage
+        applyTranslation(currentLang);
+    });
+});
+
+function applyTranslation(lang) {
+    document.querySelectorAll("[data-lang]").forEach(el => {
+        const translations = JSON.parse(el.getAttribute("data-lang"));
+        el.textContent = translations[lang]; // Подставляем нужный текст
+    });
+}
+function switchLanguage() {
+    const button = document.querySelector(".language-switcher");
+    let currentLang = button.textContent.trim(); // Получаем текущий язык с кнопки
+    let newLang = currentLang === "UA" ? "EN" : "UA"; // Определяем новый язык
+        
+        // Меняем текст на кнопке
+        button.textContent = newLang;
+    
+        // Находим все элементы с атрибутом data-lang
+        document.querySelectorAll("[data-lang]").forEach(el => {
+            try {
+                const translations = JSON.parse(el.getAttribute("data-lang"));
+                if (translations[newLang]) {
+                    el.textContent = translations[newLang]; // Меняем текст в зависимости от языка
+                    console.log(`Перевод элемента: ${el.textContent}`);
+                } else {
+                    console.warn(`Перевод для языка ${newLang} не найден.`);
+                }
+            } catch (error) {
+                console.error("Ошибка при парсинге атрибута data-lang:", error);
+            }
+        });
+    }
+    </script>
+
+<script>
 function createElement(className, container, content = "") {
   const element = document.createElement("div");
   element.className = className;
@@ -399,6 +434,7 @@ function createElement(className, container, content = "") {
   element.textContent = content;
   container.appendChild(element);
 }
+
 
 function applySeasonalEffect() {
   const container = document.getElementById("effect-container");
@@ -415,22 +451,28 @@ function applySeasonalEffect() {
 
   console.log(`Текущая дата: ${now}. Применяем эффекты для месяца ${month + 1}.`);
 
-  if (month === 11 || month <= 1 || (month === 2 && now.getDate() < 29)) { // Условие для зимы, учитывающее високосные годы
+  if (month === 11 || month <= 1) { //
     console.log("Применяем зимний эффект: падающий снег.");
     for (let i = 0; i < 50; i++) {
       createElement("snowflake", container, "❄");
     }
   } else if (month >= 2 && month <= 4) {
-    console.log("Применяем весенний эффект: лепестки цветов.");
+    console.log("Применяем весенний эффект: лепестки цветов, бабочки и пух одуванчиков.");
+
+    // Лепестки цветов (разных цветов)
+    const petals = ["🌸", "🌼", "🌺","🌈"];
     for (let i = 0; i < 50; i++) {
-      createElement("flower-petal", container, "🌸");
+      const petal = petals[Math.floor(Math.random() * petals.length)];
+      createElement("flower-petal", container, petal);
     }
-  } else if (month >= 5 && month <= 7) {
+  } 
+  else if (month >= 5 && month <= 7) {
     console.log("Применяем летний эффект: солнечные лучи.");
     for (let i = 0; i < 10; i++) {
       createElement("sunray", container, "☀️"); // sunray не нуждается в текстовом содержимом
     }
-  } else if (month >= 8 && month <= 10) {
+  } 
+  else if (month >= 8 && month <= 10) {
     console.log("Применяем осенний эффект: листья и дождь.");
     for (let i = 0; i < 30; i++) {
       createElement("leaf", container, "🍁");
@@ -440,26 +482,52 @@ function applySeasonalEffect() {
     }
   }
 }
+function setSeasonalBackground() {
+  const now = new Date();
+  const month = now.getMonth();
+  let backgroundImage = "";
+
+  if (month === 11 || month <= 1) {
+    // Декабрь, Январь, Февраль — Зима
+    backgroundImage = "url('https://wallpaperaccess.com/full/4222231.jpg')"; // зимний фон
+  } else if (month >= 2 && month <= 4) {
+    // Март, Апрель, Май — Весна
+    backgroundImage = "url('https://wallpaperaccess.com/full/2510382.jpg'')"; // весенний фон
+  } else if (month >= 5 && month <= 7) {
+    // Июнь, Июль, Август — Лето
+    backgroundImage = "url('https://wallpaperaccess.com/full/6235827.jpg')"; // летний фон
+  } else if (month >= 8 && month <= 10) {
+    // Сентябрь, Октябрь, Ноябрь — Осень
+    backgroundImage = "url('https://wallpaperaccess.com/full/2510592.jpg')"; // осенний фон
+  }
+
+  document.body.style.background = `${backgroundImage} no-repeat center center fixed`;
+  document.body.style.backgroundSize = "cover";
+
+  console.log(`Фон изменён в зависимости от сезона: ${backgroundImage}`);
+}
+
+// Вызываем функцию при загрузке страницы
+setSeasonalBackground();
 
 window.onload = applySeasonalEffect;
   </script>
-
-  <!-- Кнопка переключения языка -->
-  <button class="language-switcher" onclick="switchLanguage()">UA</button>
 
   <h1>Science PC</h1>
   <div class="container">
     <!-- Карточка 1 -->
     <div class="card">
       <img src="photo pc's/1.png" alt="ПК 1">
-      <h3>Bird of Gaming </h3>
-      <p class="orbitron-regular">Powerfull RGB PC for You</p>
-      <ul class="vt323-regular">
-       <li style="font-size: 20px;">GPU: AMD RX 5500XT</li>
-        <li style="font-size: 20px;">CPU: Intel Xeon 2680V4</li>
-        <li style="font-size: 20px;">RAM: 32 GB DDR4 3200 MHZ</li>
-        <li style="font-size: 20px;">SSD Nvme: 512 GB</li>
-      </ul>
+            <h3 data-lang='{"UA": "Птах Геймінгу", "EN": "Bird of Gaming"}'>Bird of Gaming</h3>
+      <p class="orbitron-regular" data-lang='{"UA": "Потужний RGB ПК для тебе", "EN": "Powerful RGB PC for You"}'>Powerful RGB PC for You</p>
+
+<ul class="vt323-regular">
+    <li style="font-size: 20px;" data-lang='{"UA": "Відеокарта: AMD RX 5500XT", "EN": "GPU: AMD RX 5500XT"}'>GPU: AMD RX 5500XT</li>
+    <li style="font-size: 20px;" data-lang='{"UA": "Процесор: Intel Xeon 2680V4", "EN": "CPU: Intel Xeon 2680V4"}'>CPU: Intel Xeon 2680V4</li>
+    <li style="font-size: 20px;" data-lang='{"UA": "ОЗП: 32 ГБ DDR4 3200 МГц", "EN": "RAM: 32 GB DDR4 3200 MHZ"}'>RAM: 32 GB DDR4 3200 MHZ</li>
+    <li style="font-size: 20px;" data-lang='{"UA": "SSD NVMe: 512 ГБ", "EN": "SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
+</ul>
+
       <button onclick="window.location.href='index.pc.en.html'">More</button>
       <style>
         /* From Uiverse.io by barisdogansutcu */
@@ -638,9 +706,9 @@ buttons.forEach(button => {
     <img class="profile-photo" src="OLX-01.svg" alt="OLX">
     <div class="contact-info">OLX</div>
   </a>
-  <a href="tel:+380971277928">
+  <a href="tel:+380993262917">
     <img class="profile-photo" src="123.png" alt="Smartphone">
-    <div class="contact-info">+380971277928</div>
+    <div class="contact-info">+380-99-326-2917</div>
   </a>
   <a href="mailto:deluxe.history@outlook.com">
     <img class="profile-photo" src="Outlook.png" alt="Email">
@@ -826,20 +894,6 @@ function closeMenu(event) {
 
 // Добавляем обработчик события для кликов по документу
 document.addEventListener('click', closeMenu);
-
-
 </script>
-
-  <script>
-    function switchLanguage() {
-      // Смена текста на кнопке для примера
-      const button = document.querySelector('.language-switcher');
-      if (button.textContent === 'UA') {
-        button.textContent = 'EN';
-      } else {
-        button.textContent = 'UA';
-      }
-    }
-  </script>
 </body>
 </html>
