@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="style(buttons).css">
+<script src="script(buttons).js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
@@ -143,6 +145,20 @@
       src: url('fonts/Cyberpunk-Regular.ttf') format('truetype');
     }
 
+    @font-face {
+  font-family: 'EpilepsySans';
+  src: url('fonts/EpilepsySans.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EpilepsySansBold';
+  src: url('fonts/EpilepsySansBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
     @keyframes shadowPulse {
       0% {
         text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
@@ -175,6 +191,23 @@
       color: #fff;
       overflow-x: hidden;
     }
+
+.ua-font {
+    font-family: 'EpilepsySans', sans-serif;
+}
+
+.ua-font h3 {
+    font-family: 'EpilepsySansBold', sans-serif !important;
+}
+
+/* Английская версия */
+.en-font {
+    font-family: 'Orbitron', sans-serif;
+}
+
+.en-font ul {
+    font-family: 'VT323', monospace;
+}
 
     body::before {
       content: "";
@@ -236,12 +269,39 @@
     }
 
     .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем содержимое по вертикали */
+    align-items: center; /* Центрируем по горизонтали */
+    width: 300px; /* Фиксированная ширина */
+    text-align: center;
+    font-size: 30px;
+}
+
+
+    h3 {
+    margin: 10px 0; /* Уменьшаем верхний и нижний отступ */
+}
+
+p {
+    margin: 5px 0; /* Уменьшаем отступы между абзацами */
+    line-height: 1.2; /* Уменьшаем межстрочный интервал */
+}
+
+.specs {
+    margin-top: 5px;
+    font-size: 12px; /* Можно уменьшить размер шрифта, если надо */
+}
 
     .card {
       background: rgba(255, 255, 255, 0.1);
@@ -252,6 +312,15 @@
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Центрируем содержимое по горизонтали */
+      justify-content: space-between; /* Равномерное распределение пространства */
+      padding: 20px;
+      }
+      .card button {
+      margin-top: auto; /* Отодвигаем кнопку вниз */
+      align-self: center; /* Центрируем кнопку по горизонтали */
     }
 
     @keyframes rgb-gradient {
@@ -276,7 +345,7 @@
 
     .card h3 {
       text-align: center;
-      font-size: 1.5rem;
+      font-size: 1.72rem;
       color: #fff;
       margin: 10px 0;
       font-family: 'Cyberpunk', Arial, sans-serif; /* Применение шрифта Cyberpunk */
@@ -284,37 +353,19 @@
 
     .card p {
       text-align: center;
-      font-size: 1rem;
+      font-size: 1.5rem;
       color: #d1d1d1;
       margin-bottom: 15px;
     }
 
     .card ul {
-      list-style: none;
-      padding: 0 15px;
-      margin: 0 0 15px;
-      color: #00ffff;
-      font-size: 0.9rem;
-    }
-
-    .card button {
-      display: block;
-      margin: 0 auto 15px;
-      padding: 10px 20px;
-      background: hsl(49deg 98% 60%);
-      color: #000;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    .card button:hover {
-      background: #fff;
-      color: #00ffff;
-      box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
-    }
+  list-style: none;
+  padding: 0 15px;
+  margin: 0 0 15px;
+  color: #00ffff;
+  font-size: 1.1rem;
+  text-align: left; /* Выравнивание по левому краю */
+}
 
     /* Фиксируем ссылки снизу */
 .bottom-links {
@@ -332,10 +383,6 @@
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Тень для стиля */
 }
 
-/* Стили ссылок в меню */
-
-/* Эффект при наведении */
-
 
 /* Стили изображений в меню */
 .bottom-links .profile-photo {
@@ -348,7 +395,8 @@
 
 /* Текст под иконками */
 .bottom-links .contact-info {
-  font-size: 0.9rem;
+  font-size: 1.3rem;
+  font-family: 'VT323', monospace !important;
 }
     ul {
   list-style-type: disc;
@@ -376,29 +424,36 @@ li {
 <body>
   <div id="effect-container"></div> <!-- Контейнер для сезонных эффектов -->
   
-    <button class="language-switcher" onclick="switchLanguage()">UA</button>
+  <button class="language-switcher">UA</button>
     
     <script>
 document.addEventListener("DOMContentLoaded", () => {
     const button = document.querySelector(".language-switcher");
-    let currentLang = localStorage.getItem("selectedLang") || "EN"; // Сохраняем язык в localStorage
+    let currentLang = localStorage.getItem("selectedLang") || "EN"; // Загружаем язык из localStorage
 
-    button.textContent = currentLang; // Устанавливаем начальный язык на кнопке
+    button.textContent = currentLang; // Устанавливаем язык на кнопке
     applyTranslation(currentLang);
 
     button.addEventListener("click", () => {
         currentLang = currentLang === "UA" ? "EN" : "UA"; // Переключаем язык
         button.textContent = currentLang;
-        localStorage.setItem("selectedLang", currentLang); // Сохраняем в localStorage
+        localStorage.setItem("selectedLang", currentLang); // Сохраняем язык
         applyTranslation(currentLang);
     });
 });
 
 function applyTranslation(lang) {
+    document.body.classList.remove("ua-font", "en-font"); // Удаляем оба класса
+    document.body.classList.add(lang === "UA" ? "ua-font" : "en-font"); // Добавляем нужный класс
+
     document.querySelectorAll("[data-lang]").forEach(el => {
         const translations = JSON.parse(el.getAttribute("data-lang"));
         el.textContent = translations[lang]; // Подставляем нужный текст
     });
+
+    // Меняем классы шрифтов
+    document.body.classList.toggle("ua-font", lang === "UA");
+    document.body.classList.toggle("en-font", lang === "EN");
 }
 function switchLanguage() {
     const button = document.querySelector(".language-switcher");
@@ -512,180 +567,85 @@ setSeasonalBackground();
 
 window.onload = applySeasonalEffect;
   </script>
-
-  <h1>Science PC</h1>
+<h1>Science PC</h1>
   <div class="container">
     <!-- Карточка 1 -->
     <div class="card">
       <img src="photo pc's/1.png" alt="ПК 1">
-            <h3 data-lang='{"UA": "Птах Геймінгу", "EN": "Bird of Gaming"}'>Bird of Gaming</h3>
-      <p class="orbitron-regular" data-lang='{"UA": "Потужний RGB ПК для тебе", "EN": "Powerful RGB PC for You"}'>Powerful RGB PC for You</p>
-
-<ul class="vt323-regular">
-    <li style="font-size: 20px;" data-lang='{"UA": "Відеокарта: AMD RX 5500XT", "EN": "GPU: AMD RX 5500XT"}'>GPU: AMD RX 5500XT</li>
-    <li style="font-size: 20px;" data-lang='{"UA": "Процесор: Intel Xeon 2680V4", "EN": "CPU: Intel Xeon 2680V4"}'>CPU: Intel Xeon 2680V4</li>
-    <li style="font-size: 20px;" data-lang='{"UA": "ОЗП: 32 ГБ DDR4 3200 МГц", "EN": "RAM: 32 GB DDR4 3200 MHZ"}'>RAM: 32 GB DDR4 3200 MHZ</li>
-    <li style="font-size: 20px;" data-lang='{"UA": "SSD NVMe: 512 ГБ", "EN": "SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
-</ul>
-
-      <button onclick="window.location.href='index.pc.en.html'">More</button>
-      <style>
-        /* From Uiverse.io by barisdogansutcu */
-        button {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 10px;
-          padding: 0 10px;
-          color: white;
-          text-shadow: 2px 2px rgb(116, 116, 116);
-          text-transform: uppercase;
-          cursor: pointer;
-          border: solid 2px black;
-          letter-spacing: 1px;
-          font-weight: 600;
-          font-size: 17px;
-          background-color: hsl(49deg 98% 60%);
-          border-radius: 50px;
-          position: relative;
-          overflow: hidden;
-          transition: all 0.5s ease;
-        }
-    
-        button:active {
-          transform: scale(0.9);
-          transition: all 100ms ease;
-        }
-    
-        button svg {
-          transition: all 0.5s ease;
-          z-index: 2;
-        }
-    
-        .play {
-          transition: all 0.5s ease;
-          transition-delay: 300ms;
-        }
-    
-        button:hover svg {
-          transform: scale(3) translate(50%);
-        }
-    
-        .now {
-          position: absolute;
-          left: 0;
-          transform: translateX(-100%);
-          transition: all 0.5s ease;
-          z-index: 2;
-        }
-    
-        button:hover .now {
-          transform: translateX(10px);
-          transition-delay: 300ms;
-        }
-    
-        button:hover .play {
-          transform: translateX(200%);
-          transition-delay: 300ms;
-        }
-      </style>
-       <script>
-// Wait for the DOM to fully load
-document.addEventListener('DOMContentLoaded', () => {
-
-// Function to style the button (defined OUTSIDE the loop)
-function styleButton(button) {
-  button.innerHTML = `
-    <div class="svg-container">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36px" height="36px">
-        <rect width="36" height="36" x="0" y="0" fill="#fdd835"></rect>
-        <path fill="#e53935" d="M38.67,42H11.52C11.27,40.62,11,38.57,11,36c0-5,0-11,0-11s1.44-7.39,3.22-9.59 c1.67-2.06,2.76-3.48,6.78-4.41c3-0.7,7.13-0.23,9,1c2.15,1.42,3.37,6.67,3.81,11.29c1.49-0.3,5.21,0.2,5.5,1.28 C40.89,30.29,39.48,38.31,38.67,42z"></path>
-        <path fill="#b71c1c" d="M39.02,42H11.99c-0.22-2.67-0.48-7.05-0.49-12.72c0.83,4.18,1.63,9.59,6.98,9.79 c3.48,0.12,8.27,0.55,9.83-2.45c1.57-3,3.72-8.95,3.51-15.62c-0.19-5.84-1.75-8.2-2.13-8.7c0.59,0.66,3.74,4.49,4.01,11.7 c0.03,0.83,0.06,1.72,0.08,2.66c4.21-0.15,5.93,1.5,6.07,2.35C40.68,33.85,39.8,38.9,39.02,42z"></path>
-        <path fill="#212121" d="M35,27.17c0,3.67-0.28,11.2-0.42,14.83h-2C32.72,38.42,33,30.83,33,27.17 c0-5.54-1.46-12.65-3.55-14.02c-1.65-1.08-5.49-1.48-8.23-0.85c-3.62,0.83-4.57,1.99-6.14,3.92L15,16.32 c-1.31,1.6-2.59,6.92-3,8.96v10.8c0,2.58,0.28,4.61,0.54,5.92H10.5c-0.25-1.41-0.5-3.42-0.5-5.92l0.02-11.09 c0.15-0.77,1.55-7.63,3.43-9.94l0.08-0.09c1.65-2.03,2.96-3.63,7.25-4.61c3.28-0.76,7.67-0.25,9.77,1.13 C33.79,13.6,35,22.23,35,27.17z"></path>
-        <path fill="#01579b" d="M17.165,17.283c5.217-0.055,9.391,0.283,9,6.011c-0.391,5.728-8.478,5.533-9.391,5.337 c-0.913-0.196-7.826-0.043-7.696-5.337C9.209,18,13.645,17.32,17.165,17.283z"></path>
-        <path fill="#212121" d="M40.739,37.38c-0.28,1.99-0.69,3.53-1.22,4.62h-2.43c0.25-0.19,1.13-1.11,1.67-4.9 c0.57-4-0.23-11.79-0.93-12.78c-0.4-0.4-2.63-0.8-4.37-0.89l0.1-1.99c1.04,0.05,4.53,0.31,5.71,1.49 C40.689,24.36,41.289,33.53,40.739,37.38z"></path>
-        <path fill="#81d4fa" d="M10.154,20.201c0.261,2.059-0.196,3.351,2.543,3.546s8.076,1.022,9.402-0.554 c1.326-1.576,1.75-4.365-0.891-5.267C19.336,17.287,12.959,16.251,10.154,20.201z"></path>
-        <path fill="#212121" d="M17.615,29.677c-0.502,0-0.873-0.03-1.052-0.069c-0.086-0.019-0.236-0.035-0.434-0.06 c-5.344-0.679-8.053-2.784-8.052-6.255c0.001-2.698,1.17-7.238,8.986-7.32l0.181-0.002c3.444-0.038,6.414-0.068,8.272,1.818 c1.173,1.191,1.712,3,1.647,5.53c-0.044,1.688-0.785,3.147-2.144,4.217C22.785,29.296,19.388,29.677,17.615,29.677z M17.086,17.973 c-7.006,0.074-7.008,4.023-7.008,5.321c-0.001,3.109,3.598,3.926,6.305,4.27c0.273,0.035,0.48,0.063,0.601,0.089 c0.563,0.101,4.68,0.035,6.855-1.732c0.865-0.702,1.299-1.57,1.326-2.653c0.051-1.958-0.301-3.291-1.073-4.075 c-1.262-1.281-3.834-1.255-6.825-1.222L17.086,17.973z"></path>
-        <path fill="#e1f5fe" d="M15.078,19.043c1.957-0.326,5.122-0.529,4.435,1.304c-0.489,1.304-7.185,2.185-7.185,0.652 C12.328,19.467,15.078,19.043,15.078,19.043z"></path>
-      </svg>
-      <span class="now">now!</span>
-      <span class="play">Buy</span>
-    </div>`;
-}
-// Find all buttons and style the "More" buttons
-const buttons = document.querySelectorAll('button');
-buttons.forEach(button => {
-  if (button.textContent.trim() === 'More') {
-    styleButton(button);
-  }
-});
-});
-      </script>
-    </div>
-    <!-- Карточка 2 -->
-     <style>
-  .small-img {
-  display: block; /* Изображения по умолчанию — inline. Задаем block для работы с margin */
-  margin: 0 auto; /* Центрируем изображение горизонтально */
-  width: 160px !important;
-  height: 185px !important;
-  object-fit: cover !important;
-}
-.small-img2 {
-  display: block; /* Изображения по умолчанию — inline. Задаем block для работы с margin */
-  margin: 0 auto; /* Центрируем изображение горизонтально */
-  width: 160px !important;
-  height: 205px !important;
-  object-fit: cover !important;
-}
-.small-img3 {
-  display: block; /* Изображения по умолчанию — inline. Задаем block для работы с margin */
-  margin: 0 auto; /* Центрируем изображение горизонтально */
-  width: 200px !important;
-  height: 200px !important;
-  object-fit: cover !important;
-}
-    </style>
-    <div class="card">
-      <img class="small-img" src="photo pc's/file.png" alt="ПК 2">
-      <h3>Cyber Runner</h3>
-      <p class="orbitron-regular">Awesome choice for Cyberpunk 2077</p>
-      <ul class="vt323-regular">
-        <li style="font-size: 20px;">GPU: NVIDIA RTX 2060</li>
-        <li style="font-size: 20px;">CPU: AMD Ryzen 5 2600X</li>
-        <li style="font-size: 20px;">RAM: 32 GB DDR4 3200 MHZ</li>
-        <li style="font-size: 20px;">SSD Nvme: 512 GB</li>
+      <h3 data-lang='{"UA": "Залізний Вовк", "EN": "Bird of Gaming"}'>Bird of Gaming</h3>
+      <p data-lang='{"UA": "Iгровий ПК", "EN": "Gaming PC"}'>Gaming PC for You</p>
+      <ul>
+        <li data-lang='{"UA": "Відеокарта: AMD RX 5500XT", "EN": "GPU: AMD RX 5500XT"}'>GPU: AMD RX 5500XT</li>
+        <li data-lang='{"UA": "Процесор: Intel Xeon 2680V4", "EN": "CPU: Intel Xeon 2680V4"}'>CPU: Intel Xeon 2680V4</li>
+        <li data-lang='{"UA": "ОЗП: 32 ГБ DDR4 3200 МГц", "EN": "RAM: 32 GB DDR4 3200 MHZ"}'>RAM: 32 GB DDR4 3200 MHZ</li>
+        <li data-lang='{"UA": "SSD NVMe: 512 ГБ", "EN": "SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
       </ul>
-      <button onclick="window.location.href='index.pc.en.html'">More</button>
-      
-    </div>
-    <!-- Карточка 3 -->
+<div class="button">
+  <button name="checkbox" type="button"></button>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+</div>
+          <div class="card">
+            <img src="photo pc's/1.png" alt="ПК 2">
+            <h3 data-lang='{"UA": "КіберСокіл", "EN": "Cyber Runer"}'>Cyber Runer</h3>
+            <p data-lang='{"UA": "Швидкий ПК", "EN": "Fastest PC"}'>Fastest PC</p>
+            <ul>
+              <li data-lang='{"UA": "Відеокарта: AMD RX 5500XT", "EN": "GPU: AMD RX 5500XT"}'>GPU: AMD RX 5500XT</li>
+              <li data-lang='{"UA": "Процесор: Intel Xeon 2680V4", "EN": "CPU: Intel Xeon 2680V4"}'>CPU: Intel Xeon 2680V4</li>
+              <li data-lang='{"UA": "ОЗП: 32 ГБ DDR4 3200 МГц", "EN": "RAM: 32 GB DDR4 3200 MHZ"}'>RAM: 32 GB DDR4 3200 MHZ</li>
+              <li data-lang='{"UA": "SSD NVMe: 512 ГБ", "EN": "SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
+            </ul>
+      <div class="button">
+        <button name="checkbox" type="button"></button>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      </div>
+  
     <div class="card">
-      <img class="small-img2" src="photo pc's/file (2).png"alt="ПК 3">
-      <h3>Neon Beast</h3>
-      <p class="orbitron-regular">Powerfull and Compact</p>
-      <ul class="vt323-regular">
-        <li style="font-size: 20px;">GPU: NVIDIA GTX 1660 Super</li>
-        <li style="font-size: 20px;">CPU: AMD Ryzen 5 2600</li>
-        <li style="font-size: 20px;">RAM: 32 GB DDR4 2667 MHZ</li>
-        <li style="font-size: 20px;">SSD Nvme: 512 GB</li>
+      <img class="small-img2" src="photo pc's/file (2).png" alt="ПК 3">
+      <h3 data-lang='{"UA": "Тінь Дракона", "EN": "Shadow Angel"}'>Shadow Angel</h3>
+      <p data-lang='{"UA": "Тихий ПК", "EN": "Silent PC"}'>Silent PC</p>
+      <ul>
+        <li data-lang='{"UA": "Відеокарта: AMD RX 5500XT", "EN": "GPU: AMD RX 5500XT"}'>GPU: AMD RX 5500XT</li>
+        <li data-lang='{"UA": "Процесор: Intel Xeon 2680V4", "EN": "CPU: Intel Xeon 2680V4"}'>CPU: Intel Xeon 2680V4</li>
+        <li data-lang='{"UA": "ОЗП: 32 ГБ DDR4 3200 МГц", "EN": "RAM: 32 GB DDR4 3200 MHZ"}'>RAM: 32 GB DDR4 3200 MHZ</li>
+        <li data-lang='{"UA": "SSD NVMe: 512 ГБ", "EN": "SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
       </ul>
-      <button onclick="window.location.href='index.pc.en.html'">More</button>
-    </div>
-    <!-- Карточка 4 -->
+<div class="button">
+  <button name="checkbox" type="button"></button>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+</div>
     <div class="card">
       <img class="small-img3" src="photo pc's/2.png" alt="ПК 4">
-      <h3>Shadow Hacker</h3>
-      <p class="orbitron-regular">For future hackers and gamers</p>
-      <ul class="vt323-regular">
-        <li style="font-size: 20px;">GPU: RTX 2060 Super</li>
-        <li style="font-size: 20px;">CPU: AMD Ryzen 5 2600</li>
-        <li style="font-size: 20px;">RAM: 32 GB DDR4 3200 MHZ</li>
-        <li style="font-size: 20px;">SSD Nvme: 1 TB</li>
+      <h3 data-lang='{"UA": "Неонова Буря", "EN": "Power Eagle"}'>Power Eagle</h3>
+      <p data-lang='{"UA": "Потужний ПК", "EN": "Powerful PC"}'>Powerful RGB PC for You</p>
+      <ul>
+        <li data-lang='{"UA": "Відеокарта: AMD RX 5500XT", "EN": "GPU: AMD RX 5500XT"}'>GPU: AMD RX 5500XT</li>
+        <li data-lang='{"UA": "Процесор: Intel Xeon 2680V4", "EN": "CPU: Intel Xeon 2680V4"}'>CPU: Intel Xeon 2680V4</li>
+        <li data-lang='{"UA": "ОЗП: 32 ГБ DDR4 3200 МГц", "EN": "RAM: 32 GB DDR4 3200 MHZ"}'>RAM: 32 GB DDR4 3200 MHZ</li>
+        <li data-lang='{"UA": "SSD NVMe: 512 ГБ", "EN": "SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
       </ul>
-      <button onclick="window.location.href='index.pc.en.html'">More</button>
-    </div>
-  </div>
+<div class="button">
+  <button name="checkbox" type="button"></button>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+</div>
+
+<audio id="clickSound" src="sounds/click.mp3" preload="auto"></audio>
+
 <!-- Кнопка для мобильной версии -->
 <button class="menu-toggle" onclick="toggleMenu()">
   <span class="text">Menu</span>
@@ -695,7 +655,6 @@ buttons.forEach(button => {
     <div class="bar"></div>
   </span>
 </button>
-
 <!-- Скрытое меню -->
 <div class="bottom-links hidden" onclick="closeMenu(event)">
   <a href="https://www.youtube.com/@SciencePC" target="_blank">
@@ -769,6 +728,7 @@ buttons.forEach(button => {
 
 /* Стили для скрытого меню */
 .bottom-links {
+  font-size: 20;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -781,6 +741,7 @@ buttons.forEach(button => {
   z-index: 1000;
   transform: translateY(100%);
   transition: transform 0.3s ease;
+  font-family: 'Orbitron', sans-serif !important;
 }
 
 .bottom-links.open {
