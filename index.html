@@ -337,12 +337,6 @@ p {
       box-shadow: 0 0 20px rgba(0, 255, 255, 0.7), 0 0 40px rgba(0, 255, 255, 0.5);
     }
 
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
     .card h3 {
       text-align: center;
       font-size: 1.72rem;
@@ -571,13 +565,25 @@ window.onload = applySeasonalEffect;
   <div class="container">
     <!-- Карточка 1 -->
     <div class="card">
-      <img src="photo pc's/1.png" alt="ПК 1">
-      <h3 data-lang='{"UA": "Залізний Вовк", "EN": "Bird of Gaming"}'>Bird of Gaming</h3>
-      <p data-lang='{"UA": "Iгровий ПК", "EN": "Gaming PC"}'>Gaming PC for You</p>
+      <img src="img/Neon Wolf.png" alt="ПК 1">
+      <style>
+        .card img {
+  width: 100%; /* Уменьшаем ширину до 95% */
+  height: auto; /* Сохраняем пропорции */
+  object-fit: cover; /* Убедитесь, что изображение обрезается корректно */
+  transition: transform 0.3s ease; /* Добавляем плавный переход */
+}
+
+.card img:hover {
+  transform: scale(1.05); /* Увеличиваем изображение при наведении */
+}
+      </style>
+      <h3 data-lang='{"UA": "Залізний Вовк", "EN": "Iron Wolf"}'>Iron Wolf</h3>
+      <p data-lang='{"UA": "Надiйний ПК", "EN": "Solid PC"}'>Solid PC</p>
       <ul>
         <li data-lang='{"UA": "Відеокарта: AMD RX 5500XT", "EN": "GPU: AMD RX 5500XT"}'>GPU: AMD RX 5500XT</li>
         <li data-lang='{"UA": "Процесор: Intel Xeon 2680V4", "EN": "CPU: Intel Xeon 2680V4"}'>CPU: Intel Xeon 2680V4</li>
-        <li data-lang='{"UA": "ОЗП: 32 ГБ DDR4 3200 МГц", "EN": "RAM: 32 GB DDR4 3200 MHZ"}'>RAM: 32 GB DDR4 3200 MHZ</li>
+        <li data-lang='{"UA": "ОЗП (DDR4 2400 МГц): 32 ГБ", "EN": "RAM (DDR4 2400 MHZ): 32 GB"}'>RAM: 32 GB DDR4 2400 MHZ</li>
         <li data-lang='{"UA": "SSD NVMe: 512 ГБ", "EN": "SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
       </ul>
 <div class="button">
@@ -589,13 +595,13 @@ window.onload = applySeasonalEffect;
 </div>
 </div>
           <div class="card">
-            <img src="photo pc's/1.png" alt="ПК 2">
-            <h3 data-lang='{"UA": "КіберСокіл", "EN": "Cyber Runer"}'>Cyber Runer</h3>
+            <img src="img/Neon Eagle.webp" alt="ПК 2">
+            <h3 data-lang='{"UA": "КіберСокіл", "EN": "Cyber Eagle"}'>Cyber Eagle</h3>
             <p data-lang='{"UA": "Швидкий ПК", "EN": "Fastest PC"}'>Fastest PC</p>
             <ul>
-              <li data-lang='{"UA": "Відеокарта: AMD RX 5500XT", "EN": "GPU: AMD RX 5500XT"}'>GPU: AMD RX 5500XT</li>
-              <li data-lang='{"UA": "Процесор: Intel Xeon 2680V4", "EN": "CPU: Intel Xeon 2680V4"}'>CPU: Intel Xeon 2680V4</li>
-              <li data-lang='{"UA": "ОЗП: 32 ГБ DDR4 3200 МГц", "EN": "RAM: 32 GB DDR4 3200 MHZ"}'>RAM: 32 GB DDR4 3200 MHZ</li>
+              <li data-lang='{"UA": "Відеокарта: AMD RX 5600XT", "EN": "GPU: AMD RX 5600XT"}'>GPU: AMD RX 5600XT</li>
+              <li data-lang='{"UA": "Процесор: Ryzen 5 2600X", "EN": "CPU: Ryzen 5 2600X"}'>CPU: Ryzen 5 2600X</li>
+              <li data-lang='{"UA": "ОЗП (DDR4 3200 МГц): 32 ГБ", "EN": "RAM (DDR4 3200 MHZ): 32 GB"}'>RAM: 32 GB DDR4 3200 MHZ</li>
               <li data-lang='{"UA": "SSD NVMe: 512 ГБ", "EN": "SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
             </ul>
       <div class="button">
@@ -606,15 +612,15 @@ window.onload = applySeasonalEffect;
         <span></span>
       </div>
       </div>
-  
+
     <div class="card">
-      <img class="small-img2" src="photo pc's/file (2).png" alt="ПК 3">
-      <h3 data-lang='{"UA": "Тінь Дракона", "EN": "Shadow Angel"}'>Shadow Angel</h3>
+      <img src="img/Neon Dragon v2.png" alt="ПК 3">
+      <h3 data-lang='{"UA": "Тінь Дракона", "EN": "Shadow Dragon"}'>Shadow Angel</h3>
       <p data-lang='{"UA": "Тихий ПК", "EN": "Silent PC"}'>Silent PC</p>
       <ul>
-        <li data-lang='{"UA": "Відеокарта: AMD RX 5500XT", "EN": "GPU: AMD RX 5500XT"}'>GPU: AMD RX 5500XT</li>
-        <li data-lang='{"UA": "Процесор: Intel Xeon 2680V4", "EN": "CPU: Intel Xeon 2680V4"}'>CPU: Intel Xeon 2680V4</li>
-        <li data-lang='{"UA": "ОЗП: 32 ГБ DDR4 3200 МГц", "EN": "RAM: 32 GB DDR4 3200 MHZ"}'>RAM: 32 GB DDR4 3200 MHZ</li>
+        <li data-lang='{"UA": "Відеокарта: AMD RX 6600", "EN": "GPU: AMD RX 6600"}'>GPU: AMD RX 6600</li>
+        <li data-lang='{"UA": "Процесор: Ryzen 5 2600X", "EN": "CPU: Ryzen 5 2600X"}'>CPU: Ryzen 5 2600X</li>
+        <li data-lang='{"UA": "ОЗП (DDR4 3200 Мгц): 32 ГБ", "EN": "RAM (DDR4 3200 MHZ): 32 GB"}'>RAM: 32 GB DDR4 3200 MHZ</li>
         <li data-lang='{"UA": "SSD NVMe: 512 ГБ", "EN": "SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
       </ul>
 <div class="button">
@@ -626,13 +632,13 @@ window.onload = applySeasonalEffect;
 </div>
 </div>
     <div class="card">
-      <img class="small-img3" src="photo pc's/2.png" alt="ПК 4">
-      <h3 data-lang='{"UA": "Неонова Буря", "EN": "Power Eagle"}'>Power Eagle</h3>
+      <img class="small-img3" src="img/Neon Bear.png" alt="ПК 4">
+      <h3 data-lang='{"UA": "Неоновий Ведмiдь", "EN": "Neon Bear"}'>Neon Bear</h3>
       <p data-lang='{"UA": "Потужний ПК", "EN": "Powerful PC"}'>Powerful RGB PC for You</p>
       <ul>
-        <li data-lang='{"UA": "Відеокарта: AMD RX 5500XT", "EN": "GPU: AMD RX 5500XT"}'>GPU: AMD RX 5500XT</li>
-        <li data-lang='{"UA": "Процесор: Intel Xeon 2680V4", "EN": "CPU: Intel Xeon 2680V4"}'>CPU: Intel Xeon 2680V4</li>
-        <li data-lang='{"UA": "ОЗП: 32 ГБ DDR4 3200 МГц", "EN": "RAM: 32 GB DDR4 3200 MHZ"}'>RAM: 32 GB DDR4 3200 MHZ</li>
+        <li data-lang='{"UA": "Відеокарта: RTX 2060 Super", "EN": "GPU: RTX 2060 Super"}'>GPU: RTX 2060 Super</li>
+        <li data-lang='{"UA": "Процесор: Ryzen 5 3600", "EN": "CPU: Ryzen 5 3600"}'>CPU: Ryzen 5 3600</li>
+        <li data-lang='{"UA": "ОЗП (DDR4 3200 МГц): 32 ГБ", "EN": "RAM (DDR4 3200 MHZ): 32 GB"}'>RAM: 32 GB DDR4 3200 MHZ</li>
         <li data-lang='{"UA": "SSD NVMe: 512 ГБ", "EN": "SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
       </ul>
 <div class="button">
