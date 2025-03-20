@@ -238,6 +238,19 @@
     padding: 20px;
 }
 
+@media (orientation: portrait) {
+  .container {
+    flex-direction: column; /* Вертикальное расположение блоков */
+    align-items: center; /* Центрируем содержимое */
+  }
+}
+
+@media (orientation: landscape) {
+  .container {
+    flex-direction: row; /* Горизонтальное расположение блоков */
+    justify-content: center; /* Центрируем содержимое */
+  }
+}
 
 .block {
     display: flex;
