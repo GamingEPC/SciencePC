@@ -1,0 +1,75 @@
+.language-switcher {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.language-switcher input[type="checkbox"] {
+  display: none; /* Полностью скрываем чекбокс */
+}
+
+.language-switcher .toggle {
+  display: flex;
+  align-items: center;
+  width: 120px; /* Увеличиваем ширину в 2 раза */
+  height: 60px; /* Увеличиваем высоту в 2 раза */
+  background: transparent; /* Прозрачный начальный фон */
+  border-radius: 30px; /* Увеличиваем радиус в 2 раза */
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(0, 102, 255, 0.5), 0 0 60px rgba(255, 204, 0, 0.5); /* Увеличиваем тени в 2 раза */
+  transition: all 0.3s ease;
+  overflow: hidden; /* Скрываем перелив за границами */
+}
+
+.language-switcher .toggle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%; /* Делаем ширину больше, чтобы градиент плавно переливался */
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0, 102, 255, 0.5), rgba(255, 204, 0, 0.5), rgba(0, 102, 255, 0.5));
+  background-size: 200% 100%; /* Увеличиваем размер градиента для плавного переливания */
+  animation: gradient-flow 3s infinite linear; /* Анимация переливания */
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0 0; /* Начальная позиция */
+  }
+  100% {
+    background-position: -200% 0; /* Конечная позиция */
+  }
+}
+
+.language-switcher .toggle .flag {
+  width: 60px; /* Увеличиваем ширину в 2 раза */
+  height: 60px; /* Увеличиваем высоту в 2 раза */
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  transition: all 0.3s ease;
+  z-index: 1; /* Поднимаем флаги выше эффекта переливания */
+}
+
+.language-switcher .toggle .us {
+  left: 0;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/2560px-Flag_of_the_United_States.svg.png') no-repeat center center;
+  background-size: cover;
+}
+
+.language-switcher .toggle .ua {
+  right: 0;
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrJRRckryb9IbmzG1Xf4WXOlV9_QkI0Yn50Q&s') no-repeat center center;
+  background-size: cover;
+}
+
+.language-switcher input[type="checkbox"]:checked + .toggle .us {
+  transform: translateX(60px); /* Увеличиваем смещение в 2 раза */
+}
+
+.language-switcher input[type="checkbox"]:checked + .toggle .ua {
+  transform: translateX(-60px); /* Увеличиваем смещение в 2 раза */
+}

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="style(buttons).css">
-<script src="script(buttons).js"></script>
+<link rel="stylesheet" href="css/style(buttons).css">
+<link rel="stylesheet" href="css/UA and ENG switcher.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
@@ -129,7 +129,7 @@
   </style>
   <meta property="og:title" content="Science PC">
   <meta property="og:description" content="Потужнi та Надiйнi ПК для iгор та роботи.">
-  <meta property="og:image" content="img/preview-image.png">
+  <meta property="og:image" content="img/Neon Wolf.png">
   <meta property="og:url" content="img/Neon Wolf.png">
   <meta property="og:type" content="website">
   <meta charset="UTF-8">
@@ -227,52 +227,7 @@
       z-index: -1; /* Размытие остаётся на заднем плане */
     }
 
-    /* Кнопка переключения языка */
-    .language-switcher {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: #000;
-      color: white;
-      padding: 10px 20px;
-      font-size: 1.2rem;
-      border: 2px solid transparent;
-      border-radius: 5px;
-      cursor: pointer;
-      box-shadow: 0 0 15px rgba(0, 102, 255, 0.5), 0 0 30px rgba(255, 204, 0, 0.5);
-      transition: all 0.3s ease;
-      z-index: 10;
-      animation: pulseBorder 5s infinite alternate;
-    }
-
-    @keyframes pulseBorder {
-      0% {
-        border-color: #0066ff;
-        box-shadow: 0 0 15px rgba(0, 102, 255, 0.7), 0 0 30px rgba(255, 204, 0, 0.5);
-        background: #0066ff;
-      }
-      50% {
-        border-color: #ffcc00;
-        box-shadow: 0 0 15px rgba(255, 204, 0, 0.7), 0 0 30px rgba(0, 102, 255, 0.5);
-        background: #ffcc00;
-      }
-      100% {
-        border-color: #0066ff;
-        box-shadow: 0 0 15px rgba(0, 102, 255, 0.7), 0 0 30px rgba(255, 204, 0, 0.5);
-        background: #0066ff;
-      }
-    }
-
-    .language-switcher:hover {
-      background: #ffcc00;
-      box-shadow: 0 0 25px rgba(0, 102, 255, 0.7), 0 0 40px rgba(255, 204, 0, 0.7);
-      transform: translateY(-5px);
-    }
-
-    .language-switcher:active {
-      transform: translateY(2px);
-      box-shadow: none;
-    }
+    
 
     .container {
     display: flex;
@@ -420,153 +375,19 @@ li {
   font-style: normal;
 }
   </style>
-</head>
 <body>
-  <div id="effect-container"></div> <!-- Контейнер для сезонных эффектов -->
   
-  <button class="language-switcher">UA</button>
-    
-    <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const button = document.querySelector(".language-switcher");
-    let currentLang = localStorage.getItem("selectedLang") || "EN"; // Загружаем язык из localStorage
+  <div class="language-switcher">
+    <input type="checkbox" id="language-toggle" />
+    <label for="language-toggle" class="toggle">
+      <span class="flag us"></span>
+      <span class="flag ua"></span>
+    </label>
+  </div>
 
-    button.textContent = currentLang; // Устанавливаем язык на кнопке
-    applyTranslation(currentLang);
+  <div id="effect-container"></div> <!-- Контейнер для сезонных эффектов -->
+ 
 
-    button.addEventListener("click", () => {
-        currentLang = currentLang === "UA" ? "EN" : "UA"; // Переключаем язык
-        button.textContent = currentLang;
-        localStorage.setItem("selectedLang", currentLang); // Сохраняем язык
-        applyTranslation(currentLang);
-    });
-});
-
-function applyTranslation(lang) {
-    document.body.classList.remove("ua-font", "en-font"); // Удаляем оба класса
-    document.body.classList.add(lang === "UA" ? "ua-font" : "en-font"); // Добавляем нужный класс
-
-    document.querySelectorAll("[data-lang]").forEach(el => {
-        const translations = JSON.parse(el.getAttribute("data-lang"));
-        el.textContent = translations[lang]; // Подставляем нужный текст
-    });
-
-    // Меняем классы шрифтов
-    document.body.classList.toggle("ua-font", lang === "UA");
-    document.body.classList.toggle("en-font", lang === "EN");
-}
-function switchLanguage() {
-    const button = document.querySelector(".language-switcher");
-    let currentLang = button.textContent.trim(); // Получаем текущий язык с кнопки
-    let newLang = currentLang === "UA" ? "EN" : "UA"; // Определяем новый язык
-        
-        // Меняем текст на кнопке
-        button.textContent = newLang;
-    
-        // Находим все элементы с атрибутом data-lang
-        document.querySelectorAll("[data-lang]").forEach(el => {
-            try {
-                const translations = JSON.parse(el.getAttribute("data-lang"));
-                if (translations[newLang]) {
-                    el.textContent = translations[newLang]; // Меняем текст в зависимости от языка
-                    console.log(`Перевод элемента: ${el.textContent}`);
-                } else {
-                    console.warn(`Перевод для языка ${newLang} не найден.`);
-                }
-            } catch (error) {
-                console.error("Ошибка при парсинге атрибута data-lang:", error);
-            }
-        });
-    }
-    </script>
-
-<script>
-function createElement(className, container, content = "") {
-  const element = document.createElement("div");
-  element.className = className;
-  element.style.left = Math.random() * 100 + "vw";
-  element.style.animationDelay = Math.random() * 5 + "s";
-  element.textContent = content;
-  container.appendChild(element);
-}
-
-
-function applySeasonalEffect() {
-  const container = document.getElementById("effect-container");
-
-  if (!container) {
-    console.error("Ошибка: контейнер с ID 'effect-container' не найден.");
-    return;
-  }
-
-  container.innerHTML = "";
-
-  const now = new Date();
-  const month = now.getMonth();
-
-  console.log(`Текущая дата: ${now}. Применяем эффекты для месяца ${month + 1}.`);
-
-  if (month === 11 || month <= 1) { //
-    console.log("Применяем зимний эффект: падающий снег.");
-    for (let i = 0; i < 50; i++) {
-      createElement("snowflake", container, "❄");
-    }
-  } else if (month >= 2 && month <= 4) {
-    console.log("Применяем весенний эффект: лепестки цветов, бабочки и пух одуванчиков.");
-
-    // Лепестки цветов (разных цветов)
-    const petals = ["🌸", "🌼", "🌺","🌈"];
-    for (let i = 0; i < 50; i++) {
-      const petal = petals[Math.floor(Math.random() * petals.length)];
-      createElement("flower-petal", container, petal);
-    }
-  } 
-  else if (month >= 5 && month <= 7) {
-    console.log("Применяем летний эффект: солнечные лучи.");
-    for (let i = 0; i < 10; i++) {
-      createElement("sunray", container, "☀️"); // sunray не нуждается в текстовом содержимом
-    }
-  } 
-  else if (month >= 8 && month <= 10) {
-    console.log("Применяем осенний эффект: листья и дождь.");
-    for (let i = 0; i < 30; i++) {
-      createElement("leaf", container, "🍁");
-    }
-    for (let i = 0; i < 50; i++) {
-      createElement("rain-drop", container, "💧"); // Добавил символ капли дождя
-    }
-  }
-}
-function setSeasonalBackground() {
-  const now = new Date();
-  const month = now.getMonth();
-  let backgroundImage = "";
-
-  if (month === 11 || month <= 1) {
-    // Декабрь, Январь, Февраль — Зима
-    backgroundImage = "url('https://wallpaperaccess.com/full/4222231.jpg')"; // зимний фон
-  } else if (month >= 2 && month <= 4) {
-    // Март, Апрель, Май — Весна
-    backgroundImage = "url('https://wallpaperaccess.com/full/2510382.jpg'')"; // весенний фон
-  } else if (month >= 5 && month <= 7) {
-    // Июнь, Июль, Август — Лето
-    backgroundImage = "url('https://wallpaperaccess.com/full/6235827.jpg')"; // летний фон
-  } else if (month >= 8 && month <= 10) {
-    // Сентябрь, Октябрь, Ноябрь — Осень
-    backgroundImage = "url('https://wallpaperaccess.com/full/2510592.jpg')"; // осенний фон
-  }
-
-  document.body.style.background = `${backgroundImage} no-repeat center center fixed`;
-  document.body.style.backgroundSize = "cover";
-
-  console.log(`Фон изменён в зависимости от сезона: ${backgroundImage}`);
-}
-
-// Вызываем функцию при загрузке страницы
-setSeasonalBackground();
-
-window.onload = applySeasonalEffect;
-  </script>
 <h1>Science PC</h1>
   <div class="container">
     <!-- Карточка 1 -->
@@ -660,13 +481,14 @@ window.onload = applySeasonalEffect;
 
 <!-- Кнопка для мобильной версии -->
 <button class="menu-toggle" onclick="toggleMenu()">
-  <span class="text">Menu</span>
+  <span class="text" data-lang='{"UA": "Меню", "EN": "Menu"}'>Menu</span>
   <span class="icon">
     <div class="bar"></div>
     <div class="bar"></div>
     <div class="bar"></div>
   </span>
 </button>
+
 <!-- Скрытое меню -->
 <div class="bottom-links hidden" onclick="closeMenu(event)">
   <a href="https://www.youtube.com/@SciencePC" target="_blank">
@@ -685,6 +507,14 @@ window.onload = applySeasonalEffect;
     <img class="profile-photo" src="Outlook.png" alt="Email">
     <div class="contact-info">deluxe.history@outlook.com</div>
   </a>
+  <!-- Переключатель языка для мобильной версии -->
+  <div class="language-switcher">
+    <input type="checkbox" id="language-toggle" />
+    <label for="language-toggle" class="toggle">
+      <span class="flag us"></span>
+      <span class="flag ua"></span>
+    </label>
+  </div>
 </div>
 
 <style>
@@ -738,41 +568,44 @@ window.onload = applySeasonalEffect;
   opacity: 0; /* Прячем текст при открытии */
 }
 
-/* Стили для скрытого меню */
 .bottom-links {
-  font-size: 20;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap; /* Позволяет блокам переноситься на новую строку */
+  justify-content: center;
+  align-items: center;
   gap: 10px;
-  background: rgba(0, 0, 0, 0.9);
-  padding: 20px;
-  z-index: 1000;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
-  font-family: 'Orbitron', sans-serif !important;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
 }
-
 .bottom-links.open {
-  display: flex;
-  transform: translateY(0);
+  display: flex; /* Показываем меню при открытии */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Добавляем тень */
+  background: rgba(0, 0, 0, 0.8); /* Фон для выделения */
+  border-radius: 10px; /* Закругляем углы */
+  padding: 10px; /* Внутренние отступы */
+  flex-direction: row; /* Горизонтальное расположение ссылок */
+  gap: 20px; /* Увеличиваем расстояние между элементами */
 }
 
 /* Стили ссылок */
 .bottom-links a {
   color: #fff;
   text-decoration: none;
-  padding: 15px;
+  padding: 10px;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 5px;
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Добавляем тень только к отдельным блокам */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  flex-basis: calc(25% - 20px); /* Устанавливаем базовую ширину блоков */
+  max-width: 200px; /* Ограничиваем максимальную ширину */
 }
+
 
 .bottom-links a:hover {
   background: #ff5733;
@@ -791,52 +624,83 @@ window.onload = applySeasonalEffect;
   margin: 0;        /* Убираем внешние отступы */
 }
 
-/* Для мобильной версии */
-@media (max-width: 768px) {
+/* Для мобильной версии (до 1360x850) */
+@media (max-width: 1360px), (max-height: 850px) {
+  .language-switcher {
+    display: none; /* Скрываем переключатель */
+  }
+
+  /* Показываем переключатель внутри меню */
+  .bottom-links .language-switcher {
+    display: flex; /* Делаем переключатель видимым */
+    position: static; /* Убираем абсолютное позиционирование */
+    margin: 10px auto; /* Центрируем переключатель внутри меню */
+  }
   .menu-toggle {
-    display: block; /* Показываем кнопку на мобильных устройствах */
+    display: block; /* Показываем кнопку меню */
     width: 120px;
     height: 40px;
     font-size: 16px;
   }
 
+  .bottom-links .profile-photo {
+    width: 10vw; /* Используем относительные единицы измерения */
+    height: 10vw;
+    max-width: 50px; /* Ограничиваем максимальный размер */
+    max-height: 50px;
+  }
+
+  .bottom-links .contact-info {
+    font-size: 2.5vw; /* Используем относительные единицы измерения */
+  }
+}
+
   .bottom-links.hidden {
-    display: none; /* По умолчанию скрываем меню на мобильных устройствах */
+    display: none; /* Скрываем меню по умолчанию */
   }
 
   .bottom-links.open {
     display: flex; /* Показываем меню при открытии */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Добавляем тень для контейнера при открытии */
-    background: rgba(0, 0, 0, 0.8); /* Добавляем фон для выделения */
-    border-radius: 10px; /* Закругляем углы контейнера */
-    padding: 10px; /* Добавляем внутренние отступы */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Добавляем тень */
+    background: rgba(0, 0, 0, 0.8); /* Фон для выделения */
+    border-radius: 10px; /* Закругляем углы */
+    padding: 10px; /* Внутренние отступы */
+    flex-direction: row; /* Вертикальное расположение ссылок */
+    gap: 10px;
   }
-}
 
-/* Для ПК версии */
-@media (min-width: 769px) {
+/* Для ПК версии (от 1361x851 и выше) */
+@media (min-width: 1361px) and (min-height: 851px) {
+  .language-switcher {
+    display: flex; /* Переключатель всегда видим */
+  }
+
+  .bottom-links .language-switcher {
+    display: none; /* Скрываем переключатель внутри меню */
+  }
+
   .menu-toggle {
-    display: none; /* Скрываем кнопку на ПК */
+    display: none; /* Скрываем кнопку меню */
   }
 
   .bottom-links {
     position: fixed;
-    bottom: 0px;
-    left: 0%;
-    transform: translateX(-50%);
-    flex-direction: row;
-    display: flex; /* Всегда показываем меню на ПК */
-    justify-content: center;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Меню занимает всю ширину */
+    display: flex; /* Показываем меню */
+    flex-direction: row; /* Горизонтальное расположение ссылок */
+    justify-content: center; /* Центрируем содержимое */
     align-items: center;
     gap: 20px;
     padding: 10px;
     z-index: 100;
-    background: none; /* Оставляем без фона */
+    background: none; /* Без фона */
     box-shadow: none; /* Убираем тень */
   }
 
   .bottom-links.hidden {
-    display: flex !important; /* Принудительно отображаем меню на ПК */
+    display: flex !important; /* Принудительно отображаем меню */
     transform: translateY(0); /* Убираем смещение */
   }
 }
@@ -868,5 +732,8 @@ function closeMenu(event) {
 // Добавляем обработчик события для кликов по документу
 document.addEventListener('click', closeMenu);
 </script>
+<script src="js/script(buttons).js"></script>
+<script src="js/lang.js"></script>
+<script src="js/seasons.js"></script>
 </body>
 </html>
