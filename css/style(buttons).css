@@ -112,7 +112,7 @@
 
     &::after {
       content: "₴"; /* Устанавливаем значок гривны */
-      font-family: 'ChixaDemibold', sans-serif; /* Применяем шрифт */
+      font-family: 'EpilepsySansBold', sans-serif; /* Применяем шрифт */
       font-size: 4rem; /* Размер значка */
       font-weight: bold; /* Жирность */
       color: var(--stone-800); /* Цвет значка */
