@@ -1,7 +1,3 @@
-/*
- * Roxy: Bootstrap template by GettTemplates.com
- * https://gettemplates.co/roxy
- */
 html, body {
   width: 100%;
   overflow-x: hidden; }
@@ -26,7 +22,7 @@ h6,
   margin-top: 0; }
 
 a {
-  color: #09ff00;
+  color: #ffffff;
   transition: all .3s ease-in-out; }
 
 a:focus,
@@ -36,7 +32,7 @@ button:focus {
 .btn:hover,
 a:hover {
   text-decoration: none;
-  color: #333399; }
+  color: #ffffff; }
 
 img {
   max-width: 100%; }
@@ -116,11 +112,11 @@ section {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #2c7a07;
+    background: #0c16a0;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #339933, #97f00a);
+    background: -webkit-linear-gradient(to right, #09057c, #140b92);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #339933, #97f00a);
+    background: linear-gradient(to right, #083b84, #0a088e);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
   .jumbotron h1 {
     line-height: .9;
@@ -137,7 +133,7 @@ section {
   font-size: 3rem !important; }
 
 .overlay {
-  color: #fff; }
+  color: #ffffff; }
   .overlay:before {
     position: absolute;
     display: block;
@@ -147,11 +143,11 @@ section {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #2e6b06;
+    background: #072683;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #20996b, #60c70b);
+    background: -webkit-linear-gradient(to right, #1c077a, #051989);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #3db14d, #039c36cb);
+    background: linear-gradient(to right, #081671, #1a0b76cb);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
   .overlay.bg-white {
     color: #000; }
@@ -209,9 +205,9 @@ section {
 .rectangle-1 {
   width: 2000px;
   height: 400px;
-  background: #7ee22d;
+  background: #2d7be2;
   background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);
-  background: linear-gradient(to right, #8df030, #86b90e);
+  background: linear-gradient(to right, #0a1b69, #0c0fae);
   transform-origin: 50% 150% 0;
   position: absolute;
   left: 0;
@@ -223,7 +219,7 @@ section {
   height: 400px;
   background: #043507;
   background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);
-  background: linear-gradient(to right, #067418, #056639);
+  background: linear-gradient(to right, #060a74, #051499);
   transform-origin: 65% 100% 0;
   position: absolute;
   right: 0;
@@ -265,12 +261,12 @@ section {
 .rectangle-1 {
   opacity: 0;
   animation: grow1 ease 1s forwards;
-  box-shadow: 0px 20px 30px 0px rgba(48, 190, 5, 0.671) !important; }
+  box-shadow: 0px 20px 30px 0px rgba(6, 39, 159, 0.671) !important; }
 
 .rectangle-2 {
   opacity: 0;
   animation: grow2 ease 1s forwards;
-  box-shadow: 0px 20px 30px 0px rgb(83, 165, 7) !important; }
+  box-shadow: 0px 20px 30px 0px rgb(13, 10, 112) !important; }
 
 .rectangle-transparent-1 {
   width: 500px;
@@ -674,8 +670,8 @@ section {
 
 .blog-share-wrapper {
   float: right;
-  display: inline-block;
-  margin: 0 -5px; }
+  margin: 0 -5px;
+}
   .blog-share-wrapper .blog-share {
     padding: 0 5px;
     cursor: pointer; }
@@ -731,9 +727,9 @@ section {
     width: 100%;
     background: #ff00cc;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #30cd66, #4acfcf);
+    background: -webkit-linear-gradient(to right, #05245b, #09189f);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #30cd66, #4acfcf);
+    background: linear-gradient(to right, #1109aa, #0c2272);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     z-index: 11; }
   #header-navbar {
@@ -742,9 +738,9 @@ section {
   .navbar-transparent .navbar-collapse {
     background: #ff00cc;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #30cd66, #4acfcf);
+    background: -webkit-linear-gradient(to right, #042e77, #033392);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #30cd66, #4acfcf);
+    background: linear-gradient(to right, #031d63, #092583);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 10px; } }
 

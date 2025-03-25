@@ -9,3 +9,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+document.getElementById("redirectButton").addEventListener("click", function () {
+    const isUkrainian = document.body.classList.contains("ua-font"); // Проверяем, установлен ли украинский язык
+    if (isUkrainian) {
+      window.location.href = "index.pc.ua.html"; // Переадресация на украинскую версию
+    } else {
+      window.location.href = "index.pc.en.html"; // Переадресация на английскую версию
+    }
+  });

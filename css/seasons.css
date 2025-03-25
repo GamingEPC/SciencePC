@@ -4,8 +4,8 @@
           left: 0;
           width: 100%;
           height: 100%;
-          z-index: -1; /* Устанавливаем z-index ниже, чем у основного контента */
-          pointer-events: none; /* Позволяет кликать сквозь эффекты */
+          z-index: -1; 
+          pointer-events: none; 
           overflow: hidden;
         }
         
@@ -16,7 +16,7 @@
           color: white;
           font-size: 1em;
           animation: fall 10s linear infinite;
-          opacity: 0.4; /* Прозрачность 40% */
+          opacity: 0.4; 
         }
         
         @keyframes fall {
@@ -37,7 +37,7 @@
           color: pink;
           font-size: 1.2em;
           animation: fall-petal 12s linear infinite;
-          opacity: 0.4; /* Прозрачность 40% */
+          opacity: 0.4; 
         }
         
         @keyframes fall-petal {
@@ -54,12 +54,12 @@
         /* Солнечные лучи */
         .sunray {
           position: absolute;
-          width: 100px; /* Устанавливаем ширину */
-          height: 100px; /* Устанавливаем высоту */
+          width: 100px; 
+          height: 100px; 
           background: radial-gradient(circle, rgba(255,255,0,0.7) 0%, rgba(255,255,0,0.1) 70%, rgba(255,255,0,0) 100%);
           border-radius: 50%;
           animation: sunlight 5s infinite alternate;
-          opacity: 0.1; /* Прозрачность 40% */
+          opacity: 0.2; /* Прозрачность 20% */
         }
         
         @keyframes sunlight {

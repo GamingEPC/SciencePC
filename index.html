@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="css/style(buttons).css">
 <link rel="stylesheet" href="css/UA and ENG switcher.css">
 <link rel="stylesheet" href="css/seasons.css">
+<link rel="stylesheet" href="css/Style buttons for Mobile and PC version.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
@@ -21,7 +22,6 @@
   <title>Science PC</title>
   <link rel="icon" href="neon-controller.png" type="image/png">
   <style>
-
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -106,11 +106,9 @@
       width: 100%;
       height: 100%;
       background: inherit;
-      filter: blur(8px); /* Устанавливает уровень размытия */
-      z-index: -1; /* Размытие остаётся на заднем плане */
+      filter: blur(8px); 
+      z-index: -1;
     }
-
-    
 
     .container {
     display: flex;
@@ -123,41 +121,41 @@
 
 @media (orientation: portrait) {
   .container {
-    flex-direction: column; /* Вертикальное расположение блоков */
-    align-items: center; /* Центрируем содержимое */
+    flex-direction: column; 
+    align-items: center; 
   }
 }
 
 @media (orientation: landscape) {
   .container {
-    flex-direction: row; /* Горизонтальное расположение блоков */
-    justify-content: center; /* Центрируем содержимое */
+    flex-direction: row; 
+    justify-content: center; 
   }
 }
 
 .block {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Центрируем содержимое по вертикали */
-    align-items: center; /* Центрируем по горизонтали */
-    width: 300px; /* Фиксированная ширина */
+    justify-content: center; 
+    align-items: center; 
+    width: 300px; 
     text-align: center;
     font-size: 30px;
 }
 
 
     h3 {
-    margin: 10px 0; /* Уменьшаем верхний и нижний отступ */
+    margin: 10px 0; 
 }
 
 p {
-    margin: 5px 0; /* Уменьшаем отступы между абзацами */
-    line-height: 1.2; /* Уменьшаем межстрочный интервал */
+    margin: 5px 0;
+    line-height: 1.2; 
 }
 
 .specs {
     margin-top: 5px;
-    font-size: 12px; /* Можно уменьшить размер шрифта, если надо */
+    font-size: 12px; 
 }
 
     .card {
@@ -171,13 +169,13 @@ p {
       text-align: center;
       display: flex;
       flex-direction: column;
-      align-items: center; /* Центрируем содержимое по горизонтали */
-      justify-content: space-between; /* Равномерное распределение пространства */
+      align-items: center; 
+      justify-content: space-between; 
       padding: 20px;
       }
       .card button {
-      margin-top: auto; /* Отодвигаем кнопку вниз */
-      align-self: center; /* Центрируем кнопку по горизонтали */
+      margin-top: auto; 
+      align-self: center; 
     }
 
     @keyframes rgb-gradient {
@@ -199,7 +197,7 @@ p {
       font-size: 1.72rem;
       color: #fff;
       margin: 10px 0;
-      font-family: 'Cyberpunk', Arial, sans-serif; /* Применение шрифта Cyberpunk */
+      font-family: 'Cyberpunk', Arial, sans-serif; 
     }
 
     .card p {
@@ -214,28 +212,27 @@ p {
   padding: 0 15px;
   margin: 0 0 15px;
   color: #00ffff;
-  font-size: 1.1rem;
-  text-align: left; /* Выравнивание по левому краю */
+  font-size: 1.052rem;
+  text-align: left; 
 }
 
-    /* Фиксируем ссылки снизу */
 .bottom-links {
-  position: fixed; /* Закрепляем меню */
-  bottom: 0; /* Располагаем его внизу окна */
+  position: fixed;
+  bottom: 0; 
   left: 0;
-  width: 100%; /* Меню занимает всю ширину окна */
+  width: 100%;
   display: flex;
   gap: 20px;
-  justify-content: center; /* Центрируем содержимое */
+  justify-content: center; 
   align-items: center;
-  z-index: 1000; /* Высокий приоритет отображения */
-  background: rgba(0, 0, 0, 0.8); /* Фон меню */
-  padding: 10px 20px; /* Отступы для эстетики */
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Тень для стиля */
+  z-index: 1000; 
+  background: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px; 
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); 
 }
 
 
-/* Стили изображений в меню */
+
 .bottom-links .profile-photo {
   width: 50px;
   height: 50px;
@@ -244,7 +241,7 @@ p {
   margin-bottom: 5px;
 }
 
-/* Текст под иконками */
+
 .bottom-links .contact-info {
   font-size: 1.3rem;
   font-family: 'VT323', monospace !important;
@@ -262,7 +259,7 @@ li {
   font-style: normal;
 }
 .large-text {
-  font-size: 5em; /* Еще больший размер шрифта */
+  font-size: 5em; 
 }
 .orbitron-regular {
   font-family: "Orbitron", sans-serif;
@@ -280,9 +277,9 @@ li {
       <span class="flag ua"></span>
     </label>
   </div>
-
-  <div id="effect-container"></div> <!-- Контейнер для сезонных эффектов -->
- 
+  
+  <!-- Контейнер для сезонных эффектов -->
+  <div id="effect-container"></div> 
 
 <h1>Science PC</h1>
   <div class="container">
@@ -291,26 +288,26 @@ li {
       <img src="img/Neon Wolf.png" alt="ПК 1">
       <style>
         .card img {
-  width: 100%; /* Уменьшаем ширину до 95% */
-  height: auto; /* Сохраняем пропорции */
-  object-fit: cover; /* Убедитесь, что изображение обрезается корректно */
-  transition: transform 0.3s ease; /* Добавляем плавный переход */
+  width: 100%; 
+  height: auto; 
+  object-fit: cover; 
+  transition: transform 0.3s ease; 
 }
 
 .card img:hover {
-  transform: scale(1.05); /* Увеличиваем изображение при наведении */
+  transform: scale(1.05); 
 }
       </style>
       <h3 data-lang='{"UA": "Залізний Вовк", "EN": "Iron Wolf"}'>Iron Wolf</h3>
       <p data-lang='{"UA": "Надiйний ПК", "EN": "Solid PC"}'>Solid PC</p>
       <ul>
-        <li data-lang='{"UA": "Відеокарта: AMD RX 5500XT", "EN": "GPU: AMD RX 5500XT"}'>GPU: AMD RX 5500XT</li>
-        <li data-lang='{"UA": "Процесор: Intel Xeon 2680V4", "EN": "CPU: Intel Xeon 2680V4"}'>CPU: Intel Xeon 2680V4</li>
-        <li data-lang='{"UA": "ОЗП (DDR4 2400 МГц): 32 ГБ", "EN": "RAM (DDR4 2400 MHZ): 32 GB"}'>RAM: 32 GB DDR4 2400 MHZ</li>
-        <li data-lang='{"UA": "SSD NVMe: 512 ГБ", "EN": "SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
+        <li data-lang='{"UA": "🎮 Відеокарта: AMD RX 5500XT", "EN": "🎮 GPU: AMD RX 5500XT"}'>🎮 GPU: AMD RX 5500XT</li>
+        <li data-lang='{"UA": "🖥️ Процесор: Intel Xeon 2680V4", "EN": "🖥️ CPU: Intel Xeon 2680V4"}'>🖥️ CPU: Intel Xeon 2680V4</li>
+        <li data-lang='{"UA": "🔋ОЗП (DDR4 2400 МГц): 32 ГБ", "EN": "🔋 RAM (DDR4 2400 MHZ): 32 GB"}'>💾 RAM: 32 GB DDR4 2400 MHZ</li>
+        <li data-lang='{"UA": "📀 SSD NVMe: 512 ГБ", "EN": "📀 SSD Nvme: 512 GB"}'>📀 SSD Nvme: 512 GB</li>
       </ul>
 <div class="button">
-  <button name="checkbox" type="button"></button>
+  <button id="redirectButton" name="checkbox" type="button"></button>
   <span></span>
   <span></span>
   <span></span>
@@ -322,13 +319,13 @@ li {
             <h3 data-lang='{"UA": "КіберСокіл", "EN": "Cyber Eagle"}'>Cyber Eagle</h3>
             <p data-lang='{"UA": "Швидкий ПК", "EN": "Fastest PC"}'>Fastest PC</p>
             <ul>
-              <li data-lang='{"UA": "Відеокарта: AMD RX 5600XT", "EN": "GPU: AMD RX 5600XT"}'>GPU: AMD RX 5600XT</li>
-              <li data-lang='{"UA": "Процесор: Ryzen 5 2600X", "EN": "CPU: Ryzen 5 2600X"}'>CPU: Ryzen 5 2600X</li>
-              <li data-lang='{"UA": "ОЗП (DDR4 3200 МГц): 32 ГБ", "EN": "RAM (DDR4 3200 MHZ): 32 GB"}'>RAM: 32 GB DDR4 3200 MHZ</li>
-              <li data-lang='{"UA": "SSD NVMe: 512 ГБ", "EN": "SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
+              <li data-lang='{"UA": "🎮 Відеокарта: AMD RX 5600XT", "EN": "🎮 GPU: AMD RX 5600XT"}'>GPU: AMD RX 5600XT</li>
+              <li data-lang='{"UA": "🖥️ Процесор: Ryzen 5 2600X", "EN": "🖥️ CPU: Ryzen 5 2600X"}'>CPU: Ryzen 5 2600X</li>
+              <li data-lang='{"UA": "🔋ОЗП (DDR4 3200 МГц): 32 ГБ", "EN": "🔋 RAM (DDR4 3200 MHZ): 32 GB"}'>RAM: 32 GB DDR4 3200 MHZ</li>
+              <li data-lang='{"UA": "📀 SSD NVMe: 512 ГБ", "EN": "📀 SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
             </ul>
       <div class="button">
-        <button name="checkbox" type="button"></button>
+        <button id="redirectButton" name="checkbox" type="button"></button>
         <span></span>
         <span></span>
         <span></span>
@@ -341,10 +338,10 @@ li {
       <h3 data-lang='{"UA": "Тінь Дракона", "EN": "Shadow Dragon"}'>Shadow Angel</h3>
       <p data-lang='{"UA": "Тихий ПК", "EN": "Silent PC"}'>Silent PC</p>
       <ul>
-        <li data-lang='{"UA": "Відеокарта: AMD RX 6600", "EN": "GPU: AMD RX 6600"}'>GPU: AMD RX 6600</li>
-        <li data-lang='{"UA": "Процесор: Ryzen 5 2600X", "EN": "CPU: Ryzen 5 2600X"}'>CPU: Ryzen 5 2600X</li>
-        <li data-lang='{"UA": "ОЗП (DDR4 3200 Мгц): 32 ГБ", "EN": "RAM (DDR4 3200 MHZ): 32 GB"}'>RAM: 32 GB DDR4 3200 MHZ</li>
-        <li data-lang='{"UA": "SSD NVMe: 512 ГБ", "EN": "SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
+        <li data-lang='{"UA": "🎮 Відеокарта: AMD RX 6600", "EN": "🎮 GPU: AMD RX 6600"}'>GPU: AMD RX 6600</li>
+        <li data-lang='{"UA": "🖥️ Процесор: Ryzen 5 2600X", "EN": "🖥️ CPU: Ryzen 5 2600X"}'>CPU: Ryzen 5 2600X</li>
+        <li data-lang='{"UA": "🔋ОЗП (DDR4 3200 Мгц): 32 ГБ", "EN": "🔋 RAM (DDR4 3200 MHZ): 32 GB"}'>RAM: 32 GB DDR4 3200 MHZ</li>
+        <li data-lang='{"UA": "📀 SSD NVMe: 512 ГБ", "EN": "📀 SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
       </ul>
 <div class="button">
   <button name="checkbox" type="button"></button>
@@ -359,10 +356,10 @@ li {
       <h3 data-lang='{"UA": "Неоновий Ведмiдь", "EN": "Neon Bear"}'>Neon Bear</h3>
       <p data-lang='{"UA": "Потужний ПК", "EN": "Powerful PC"}'>Powerful RGB PC for You</p>
       <ul>
-        <li data-lang='{"UA": "Відеокарта: RTX 2060 Super", "EN": "GPU: RTX 2060 Super"}'>GPU: RTX 2060 Super</li>
-        <li data-lang='{"UA": "Процесор: Ryzen 5 3600", "EN": "CPU: Ryzen 5 3600"}'>CPU: Ryzen 5 3600</li>
-        <li data-lang='{"UA": "ОЗП (DDR4 3200 МГц): 32 ГБ", "EN": "RAM (DDR4 3200 MHZ): 32 GB"}'>RAM: 32 GB DDR4 3200 MHZ</li>
-        <li data-lang='{"UA": "SSD NVMe: 512 ГБ", "EN": "SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
+        <li data-lang='{"UA": "🎮 Відеокарта: RTX 2060 Super", "EN": "🎮 GPU: RTX 2060 Super"}'>GPU: RTX 2060 Super</li>
+        <li data-lang='{"UA": "🖥️ Процесор: Ryzen 5 3600", "EN": "🖥️ CPU: Ryzen 5 3600"}'>CPU: Ryzen 5 3600</li>
+        <li data-lang='{"UA": "🔋ОЗП (DDR4 3200 МГц): 32 ГБ", "EN": "🔋 RAM (DDR4 3200 MHZ): 32 GB"}'>RAM: 32 GB DDR4 3200 MHZ</li>
+        <li data-lang='{"UA": "📀 SSD NVMe: 512 ГБ", "EN": "📀 SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
       </ul>
 <div class="button">
   <button name="checkbox" type="button"></button>
@@ -374,6 +371,14 @@ li {
 </div>
 
 <audio id="clickSound" src="sounds/click.mp3" preload="auto"></audio>
+<style>
+   .bottom-links {
+    box-shadow: none; 
+    background: none; 
+    padding: 0;       
+    margin: 0;        
+  }
+</style>
 
 <!-- Кнопка для мобильной версии -->
 <button class="menu-toggle" onclick="toggleMenu()">
@@ -397,12 +402,13 @@ li {
   </a>
   <a href="tel:+380993262917">
     <img class="profile-photo" src="123.png" alt="Smartphone">
-    <div class="contact-info">+380-99-326-2917</div>
+    <div class="contact-info">+380993262917</div>
   </a>
   <a href="mailto:deluxe.history@outlook.com">
     <img class="profile-photo" src="Outlook.png" alt="Email">
     <div class="contact-info">deluxe.history@outlook.com</div>
   </a>
+  
   <!-- Переключатель языка для мобильной версии -->
   <div class="language-switcher">
     <input type="checkbox" id="language-toggle" />
@@ -413,223 +419,9 @@ li {
   </div>
 </div>
 
-<style>
-/* Кнопка открытия меню */
-.menu-toggle {
-  width: 150px;
-  height: 50px;
-  border-radius: 5px;
-  border: none;
-  transition: all 0.5s ease-in-out;
-  font-size: 20px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  background: #040f16;
-  color: #f5f5f5;
-  cursor: pointer; /* Ensure the button is clickable */
-  position: fixed; /* Maintain fixed positioning */
-  bottom: 20px; /* Maintain bottom positioning */
-  right: 20px; /* Maintain right positioning */
-  z-index: 1000; /* Maintain z-index */
-}
-
-.menu-toggle .icon {
-  position: relative;
-  width: 30px;
-  height: 20px;
-  display: none; /* Скрываем иконку по умолчанию */
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.menu-toggle.open .icon {
-  display: flex; /* Показываем иконку при клике на кнопку */
-}
-
-.menu-toggle .icon .bar {
-  background-color: #fff;
-  height: 4px;
-  width: 100%;
-  border-radius: 5px;
-}
-
-.menu-toggle .text {
-  transition: all 0.5s;
-  display: block;
-}
-
-.menu-toggle.open .text {
-  opacity: 0; /* Прячем текст при открытии */
-}
-
-.bottom-links {
-  display: flex;
-  flex-wrap: wrap; /* Позволяет блокам переноситься на новую строку */
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 10px;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-}
-.bottom-links.open {
-  display: flex; /* Показываем меню при открытии */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Добавляем тень */
-  background: rgba(0, 0, 0, 0.8); /* Фон для выделения */
-  border-radius: 10px; /* Закругляем углы */
-  padding: 10px; /* Внутренние отступы */
-  flex-direction: row; /* Горизонтальное расположение ссылок */
-  gap: 20px; /* Увеличиваем расстояние между элементами */
-}
-
-/* Стили ссылок */
-.bottom-links a {
-  color: #fff;
-  text-decoration: none;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 5px;
-  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  flex-basis: calc(25% - 20px); /* Устанавливаем базовую ширину блоков */
-  max-width: 200px; /* Ограничиваем максимальную ширину */
-}
-
-
-.bottom-links a:hover {
-  background: #ff5733;
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); /* Увеличиваем тень при наведении */
-}
-
-.bottom-links.hidden {
-  display: none; /* По умолчанию скрываем меню */
-}
-
-.bottom-links {
-  box-shadow: none; /* Убираем тень */
-  background: none; /* Убираем возможный фон */
-  padding: 0;       /* Убираем внутренние отступы */
-  margin: 0;        /* Убираем внешние отступы */
-}
-
-/* Для мобильной версии (до 1360x850) */
-@media (max-width: 1360px), (max-height: 850px) {
-  .language-switcher {
-    display: none; /* Скрываем переключатель */
-  }
-
-  /* Показываем переключатель внутри меню */
-  .bottom-links .language-switcher {
-    display: flex; /* Делаем переключатель видимым */
-    position: static; /* Убираем абсолютное позиционирование */
-    margin: 10px auto; /* Центрируем переключатель внутри меню */
-  }
-  .menu-toggle {
-    display: block; /* Показываем кнопку меню */
-    width: 120px;
-    height: 40px;
-    font-size: 16px;
-  }
-
-  .bottom-links .profile-photo {
-    width: 10vw; /* Используем относительные единицы измерения */
-    height: 10vw;
-    max-width: 50px; /* Ограничиваем максимальный размер */
-    max-height: 50px;
-  }
-
-  .bottom-links .contact-info {
-    font-size: 2.5vw; /* Используем относительные единицы измерения */
-  }
-}
-
-  .bottom-links.hidden {
-    display: none; /* Скрываем меню по умолчанию */
-  }
-
-  .bottom-links.open {
-    display: flex; /* Показываем меню при открытии */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Добавляем тень */
-    background: rgba(0, 0, 0, 0.8); /* Фон для выделения */
-    border-radius: 10px; /* Закругляем углы */
-    padding: 10px; /* Внутренние отступы */
-    flex-direction: row; /* Вертикальное расположение ссылок */
-    gap: 10px;
-  }
-
-/* Для ПК версии (от 1361x851 и выше) */
-@media (min-width: 1361px) and (min-height: 851px) {
-  .language-switcher {
-    display: flex; /* Переключатель всегда видим */
-  }
-
-  .bottom-links .language-switcher {
-    display: none; /* Скрываем переключатель внутри меню */
-  }
-
-  .menu-toggle {
-    display: none; /* Скрываем кнопку меню */
-  }
-
-  .bottom-links {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%; /* Меню занимает всю ширину */
-    display: flex; /* Показываем меню */
-    flex-direction: row; /* Горизонтальное расположение ссылок */
-    justify-content: center; /* Центрируем содержимое */
-    align-items: center;
-    gap: 20px;
-    padding: 10px;
-    z-index: 100;
-    background: none; /* Без фона */
-    box-shadow: none; /* Убираем тень */
-  }
-
-  .bottom-links.hidden {
-    display: flex !important; /* Принудительно отображаем меню */
-    transform: translateY(0); /* Убираем смещение */
-  }
-}
-</style>
-
-<script>
-
-function toggleMenu() {
-  const menu = document.querySelector('.bottom-links');
-  const button = document.querySelector('.menu-toggle');
-  
-  menu.classList.toggle('open');
-  menu.classList.toggle('hidden');
-  
-  // Переключаем класс "open" на кнопке
-  button.classList.toggle('open');
-}
-
-// Закрываем меню при клике вне его
-function closeMenu(event) {
-  const menu = document.querySelector('.bottom-links');
-  if (!event.target.closest('.bottom-links') && !event.target.closest('.menu-toggle')) {
-    menu.classList.add('hidden');
-    menu.classList.remove('open');
-    document.querySelector('.menu-toggle').classList.remove('open'); // Убираем класс "open" с кнопки
-  }
-}
-
-// Добавляем обработчик события для кликов по документу
-document.addEventListener('click', closeMenu);
-</script>
 <script src="js/script(buttons).js"></script>
 <script src="js/lang.js"></script>
 <script src="js/seasons.js"></script>
+<script src="js/button(mobile).js"></script>
 </body>
 </html>
