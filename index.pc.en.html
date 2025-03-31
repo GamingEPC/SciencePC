@@ -5,10 +5,10 @@
     <link rel="icon" sizes="512x512" href="https://cdn.icon-icons.com/icons2/1525/PNG/512/976598-appliances-case-computer-computer-tower-desktop-pc_106551.png">
     <link rel="shortcut icon" href="https://cdn.icon-icons.com/icons2/1525/PNG/512/976598-appliances-case-computer-computer-tower-desktop-pc_106551.png" type="image/x-icon"/>
     <link rel="apple-touch-icon" href="https://cdn.icon-icons.com/icons2/1525/PNG/512/976598-appliances-case-computer-computer-tower-desktop-pc_106551.png" type="image/x-icon"/>
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bird Gaming</title>
+    <title>Iron Wolf</title>
     <meta name="description" content="X99-RS9">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -20,6 +20,58 @@
 }
     </style>
     </style>
+    <audio id="wolfHowl" src="sounds/wolf_howl.mp3"></audio>
+    <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              const wolfHowl = document.getElementById('wolfHowl');
+            
+              function playWolfHowl() {
+                if (wolfHowl) {
+                  wolfHowl.currentTime = 0; // Сброс звука на начало
+                  wolfHowl.play().catch((error) => {
+                    console.error('Ошибка воспроизведения звука:', error);
+                  });
+                }
+                // Удаляем обработчик после первого воспроизведения
+                document.removeEventListener('click', playWolfHowl);
+              }
+            
+              // Добавляем обработчик клика на документ
+              document.addEventListener('click', playWolfHowl);
+            });
+            document.addEventListener('DOMContentLoaded', function () {
+        const body = document.body;
+      
+        function createWolfEmoji() {
+          const wolfEmoji = document.createElement('div');
+          wolfEmoji.textContent = '🐺';
+          wolfEmoji.style.position = 'fixed';
+          wolfEmoji.style.fontSize = '50px';
+          wolfEmoji.style.top = `${Math.random() * 100}vh`;
+          wolfEmoji.style.left = `${Math.random() * 100}vw`;
+          wolfEmoji.style.transform = 'scale(0)';
+          wolfEmoji.style.transition = 'transform 0.5s ease, opacity 2s ease';
+          wolfEmoji.style.opacity = '1';
+          body.appendChild(wolfEmoji);
+      
+          // Анимация увеличения и исчезновения
+          setTimeout(() => {
+            wolfEmoji.style.transform = 'scale(3)';
+            wolfEmoji.style.opacity = '0';
+          }, 100);
+      
+          // Удаление эмодзи после завершения анимации
+          setTimeout(() => {
+            wolfEmoji.remove();
+          }, 2000);
+        }
+      
+        // Создание нескольких эмодзи волков
+        for (let i = 0; i < 10; i++) {
+          setTimeout(createWolfEmoji, i * 200); // Задержка между появлением эмодзи
+        }
+      });
+    </script>
     <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/select2/select2.min.css">
     <link rel="stylesheet" href="vendor/owlcarousel/owl.carousel.min.css">
@@ -107,7 +159,7 @@ button.my-buttons {
                         <a class="nav-link alternative triple-buttons" href="#drivers">Drivers and Software</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link alternative triple-buttons" href="about.html">Technical Specification</a>
+                        <a class="nav-link alternative triple-buttons" href="index.html">Home Page</a>
                       </li>                     
                 <li class="nav-item">
                     <a class="nav-link" href="blog.html"></a>
@@ -527,12 +579,12 @@ strong {
   </div>
 </div>
 	<!-- Features Section-->
-    <section id="testimonial" class="section-padding bg-fixed bg-black overlay" style="background-image: url(https://r4.wallpaperflare.com/wallpaper/299/926/379/forest-illustration-wallpaper-0d156d96ad7b38b6246c75b940732d08.jpg);">
+    <section id="testimonial" class="section-padding bg-fixed bg-black overlay" style="background-image: url(https://r4.wallpaperflare.com/wallpaper/117/152/0/wolf-neon-hd-wallpaper-2fccb2df2d391558078d72a414630030.jpg);">
         <div class="container">
             <div class="section-content" data-aos="fade-up">
                 <div class="heading-section text-center">
                     <h2 id="TEXT">
-                        Bird Gaming
+                        Iron Wolf
                     </h2>
                 </div>
             </div>        
@@ -542,71 +594,100 @@ strong {
                     </h2>
                 </div>
                 <div class="row">
+                  <style>
+                    /* Медиа-запрос для уменьшения изображения на мобильных устройствах */
+                    @media (max-width: 768px) {
+                        .vbc img {
+                            max-width: 700px;
+                            height: 300px;
+                        }
+                    }
+                </style>
                     <!-- Testimonial -->
                     <div class="testi-content testi-carousel owl-carousel">
-                        <div class="testi-item text-center">
-                            <h4 class="testi-text" style="font-size: 36px;"><b></b><br></h4>
-                            <div class="testi-meta-inner d-flex justify-content-center align-items-center">
-                                <div class="vbc">
-                                    <img src="1.jpg" alt="" width="800" height="800">
-                                </div>
-                                <div class="testi-details">
-                                    <p class="testi-author mb-0 font-weight-bolder"></p>
-                                    <p class="testi-desc mb-0"></p>
-                                </div>
-                            </div>
-                            <style>
-                              /* Медиа-запрос для уменьшения изображения на мобильных устройствах */
-                              @media (max-width: 768px) {
-                                  .vbc img {
-                                      max-width: 700px;
-                                      height: 500px;
-                                  }
-                              }
-                          </style>
-                        </div>
-                        <div class="testi-item text-center">
-                            <h4 class="testi-text" style="font-size: 36px;"><b></b><br></h4>
-                            <div class="testi-meta-inner d-flex justify-content-center align-items-center">
-                                <div class="vbc">
-                                    <img src="2.jpg" alt=""width="800" height="800">
-                                </div>
-                                <div class="testi-details">
-                                    <p class="testi-author mb-0 font-weight-bolder"></p>
-                                    <p class="testi-desc mb-0"></p>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="testi-item text-center">
-                            <h4 class="testi-text" style="font-size: 36px;"><b></b><br></h4>
-                            <div class="testi-meta-inner d-flex justify-content-center align-items-center">
-                                <div class="vbc">
-                                    <img src="3.jpg" alt="" width="800" height="800">
-                                </div>
-                                <div class="testi-details">
-                                    <p class="testi-author mb-0 font-weight-bolder"></p>
-                                    <p class="testi-desc mb-0"></p>
-                                </div>
-                            </div>
-                        </div>
-                      
                       <div class="testi-item text-center">
                         <h4 class="testi-text" style="font-size: 36px;"><b></b><br></h4>
                         <div class="testi-meta-inner d-flex justify-content-center align-items-center">
-                            <div class="vbc">
-                                <img src="5.jpg" alt="" width="800" height="800">
-                            </div>
-                            <div class="testi-details">
-                                <p class="testi-author mb-0 font-weight-bolder"></p>
-                                <p class="testi-desc mb-0"></p>
-                            </div>
+                          <div class="vbc">
+                            <a href="img/Iron Wolf/image.webp" data-lightbox="gallery" data-title="Image 1">
+                              <img src="img/Iron Wolf/image.webp" alt="" width="800" height="800">
+                            </a>
+                          </div>
+                          <div class="testi-details">
+                            <p class="testi-author mb-0 font-weight-bolder"></p>
+                            <p class="testi-desc mb-0"></p>
+                          </div>
                         </div>
+                      </div>
+                      <div class="testi-item text-center">
+                        <h4 class="testi-text" style="font-size: 36px;"><b></b><br></h4>
+                        <div class="testi-meta-inner d-flex justify-content-center align-items-center">
+                          <div class="vbc">
+                            <a href="img/Iron Wolf/image (1).webp" data-lightbox="gallery" data-title="Image 2">
+                              <img src="img/Iron Wolf/image (1).webp" alt="" width="800" height="800">
+                            </a>
+                          </div>
+                          <div class="testi-details">
+                            <p class="testi-author mb-0 font-weight-bolder"></p>
+                            <p class="testi-desc mb-0"></p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="testi-item text-center">
+                        <h4 class="testi-text" style="font-size: 36px;"><b></b><br></h4>
+                        <div class="testi-meta-inner d-flex justify-content-center align-items-center">
+                          <div class="vbc">
+                            <a href="img/Iron Wolf/image (2).webp" data-lightbox="gallery" data-title="Image 3">
+                              <img src="img/Iron Wolf/image (2).webp" alt="" width="800" height="800">
+                            </a>
+                          </div>
+                          <div class="testi-details">
+                            <p class="testi-author mb-0 font-weight-bolder"></p>
+                            <p class="testi-desc mb-0"></p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="testi-item text-center">
+                        <h4 class="testi-text" style="font-size: 36px;"><b></b><br></h4>
+                        <div class="testi-meta-inner d-flex justify-content-center align-items-center">
+                          <div class="vbc">
+                            <a href="img/Iron Wolf/image (3).webp" data-lightbox="gallery" data-title="Image 4">
+                              <img src="img/Iron Wolf/image (3).webp" alt="" width="800" height="600">
+                            </a>
+                          </div>
+                          <div class="testi-details">
+                            <p class="testi-author mb-0 font-weight-bolder"></p>
+                            <p class="testi-desc mb-0"></p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="testi-item text-center">
+                        <h4 class="testi-text" style="font-size: 36px;"><b></b><br></h4>
+                        <div class="testi-meta-inner d-flex justify-content-center align-items-center">
+                          <div class="vbc">
+                            <a href="img/Iron Wolf/image (4).webp" data-lightbox="gallery" data-title="Image 5">
+                              <img src="img/Iron Wolf/image (4).webp" alt="" width="800" height="600">
+                            </a>
+                          </div>
+                          <div class="testi-details">
+                            <p class="testi-author mb-0 font-weight-bolder"></p>
+                            <p class="testi-desc mb-0"></p>
+                          </div>
                     </div>
-                    </div>
-                    <!-- End of Testimonial -->
-                </div>
-            </div>
-        </div>
+                      </div>
+                      <div class="testi-item text-center">
+                        <h4 class="testi-text" style="font-size: 36px;"><b></b><br></h4>
+                        <div class="testi-meta-inner d-flex justify-content-center align-items-center">
+                          <div class="vbc">
+                            <a href="img/Iron Wolf/image (5).webp" data-lightbox="gallery" data-title="Image 6">
+                              <img src="img/Iron Wolf/image (5).webp" alt="" width="800" height="600">
+                            </a>
+                          </div>
+                          <div class="testi-details">
+                            <p class="testi-author mb-0 font-weight-bolder"></p>
+                            <p class="testi-desc mb-0"></p>
+                          </div>
+
     </section>
 
 <section id="features" class="bg-white">
@@ -699,7 +780,7 @@ strong {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(8, 107, 205, 0.658); /* Цвет затемнения и прозрачность */
+    background-color: rgb(6 33 95 / 66%); /* Цвет затемнения и прозрачность */
     z-index: 0;
 }
 </style>
@@ -820,17 +901,22 @@ strong {
     <div class="container">
         <div class="section-content">
             <div class="row align-items-center">
-                <div class="col-md-6" data-aos="flip-center">
-                    <img class="mt-4" src="Qiyida-X99-E5-D4_ports.jpg">
-                </div>
-                <style>
-                    @media (max-width: 768px) {
-                      .mobile-image {
-                        width: 400px; /* Задайте новую ширину для мобильных устройств */
-                        height: 180px; /* Задайте новую высоту для мобильных устройств */
-                    }
-                    }
-                    </style>
+              <div class="col-md-6" data-aos="flip-center">
+                <img class="mt-4 scaled-image" src="img/Iron Wolf/Game with Iron wolf.png">
+              </div>
+                      <style>
+                        .scaled-image {
+                          transform: scale(1.5); /* Увеличение в 1.5 раза для десктопной версии */
+                          transform-origin: center; /* Центрирование увеличения */
+                          transition: transform 0.3s ease; /* Плавный переход */
+                        }
+                      
+                        @media (max-width: 768px) {
+                          .scaled-image {
+                            transform: scale(1.1); /* Увеличение в 1.1 раза для мобильной версии */
+                          }
+                        }
+                      </style>
                 <div class="col-md-6" data-aos="fade-center">
                     <style>
                         @media (max-width: 768px) {
@@ -839,7 +925,7 @@ strong {
                         }
                         }
                         </style>
-                    <h4 class="mb-4" style="text-align: center;">Experience of Bird Gaming</h4>
+                    <h4 class="mb-4" style="text-align: center;">Experience of Iron Worlf</h4>
 
                     <style>
                     @media (max-width: 768px) {
@@ -855,10 +941,10 @@ strong {
                         }
                         </style>
                     <div class="progress mb-3">
-                        <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">Cyberpunk 2077 (HIGH) 60-75 fps</div>
+                        <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">Cyberpunk 2077 (Medium) 60-75 fps</div>
                     </div>
                     <div class="progress mb-3">
-                        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">Overwatch (Epic) 110+ fps</div>
+                        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">S.T.A.L.K.E.R 2 (Medium) 50-90 fps</div>
                     </div>
                     <div class="progress mb-3">
                         <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">Counter-Strike: 2 130+ fps</div>
@@ -867,7 +953,7 @@ strong {
                         <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">Dota 2 150+ fps</div>
                     </div>
                     <div class="progress mb-3">
-                      <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">Red Dead Redemption 2 (High) 45-60+ fps</div>
+                      <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">Red Dead Redemption 2 (Low) 45-60+ fps</div>
                   </div>                          
                 </div>
             </div>
@@ -886,7 +972,7 @@ strong {
 </section>	<!-- Testimonial Section-->
 
 <!-- End of Testimonial Section-->	<!-- Portfolio Section -->
-<section id="drivers" class="overlay bg-black" style="background-image: url(https://r4.wallpaperflare.com/wallpaper/97/833/155/mountains-firewatch-green-forest-wallpaper-5c0e3259b4dddc065048fc083c336564.jpg); width: 100%;
+<section id="drivers" class="overlay bg-black" style="background-image: url(https://r4.wallpaperflare.com/wallpaper/807/970/560/psychedelic-abstract-colorful-wolf-headphones-hd-wallpaper-9b366c4dd3e18f29b5642b190d7cbc50.jpg); width: 100%;
 height: 1350px;">
     <div class="overlay-content">
         <div class="container">
@@ -956,7 +1042,7 @@ height: 1350px;">
                                       </style>
 
                             <h2 style="font-size: 35px;" class="My-edit">
-                                <b>Chipset</b>
+                                
                             </h2>
                             <style>
                                 /* Стили для уменьшения текста на мобильных устройствах */
@@ -967,9 +1053,7 @@ height: 1350px;">
                                 }
                                 </style>
                                 <h2 style="font-size: 20px;">
-                                    <button class="my-button secondary-buttons" onclick="window.location.href='https://downloadmirror.intel.com/22824/eng/intel(r)_usb_3.0_extensible_host_controller_driver_5.0.4.43_v2.zip'" style="width: 35%; height: 35%; display: inline-block;">
-                                        Chipset drivers
-                                    </button>
+                                    
                                     </h2>
                                     <style>
                                         @media (max-width: 767px) {
@@ -1072,23 +1156,7 @@ button.secondary-buttons:active {
                     </div>
         </div>
 </section>
-<!-- End of Portfolio Section -->	<!-- Client Section -->
-<section id="client" class="overlay bg-fixed" style="background-image: url(img/bg.jpg);">
-    <div class="container">
-        <div class="section-content" data-aos="fade-up">
-            <div class="row ">
-                <div class="col-md-12">
-                    <!-- Section Title -->
-                    <div class="title-wrap mb-5">
-                        <h2>All privacy used conten</h2>
-                        <h2>Used icons:
-                            <a href="https://www.flaticon.com/ru/free-icons/" title="видеокарта иконки">prettycons - Flaticon</a>
-                            <a href="https://www.flaticon.com/ru/free-icons/-" title="Оперативная память иконки">surang - Flaticon</a>
-                            <a href="https://www.flaticon.com/ru/free-icons/-" title="материнская плата иконки"> kerismaker - Flaticon</a>
-                            <a href="https://www.flaticon.com/ru/free-icons/ssd-" title="ssd карта иконки">Souayang - Flaticon</a>
-                            <a href="https://www.flaticon.com/ru/free-icons/-" title="блок питания иконки">Ahmad Roaayala - Flaticon</a>
-                        </h2>
-                    </div>
+
                     <!-- End of Section Title -->
 </footer>	<!-- External JS -->
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
@@ -1101,9 +1169,22 @@ button.secondary-buttons:active {
 	<script src="vendor/lightcase/lightcase.js"></script>
 	<script src="vendor/waypoints/waypoint.min.js"></script>
 	 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-	 
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 	<!-- Main JS -->
-	<script>
+	<style>
+        /* Скрыть текст с количеством изображений в Lightbox2 */
+    .lb-number {
+      display: none !important;
+    }
+  </style>
+  <script>
+          lightbox.option({
+              'resizeDuration': 200, // Длительность анимации (в миллисекундах)
+              'fadeDuration': 300,   // Длительность затемнения
+              'imageFadeDuration': 300, // Длительность появления изображения
+              'wrapAround': true,     // Позволяет листать изображения по кругу
+              'albumLabel': ''        // Убирает текст "1 из X"
+          });
         !function(n,t,e){console.log("init");var o={init:function(e){o.select2(),o.stellar(),o.carousel(),o.portfolio(),o.lightCase(),o.sideNav(),o.counter(),o.skills(),o.aos(),o.navbarChange()},select2:function(){n(e).ready(function(){n("select").select2()})},stellar:function(){var e=n(t).width();767<=e&&(n(".bg-fixed").attr("data-stellar-background-ratio","0.8"),n.stellar({horizontalScrolling:!1,responsive:!0,parallaxBackgrounds:!0,scrollProperty:"scroll"}))},carousel:function(){n(".testi-carousel").owlCarousel({loop:!0,margin:10,autoplay:!0,nav:!1,dots:!0,dotSpeed:1e3,autoplay:!0,autoplaySpeed:1e3,items:1}),n(".client-slider").owlCarousel({loop:!0,margin:10,nav:!0,navSpeed:1e3,dots:!1,autoplay:!0,autoplaySpeed:1e3,navText:['<span class="fa fa-angle-left"></span>','<span class="fa fa-angle-right"></span>'],responsive:{0:{items:1},600:{items:3},1e3:{items:6}}})},portfolio:function(){var t=n(".grid-portfolio").isotope({itemSelector:".grid-item",masonry:{gutter:".gutter-sizer",columnWidth:".grid-sizer"},percentPosition:!0});return n(".filter-button-group").on("click","a",function(){var e=n(this).attr("data-filter");t.isotope({filter:e})}),n(".btn-filter a.is-checked").addClass("active"),n(".btn-filter a").on("click",function(){n(".btn-filter a").removeClass("active"),n(this).addClass("active")}),!1},lightCase:function(){jQuery(e).ready(function(e){e("a[data-rel^=lightcase]").lightcase()})},sideNav:function(){n("#side-nav-open").click(function(){n("#side-nav").css("width","300"),setTimeout(function(){n("body").addClass("sidenav-open")},200),setTimeout(function(){n("body").addClass("in")},400)}),n("#side-nav-close, #canvas-overlay").click(function(){setTimeout(function(){n("body").removeClass("in")},200),setTimeout(function(){n("body").removeClass("sidenav-open"),n("#side-nav").css("width","0")},400)}),n("#side-search-open").click(function(){n("#side-search").css("width","300"),setTimeout(function(){n("body").addClass("sidesearch-open")},200),setTimeout(function(){n("body").addClass("in")},300)}),n("#side-search-close, #canvas-overlay").click(function(){setTimeout(function(){n("body").removeClass("in")},200),setTimeout(function(){n("body").removeClass("sidesearch-open"),n("#side-search").css("width","0")},300)})},counter:function(){n("#counter").each(function(){n(this).waypoint({handler:function(e){n(".number").countTo({speed:1e3}),this.destroy()},offset:"80%"})})},skills:function(){n("#skills").each(function(){return n(this).waypoint({handler:function(e){n(".progress").each(function(){console.log(n(this).attr("data-percent")),n(this).find(".progress-bar").delay(1e4).css({width:n(this).attr("data-percent")})})},offset:"80%"}),!1})},aos:function(){AOS.init({once:!0})},navbarChange:function(){n(t).scroll(function(){var e=n(t).scrollTop();return 150<e?(n("#header-navbar").removeClass("navbar-transparent"),n("body").addClass("not-on-top")):(n("body").removeClass("not-on-top"),n("#header-navbar").addClass("navbar-transparent")),!1})}};n(e).ready(function(){o.init(n)})}(window.jQuery,window,document);
     </script>
 </body>

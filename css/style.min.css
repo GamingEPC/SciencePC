@@ -147,7 +147,7 @@ section {
     /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #1c077a, #051989);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #081671, #1a0b76cb);
+    background: linear-gradient(to right, #0c1761, #200f85fc);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
   .overlay.bg-white {
     color: #000; }
