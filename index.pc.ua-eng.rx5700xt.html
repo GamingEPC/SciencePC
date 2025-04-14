@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+    <link rel="icon" sizes="512x512" href="https://cdn.icon-icons.com/icons2/1525/PNG/512/976598-appliances-case-computer-computer-tower-desktop-pc_106551.png">
+    <link rel="shortcut icon" href="https://cdn.icon-icons.com/icons2/1525/PNG/512/976598-appliances-case-computer-computer-tower-desktop-pc_106551.png" type="image/x-icon"/>
+    <link rel="apple-touch-icon" href="https://cdn.icon-icons.com/icons2/1525/PNG/512/976598-appliances-case-computer-computer-tower-desktop-pc_106551.png" type="image/x-icon"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title data-lang='{"UA": "Тінь Дракона", "EN": "Shadow Dragon"}'>Shadow Dragon</title>
+    <meta name="description" content="X99-RS9">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- External CSS -->
+    <style>
+        body {
+  overflow: hidden;
+  min-height: 500vh;
+}
+    </style>
+    </style>
+    <audio id="wolfHowl" src="sounds/dragon-roar.mp3"></audio>
+    <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              const wolfHowl = document.getElementById('wolfHowl');
+            
+              function playWolfHowl() {
+                if (wolfHowl) {
+                  wolfHowl.currentTime = 0; // Сброс звука на начало
+                  wolfHowl.play().catch((error) => {
+                    console.error('Ошибка воспроизведения звука:', error);
+                  });
+                }
+                // Удаляем обработчик после первого воспроизведения
+                document.removeEventListener('click', playWolfHowl);
+              }
+            
+              // Добавляем обработчик клика на документ
+              document.addEventListener('click', playWolfHowl);
+            });
+            document.addEventListener('DOMContentLoaded', function () {
+        const body = document.body;
+      
+        function createWolfEmoji() {
+          const wolfEmoji = document.createElement('div');
+          wolfEmoji.textContent = '🐉';
+          wolfEmoji.style.position = 'fixed';
+          wolfEmoji.style.fontSize = '50px';
+          wolfEmoji.style.top = `${Math.random() * 100}vh`;
+          wolfEmoji.style.left = `${Math.random() * 100}vw`;
+          wolfEmoji.style.transform = 'scale(0)';
+          wolfEmoji.style.transition = 'transform 0.5s ease, opacity 2s ease';
+          wolfEmoji.style.opacity = '1';
+          body.appendChild(wolfEmoji);
+      
+          // Анимация увеличения и исчезновения
+          setTimeout(() => {
+            wolfEmoji.style.transform = 'scale(3)';
+            wolfEmoji.style.opacity = '0';
+          }, 100);
+      
+          // Удаление эмодзи после завершения анимации
+          setTimeout(() => {
+            wolfEmoji.remove();
+          }, 2000);
+        }
+      
+        // Создание нескольких эмодзи волков
+        for (let i = 0; i < 10; i++) {
+          setTimeout(createWolfEmoji, i * 200); // Задержка между появлением эмодзи
+        }
+      });
+    </script>
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" href="vendor/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/lightcase/lightcase.css">
+     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Work+Sans:300,400,700" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.min.rx5700xt.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="Alex">
+
+    <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+</head>
+<style>
+    button.primary-buttons {
+ --glow-color: rgb(217, 176, 255);
+ --glow-spread-color: rgba(191, 123, 255, 0.781);
+ --enhanced-glow-color: rgb(231, 206, 255);
+ --btn-color: rgb(100, 61, 136);
+ border: .25em solid var(--glow-color);
+ padding: 1em 3em;
+ color: var(--glow-color);
+ font-size: 15px;
+ font-weight: bold;
+ background-color: var(--btn-color);
+ border-radius: 1em;
+ outline: none;
+ box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 1em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+ text-shadow: 0 0 .5em var(--glow-color);
+ position: relative;
+ transition: all 0.3s;
+}
+
+button.primary-buttons::after {
+ pointer-events: none;
+ content: "";
+ position: absolute;
+ top: 120%;
+ left: 0;
+ height: 100%;
+ width: 100%;
+ background-color: var(--glow-spread-color);
+ filter: blur(2em);
+ opacity: .7;
+ transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+}
+
+button.primary-buttons:hover {
+ color: var(--btn-color);
+ background-color: var(--glow-color);
+ box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 2em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+}
+
+button.primary-buttons:active {
+ box-shadow: 0 0 0.6em .25em var(--glow-color),
+        0 0 2.5em 2em var(--glow-spread-color),
+        inset 0 0 .5em .25em var(--glow-color);
+}
+button.my-buttons {
+  /* Стили для кнопки */
+  margin-top: 100px; /* Задаем отступ сверху */
+}
+</style>
+<body data-spy="scroll" data-target="#navbar" class="static-layout">
+    <nav id="header-navbar" class="navbar navbar-expand-lg py-4 fixed-top hide-on-mobile">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center text-white" href="/">
+                <h3 class="font-weight-bolder mb-0"></h3>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-nav-header" aria-controls="navbar-nav-header" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="lnr lnr-menu"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-nav-header">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <li class="nav-item">
+                          <a class="nav-link alternative triple-buttons" href="#drivers" data-lang='{"UA": "Драйвера та Программи", "EN": "Drivers and Programs"}'>Драйвера та Программи</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link alternative triple-buttons" href="index.html" data-lang='{"UA": "Домашня Сторiнка", "EN": "Home Page"}'>Домашня Сторiнка</a>
+                        </li>             
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html"></a>
+                </li>
+                <div>
+                  <!-- Кнопка для украинского языка -->
+                  <button id="lang-ua" class="lang-button">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/383px-Flag_of_Ukraine.svg.png" alt="Українська" class="flag-icon">
+                  </button>
+                
+                  <!-- Кнопка для английского языка -->
+                  <button id="lang-en" class="lang-button">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png" alt="English" class="flag-icon">
+                  </button>
+                </div>
+                
+                <style>
+                  .lang-button {
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    padding: 5px;
+                    margin: 0 5px;
+                  }
+                
+                  .flag-icon {
+                    width: 30px; /* Ширина иконки */
+                    height: 20px; /* Высота иконки */
+                    display: block;
+                  }
+                
+                  .lang-button:focus {
+                    outline: none;
+                  }
+                </style>
+                    <div id="glow">
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                    </div>
+                  </button>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div id="side-nav" class="sidenav">
+	<a href="javascript:void(0)" id="side-nav-close">&times;</a>
+	
+	<div class="sidenav-content">
+	</div>
+</div><div id="side-search" class="sidenav">
+	<a href="javascript:void(0)" id="side-search-close">&times;</a>
+	<div class="sidenav-content">
+		<form action="">
+
+			<div class="input-group md-form form-sm form-2 pl-0">
+			  <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
+			  <div class="input-group-append">
+			    <button class="input-group-text red lighten-3" id="basic-text1">
+			    	<span class="lnr lnr-magnifier"></span>
+			    </button>
+			  </div>
+			</div>
+		</form>
+	</div>
+</div>	
+<div class="jumbotron d-flex align-items-center">
+    <style>
+/* Скрыть элементы на мобильных устройствах */
+
+/* Скрыть кнопки на десктопной версии */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  height: 3rem;
+  background-size: 300% 300%;
+  backdrop-filter: blur(1rem);
+  border-radius: 5rem;
+  transition: 0.5s;
+  animation: gradient_301 5s ease infinite;
+  border: double 4px transparent;
+  background-image: linear-gradient(#212121, #212121), url('https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg');
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  background-size: cover;
+  background-position: center;
+}
+
+#container-stars {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: 0.5s;
+  backdrop-filter: blur(1rem);
+  border-radius: 5rem;
+}
+
+strong {
+  z-index: 2;
+  font-family: 'Avalors Personal Use';
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: #FFFFFF;
+  text-shadow: 0 0 4px white;
+}
+
+#glow {
+  position: absolute;
+  display: flex;
+  width: 12rem;
+}
+
+.circle {
+  width: 100%;
+  height: 30px;
+  filter: blur(2rem);
+  animation: pulse_3011 4s infinite;
+  z-index: -1;
+}
+
+.circle:nth-of-type(1) {
+  background: rgba(254, 83, 186, 0.636);
+}
+
+.circle:nth-of-type(2) {
+  background: rgba(142, 81, 234, 0.704);
+}
+
+.btn:hover #container-stars {
+  z-index: 1;
+  background-color: #212121;
+}
+
+.btn:hover {
+  transform: scale(1.1)
+}
+
+.btn:active {
+  border: double 4px #FE53BB;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  animation: none;
+}
+
+.btn:active .circle {
+  background: #FE53BB;
+}
+
+#stars {
+  position: relative;
+  background: transparent;
+  width: 200rem;
+  height: 200rem;
+}
+
+#stars::after {
+  content: "";
+  position: absolute;
+  top: -10rem;
+  left: -100rem;
+  width: 100%;
+  height: 100%;
+  animation: animStarRotate 90s linear infinite;
+}
+
+#stars::after {
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+}
+
+#stars::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 170%;
+  height: 500%;
+  animation: animStar 60s linear infinite;
+}
+
+#stars::before {
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+  opacity: 0.5;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-135rem);
+  }
+}
+
+@keyframes animStarRotate {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes gradient_301 {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse_3011 {
+  0% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+
+        .animated-image {
+        animation: moveUpDown 15s infinite;
+        }
+    
+        @keyframes moveUpDown {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <div class="container text-center">
+        <h2 id="rainbow-text">
+          <span>S</span><span>H</span><span>A</span><span>D</span><span>O</span><span>W</span>
+          <span>D</span><span>R</span><span>A</span><span>G</span><span>O</span><span>N</span>
+        </h2>
+        <img src="img/Neon Dragon v2.png" width="800" height="500" alt="Animated Image" class="animated-image">
+      </div>
+    <a class="Btn" href="https://www.olx.ua/d/uk/obyavlenie/potuzhniy-igroviy-kompyuter-z-amd-rx-5700-xt-amd-ryzen-5-32-gb-ozu-IDWDkuz.html?bs=olx_pro_listing" data-lang='{"UA": "Купити", "EN": "Buy"}'>
+      Купити
+      <svg class="svgIcon" viewBox="0 0 576 512">
+        <path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path>
+      </svg>
+    </a>
+       <style>
+        .Btn {
+   width: 130px;
+   height: 60px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: rgb(15, 15, 15);
+   border: none;
+   color: white;
+   font-weight: 600;
+   gap: 8px;
+   cursor: pointer;
+   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+   position: absolute;
+   bottom: 35px;
+   left: 50%;
+   transform: translateX(-50%);
+   overflow: hidden;
+   transition-duration: .3s; 
+   z-index: 1; /* Установите желаемое значение индекса, например, 999 */
+ }
+ 
+ .svgIcon {
+   width: 16px;
+ }
+ 
+ .svgIcon path {
+   fill: white;
+ }
+ 
+ .Btn::before {
+   width: 130px;
+   height: 130px;
+   position: absolute;
+   content: "";
+   background-color: white;
+   border-radius: 50%;
+   left: -100%;
+   top: 0;
+   transition-duration: .3s;
+   mix-blend-mode: difference;
+ }
+ 
+ .Btn:hover::before {
+   transition-duration: .3s;
+   transform: translate(100%,-50%);
+   border-radius: 0;
+ }
+ 
+ .Btn:active {
+   transform: translate(5px,5px);
+   transition-duration: .3s;
+ }
+       </style>
+      <style>
+
+/* Стили для десктопной версии */
+.animated-image {
+  width: 800px;
+  height: 800px;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+  /* Стили для мобильной версии */
+  .animated-image {
+    width: 450px; /* Новое разрешение для мобильной версии */
+    height: 350px;
+  }
+}
+
+        @font-face {
+        font-family: 'Qore';
+        src: url('Qore.otf') format('opentype');
+    }
+    @font-face {
+        font-family: 'MotocarsDemo';
+        src: url('MotocarsDemo.ttf') format('truetype');
+    }
+    @font-face {
+        font-family: 'GType';
+        src: url('better-vcr_0.ttf') format('truetype');
+    }
+    @font-face {
+        font-family: 'Better';
+        src: url('better-vcr_0.ttf') format('truetype');
+    }
+    #TEXT2 {
+        font-family: 'Better', sans-serif;
+        font-size: 25px;
+    }
+    #TEXT {
+        font-family: 'Better', sans-serif;
+        font-size: 52.5px;
+    }
+    #DRV {
+        font-family: 'MotocarsDemo', sans-serif;
+        font-size: 78px;
+    }
+    #rainbow-text {
+        font-family: 'Qore', sans-serif;
+        font-size: 42px;
+    }
+      @keyframes rainbow {
+        0% { color: red; }
+        14% { color: orange; }
+        28% { color: yellow; }
+        42% { color: lime; }
+        57% { color: blue; }
+        71% { color: indigo; }
+        85% { color: violet; }
+        100% { color: red; }
+      }
+      
+      #rainbow-text span {
+        animation-name: rainbow;
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+      </style>
+      
+      <script>
+      // Функция для генерации случайного числа в заданном диапазоне
+      function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+      
+      // Функция для генерации случайного цвета
+      function getRandomColor() {
+        var r = getRandomNumber(0, 255);
+        var g = getRandomNumber(0, 255);
+        var b = getRandomNumber(0, 255);
+        return `rgb(${r}, ${g}, ${b})`;
+      }
+      
+      // Функция для изменения цвета каждой буквы
+      function changeLetterColors() {
+        var letterElements = document.querySelectorAll('#rainbow-text span');
+        letterElements.forEach(function(letter) {
+          letter.style.color = getRandomColor();
+        });
+      }
+      
+      // Установка интервала для изменения цвета букв
+      setInterval(changeLetterColors, 1000000); // Изменяйте значение интервала по своему усмотрению
+      </script>
+      
+  <div class="rectangle-1"></div>
+  <div class="rectangle-2"></div>
+  <div class="rectangle-transparent-1"></div>
+  <div class="rectangle-transparent-2"></div>
+  <div class="circle-1"></div>
+  <div class="circle-2"></div>
+  <div class="circle-3"></div>
+  <div class="triangle triangle-1">
+  	<img src="img/obj_triangle.png" alt="">
+  </div>
+  <div class="triangle triangle-2">
+  	<img src="img/obj_triangle.png" alt="">
+  </div>
+  <div class="triangle triangle-3">
+  	<img src="img/obj_triangle.png" alt="">
+  </div>
+  <div class="triangle triangle-4">
+  	<img src="img/obj_triangle.png" alt="">
+  </div>
+</div>
+	<!-- Features Section-->
+    <section id="testimonial" class="section-padding bg-fixed bg-black overlay" style="background-image: url(img/Shadow/Dragon\ Neon.jpg);">
+        <div class="container">
+            <div class="section-content" data-aos="fade-up">
+                <div class="heading-section text-center">
+                  <h2 id="TEXT" data-lang='{"UA": "Тінь Дракона", "EN": "Shadow Dragon"}'>Shadow Dragon</h2>
+                </div>
+            </div>        
+                <div class="heading-section text-center">
+                  <h2 id="TEXT2" data-lang='{"UA": "Цей ПК з процесором Ryzen 5 2600X, відеокартою AMD RX 5700 XT та 32 ГБ оперативної пам’яті — ідеальний вибір для геймерів, які хочуть максимальну продуктивність без компромісів. Насолоджуйся плавним геймплеєм у Full HD, швидким запуском ігор та багатозадачністю на максимумі. Готовий до бою — залишилось лише підключити монітор і вперед до перемог!", "EN": "Powered by a Ryzen 5 2600X, AMD RX 5700 XT, and 32 GB of RAM, this rig is built for gamers who demand smooth performance without breaking the bank. Dive into Full HD gaming, fast load times, and seamless multitasking. Its ready for action — just plug in your monitor and conquer your favorite titles!"}'>
+                    Цей ПК з процесором Ryzen 5 2600X, відеокартою RX 5700XT та 32 ГБ оперативної пам’яті — ідеальний вибір для геймерів, які хочуть максимальну продуктивність без компромісів. Насолоджуйся плавним геймплеєм у Full HD, швидким запуском ігор та багатозадачністю на максимумі. Готовий до бою — залишилось лише підключити монітор і вперед до перемог!
+                  </h2>
+                </div>
+                <div class="row">
+                  <style>
+                    /* Медиа-запрос для уменьшения изображения на мобильных устройствах */
+                    @media (max-width: 768px) {
+                        .vbc img {
+                            max-width: 700px;
+                            height: 300px;
+                        }
+                    }
+                </style>
+                    <!-- Testimonial -->
+                    <div class="testi-content testi-carousel owl-carousel">
+                      <div class="testi-item text-center">
+                        <h4 class="testi-text" style="font-size: 36px;"><b></b><br></h4>
+                        <div class="testi-meta-inner d-flex justify-content-center align-items-center">
+                          <div class="vbc">
+                            <a href="img/Shadow/IMG-20250408-WA0008.jpg" data-lightbox="gallery" data-title="Image 1">
+                              <img src="img/Shadow/IMG-20250408-WA0008.jpg" alt="" width="800" height="800">
+                            </a>
+                          </div>
+                          <div class="testi-details">
+                            <p class="testi-author mb-0 font-weight-bolder"></p>
+                            <p class="testi-desc mb-0"></p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="testi-item text-center">
+                        <h4 class="testi-text" style="font-size: 36px;"><b></b><br></h4>
+                        <div class="testi-meta-inner d-flex justify-content-center align-items-center">
+                          <div class="vbc">
+                            <a href="img/Shadow/IMG-20250408-WA0010.jpg" data-lightbox="gallery" data-title="Image 2">
+                              <img src="img/Shadow/IMG-20250408-WA0010.jpg" alt="" width="800" height="800">
+                            </a>
+                          </div>
+                          <div class="testi-details">
+                            <p class="testi-author mb-0 font-weight-bolder"></p>
+                            <p class="testi-desc mb-0"></p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="testi-item text-center">
+                        <h4 class="testi-text" style="font-size: 36px;"><b></b><br></h4>
+                        <div class="testi-meta-inner d-flex justify-content-center align-items-center">
+                          <div class="vbc">
+                            <a href="img/Shadow/IMG-20250408-WA0011.jpg" data-lightbox="gallery" data-title="Image 3">
+                              <img src="img/Shadow/IMG-20250408-WA0011.jpg" alt="" width="800" height="800">
+                            </a>
+                          </div>
+                          <div class="testi-details">
+                            <p class="testi-author mb-0 font-weight-bolder"></p>
+                            <p class="testi-desc mb-0"></p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="testi-item text-center">
+                        <h4 class="testi-text" style="font-size: 36px;"><b></b><br></h4>
+                        <div class="testi-meta-inner d-flex justify-content-center align-items-center">
+                          <div class="vbc">
+                            <a href="img/Shadow/Снимок экрана (8).png" data-lightbox="gallery" data-title="Image 4">
+                              <img src="img/Shadow/Снимок экрана (8).png" alt="" width="800" height="600">
+                            </a>
+                          </div>
+                          <div class="testi-details">
+                            <p class="testi-author mb-0 font-weight-bolder"></p>
+                            <p class="testi-desc mb-0"></p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="testi-item text-center">
+                        <h4 class="testi-text" style="font-size: 36px;"><b></b><br></h4>
+                        <div class="testi-meta-inner d-flex justify-content-center align-items-center">
+                          <div class="vbc">
+                            <a href="img/Shadow/Снимок экрана (9).png" data-lightbox="gallery" data-title="Image 5">
+                              <img src="img/Shadow/Снимок экрана (9).png" alt="" width="800" height="600">
+                            </a>
+                          </div>
+                          <div class="testi-details">
+                            <p class="testi-author mb-0 font-weight-bolder"></p>
+                            <p class="testi-desc mb-0"></p>
+                          </div>
+                    </div>
+                      </div>
+                      <div class="testi-item text-center">
+                        <h4 class="testi-text" style="font-size: 36px;"><b></b><br></h4>
+                        <div class="testi-meta-inner d-flex justify-content-center align-items-center">
+                          <div class="vbc">
+                            <a href="img/Shadow/Снимок экрана (10).png" data-lightbox="gallery" data-title="Image 6">
+                              <img src="img/Shadow/Снимок экрана (10).png" alt="" width="800" height="600">
+                            </a>
+                          </div>
+                          <div class="testi-details">
+                            <p class="testi-author mb-0 font-weight-bolder"></p>
+                            <p class="testi-desc mb-0"></p>
+                          </div>
+
+    </section>
+
+<section id="features" class="bg-white">
+    <div class="container">
+        <div class="section-content">
+            <!-- Section Title -->
+            <div class="title-wrap mb-5" data-aos="fade-up">
+                <h2 class="section-title">
+                <a href="https://gettemplates.co" target="_blank"></a>
+                </h2>
+                <p class="section-sub-title"><br></p>
+            </div>
+            <!-- End of Section Title -->
+            <div class="row">
+                <!-- Features Holder-->
+                <div class="col-md-10 offset-md-1 features-holder">
+                    <div class="row">
+                        <!-- Features Item -->
+                          <div class="col-md-4 col-sm-12 text-center mt-4">
+                          <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                            <div class="my-4">
+                              <img src="Motherboard ico.png" alt="Image" class="picture" style="width: 60px;" style="height: 60px;">
+                            </div>
+                            <h4 data-lang='{"UA": "Soyo B450M", "EN": "Soyo B450M"}'>Soyo B450M</h4>
+                            <p data-lang='{"UA": "Все необхiдне на материнськiй платi!", "EN": "Everything you need on the motherboard!"}'>Все необхiдне на материнськiй платi!</p>
+                            <img src="img/Cyber/SYO B450m A.avif" alt="Image" class="picture" style="width: 200px;" style="height: 200px;">
+                          </div>
+                          <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                            <div class="my-4">
+                              <img src="CPU ico.png" alt="Image" class="picture" style="width: 60px;" style="height: 60px;">
+                            </div>
+                            <h4 data-lang='{"UA": "AMD Ryzen 5 2600X", "EN": "AMD Ryzen 5 2600X"}'>Ryzen 5 2600X</h4>
+                            <p data-lang='{"UA": "3.6-4.1 Ггц - 6 ядерний/12 поточний", "EN": "3.6-4.1 GHz - 6 cores/12 Threads"}'>3.6-4.1 GHz - 6 cores/12 Threads</p>
+                            <img src="img/Shadow/Ryzen 5 2600X.webp" alt="Image" class="picture" style="width: 150px;" style="height: 150px;">
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-sm-12 text-center">
+                          <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                            <div class="my-4">
+                              <img src="RAM ico.png" alt="Image" class="picture" style="width: 60px;" style="height: 60px;">
+                            </div>
+                            <h4 data-lang='{"UA": "QIYIDA DDR4 RAM", "EN": "QIYIDA DDR4 RAM"}'>QIYIDA DDR4 RAM</h4>
+                            <p data-lang='{"UA": "32 гiгабайт iгровоi памятi DDR4 3200Мгц-16ГБ * 2ШТ", "EN": "32 GB of gaming DDR4 RAM 3200MHz-16GB * 2"}'>32 гiгабайт iгровоi пам'ятi DDR4 3200Мгц-16ГБ * 2ШТ</p>
+                            <img src="img/Cyber/KLLISRE DDR4.webp" alt="Image" class="picture" style="width: 200px;" style="height: 200px;">
+                          </div>
+                          <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                            <div class="my-4">
+                              <img src="PWU ico.png" alt="Image" class="picture" style="width: 60px;" style="height: 60px;">
+                            </div>
+                            <h4 data-lang='{"UA": "Chieftec APS 500-S", "EN": "Chieftec APS 500-S"}'>Chieftec APS 500-S</h4>
+                            <p data-lang='{"UA": "Потужний та надійний БЖ вiд Chieftec", "EN": "Powerful and reliable PSU from Cfieftec"}'>Потужний та надійний БЖ вiд Chieftec</p>
+                            <img src="img/Shadow/Chieftec.jpg" alt="Image" class="picture" style="width: 200px;" style="height: 200px;">
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-sm-12 text-center mt-5">
+                          <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                            <div class="my-4">
+                              <img src="SSD Ico.png" alt="Image" class="picture" style="width: 60px;" style="height: 60px;">
+                            </div>
+                            <h4 data-lang='{"UA": "SSD NVME 512GB", "EN": "SSD NVME 512GB"}'>SSD NVME 512GB</h4>
+                            <p data-lang='{"UA": "Швидкодiйний сучасний накопичувач зi скоростями до 2500 Мб/с на зчитання та на 2100 Мб/с на запис", "EN": "High-speed modern storage with speeds up to 2500 MB/s read and 2100 MB/s write"}'>Швидкодiйний сучасний накопичувач зi скоростями до 2500 Мб/с на зчитання та на 2100 Мб/с на запис</p>
+                            <img src="Huadisk-SSD.png" alt="Image" class="picture" style="width: 300px;" style="height: 300px;">
+                          </div>
+                          <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                            <div class="my-5">
+                              <img src="RX6600M Ico.png" alt="Image" class="picture" style="width: 60px;" style="height: 60px;">
+                            </div>
+                            <h4 data-lang='{"UA": "AMD RX 5700 XT", "EN": "AMD RX 5500 XT"}'>AMD RX 5700 XT</h4>
+                            <p data-lang='{"UA": "Iгрова вiдеокарта AMD RX 5700 XT з 8 ГБ сучасноi GDDR6 памятi", "EN": "Gaming GPU AMD RX 5700 XT with 8 GB of modern GDDR6 memory"}'>Gaming GPU Nvidia GTX 1660 Super with 6 GB of modern GDDR6 memory</p>
+                            <img src="img/Shadow/MLLSE RX 5700XT.jpg" alt="Image" class="picture" style="width: 300px;" style="height: 300px;">
+                          </div>
+                        </div>  
+                        <style>
+                          .feature-item {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            align-items: center;
+                            text-align: center;
+                            height: 460px; /* Увеличено на 15% */
+                            padding: 20px;
+                            box-sizing: border-box;
+                            overflow: hidden; /* Скрывает содержимое, выходящее за пределы блока */
+                          }
+                        
+                          .feature-item img {
+                            max-width: 100%;
+                            max-height: 180px; /* Увеличено на 15% */
+                            object-fit: contain; /* Сохраняет пропорции изображения */
+                          }
+                        
+                          .feature-item h4 {
+                            font-size: 20px; /* Увеличено на 15% */
+                            margin: 10px 0;
+                          }
+                        
+                          .feature-item p {
+                            font-size: 16px; /* Увеличено на 15% */
+                            color: #666;
+                          }
+                        
+                          .features-holder {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: space-between;
+                            gap: 20px; /* Расстояние между блоками */
+                          }
+                        
+                          .col-md-4 {
+                            flex: 1 1 calc(33.333% - 20px); /* Три блока в строке */
+                            max-width: calc(33.333% - 20px);
+                            box-sizing: border-box;
+                          }
+                        
+                          @media (max-width: 768px) {
+                            .col-md-4 {
+                              flex: 1 1 calc(50% - 20px); /* Два блока в строке на мобильных устройствах */
+                              max-width: calc(50% - 20px);
+                            }
+                          }
+                        
+                          @media (max-width: 480px) {
+                            .col-md-4 {
+                              flex: 1 1 100%; /* Один блок в строке на маленьких экранах */
+                              max-width: 100%;
+                            }
+                          }
+                        </style>             
+                        <!-- End of Feature Item -->
+                    </div>
+                </div>
+                <!-- End of Features Holder-->
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    .overlay-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25); /* Цвет затемнения и прозрачность */
+    z-index: 0;
+}
+</style>
+<section id="portfolio" class="features overlay bg-fixed">
+    <div class="container">
+        <div class="section-content">
+            <div class="overlay-bg"></div>
+            <!-- Section Title -->
+            <div class="title-wrap">
+                <h2 class="section-title" style="position: relative; z-index: 2;" data-lang='{"UA": "Система Охолодження", "EN": "Cooling System"}'><b>Система Охолодження</b></h2>
+                <p class="section-sub-title" style="position: relative; z-index: 2; font-size: 24px;" data-lang='{"UA": "Еффективна та тиха система охолодження ПК", "EN": "Efficient and quiet PC cooling system"}'>Еффективна та тиха система охолодження ПК</p>
+            </div>
+            <!-- End of Section Title -->
+            <div class="row">
+                <!-- Portfolio Holder -->
+                <div class="col-md-12 portfolio-holder mt-3">
+                    <!-- Btn Filter -->
+                    <div class="filter-button-group btn-filter d-flex justify-content-center">
+                    </div>
+                    <!-- End of Btn Filter -->
+                    <!-- Portfolio Content -->
+                    <div class="grid-portfolio">
+                        <div class="grid-sizer"></div>
+                        <div class="gutter-sizer"></div>
+                        <!-- Portfolio Item -->
+                        <div class="grid-item minimalism" data-aos="fade-up">
+                            <div class="grid-item-wrapper">
+                                <img src="img/Shadow/Gamemax.webp" alt="portfolio-img" class="portfolio-item" style="width: 200 px; height: 350px; position: relative; margin-left: 0px; z-index: 2;">
+                                <div class="rob" style="position: relative; z-index: 2; text-align: center;">
+                                    <p style="margin-top: 50px">
+                                        <h4 style="font-size: 30px;">Gamemax Infinity Mini</h4>
+                                    </p>
+                                </div>                                
+                                <div class="grid-info">
+                                    <div class="grid-link d-flex justify-content-center">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-item minimalism" data-aos="fade-up">
+                            <div class="grid-item-wrapper">
+                                <img src="img/Shadow/AIGO 400X.png" alt="portfolio-img" class="portfolio-item" style="position: relative; z-index: 2;">
+                                <div class="rob" style="position: relative; z-index: 2; text-align: center;">
+                                    <p style="margin-top: 40px;">
+                                        <h4 style="font-size: 30px;">Aigo ICE 400X</h4>
+                                    </p>
+                                </div>                                
+                                <div class="grid-info">
+                                    <div class="grid-link d-flex justify-content-center">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-item minimalism" data-aos="fade-up">
+                            <div class="grid-item-wrapper">
+                                <img src="img/Shadow/AIGO R12.webp" alt="portfolio-img" class="portfolio-item" style="position: relative; z-index: 2;">
+                                <div class="rob" style="position: relative; z-index: 2; text-align: center;">
+                                    <p style="margin-top: 40px;">
+                                        <h4 style="font-size: 30px;">Aigo R12 Fan's</h4>
+                                    </p>
+                                </div>                                
+                                <div class="grid-info">
+                                    <div class="grid-link d-flex justify-content-center">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End of Features Section-->	<section id="section-featurettes" class="featurettes overlay bg-fixed" style="background-image: url(img/bg.jpg);">
+
+    <div class="container">
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row align-items-center text-white">
+
+                                                <div class="col-md-4 offset-md-2 col-sm-6" data-aos="fade-right">
+                          <h2 class="mb-4 enlarge-text" data-lang='{"UA": "Iгровий тест на продуктивність", "EN": "Gaming Performance Test"}'>Iгровий тест на продуктивність</h2>
+                          <style>
+                            .enlarge-text {
+                              font-size: 21.5px; /* Задайте желаемый размер текста в пикселях или других единицах измерения */
+                            }
+                          </style>
+                          <p data-lang='{"UA": "У цьому відео ви зможете на власні очі переконатися, що це налаштування ідеально підходить для всіх складних завдань, а також для ігор із роздільною здатністю 1920x1080. Він забезпечує плавний FPS і потужну ігрову продуктивність.", "EN": "In this video, you can see for yourself that this setup is perfect for all demanding tasks as well as games with a resolution of 1920x1080. It provides smooth FPS and powerful gaming performance."}'>
+                            У цьому відео ви зможете на власні очі переконатися, що це налаштування ідеально підходить для всіх складних завдань, а також для ігор із роздільною здатністю 1920x1080. Він забезпечує плавний FPS і потужну ігрову продуктивність.
+                          </p>
+                        </div>
+                        <!--/ .col-md-4.col-md-offset-2.col-sm-6 -->
+
+                        <div class="col-md-4 offset-md-right-2 col-sm-6" data-aos="flip-right">
+                            <iframe class="mobile-video" width="560" height="315" src="https://www.youtube.com/embed/rphxMMbu5Mc?si=qtuacEnoA-ZWZDqY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                          </div>
+                          <style>
+                            @media (max-width: 768px) {
+                              .mobile-video {
+                                width: 100%; /* Задайте новую ширину для видео в процентах */
+                                height: 250px; /* Автоматический расчет высоты, чтобы сохранить пропорции */
+                              }
+                            }
+                            </style> 
+
+                    </div><!--/ .featurettes-item -->
+
+                </div><!--/ .col-md-12 -->
+
+            </div><!--/ .row -->
+        </div>
+    </div><!--/ .container -->
+
+</section>	
+<section id="section-featurettes2" class="featurettes">
+  <div class="container">
+    <div class="section-content">
+      <div class="row align-items-center">
+        <div class="col-md-6" data-aos="flip-center">
+          <img class="mt-4 scaled-image" src="img/Shadow/Gamemax.webp">
+        </div>
+                <style>
+                  .scaled-image {
+                    transform: scale(1.0); /* Увеличение в 1.5 раза для десктопной версии */
+                    transform-origin: center; /* Центрирование увеличения */
+                    transition: transform 0.3s ease; /* Плавный переход */
+                  }
+                
+                  @media (max-width: 768px) {
+                    .scaled-image {
+                      transform: scale(1.1); /* Увеличение в 1.1 раза для мобильной версии */
+                    }
+                  }
+                </style>
+                <div class="col-md-6" data-aos="fade-center">
+                    <style>
+                        @media (max-width: 768px) {
+                        .mobile-heading {
+                        font-size: 1px; /* Задайте новый размер текста для мобильных устройств */
+                        }
+                        }
+                        </style>
+                                        <h4 class="mb-4" style="text-align: center;" data-lang='{"UA": "Гра з Тіньовим Драконом", "EN": "Game with Shadow Dragon"}'>Гра з Тіньовим Драконом</h4>
+
+                    <style>
+                    @media (max-width: 768px) {
+                      h4.mb-4 {
+                        font-size: 18px;
+                      }
+                    }
+                    </style>
+                  
+                    <style>
+                        .center-heading {
+                          text-align: center;
+                        }
+                        </style>
+                    <div class="progress mb-3">
+                        <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">Cyberpunk 2077 (High) 60-80 fps</div>
+                    </div>
+                    <div class="progress mb-3">
+                        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">S.T.A.L.K.E.R 2 (Medium) 50-90 fps</div>
+                    </div>
+                    <div class="progress mb-3">
+                        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">Counter-Strike: 2 180+ fps</div>
+                    </div>
+                    <div class="progress mb-3">
+                        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">Dota 2 200+ fps</div>
+                    </div>
+                    <div class="progress mb-3">
+                      <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">Red Dead Redemption 2 (High) 45-60+ fps</div>
+                  </div>                          
+                </div>
+            </div>
+        </div>
+    </div>    
+                        </div><!--/ .col-md-4.col-md-offset-2.col-sm-6 -->
+
+                    </div><!--/ .featurettes-item -->
+
+                </div><!--/ .col-md-12 -->
+
+            </div><!--/ .row -->
+        </div>
+    </div><!--/ .container -->
+
+</section>	<!-- Testimonial Section-->
+
+<!-- End of Testimonial Section-->	<!-- Portfolio Section -->
+<section id="drivers" class="overlay bg-black" style="background-image: url(img/Shadow/Dragon\ White.jpg); width: 100%;
+height: 1350px;">
+    <div class="overlay-content">
+        <div class="container">
+            <div class="section-content" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Section Title -->
+                        <style>
+                          @media only screen and (max-width: 767px) {
+                          .mobile-next {
+                           font-size: 26.4px; /* Задайте желаемый размер шрифта для мобильных устройств */
+                          }
+                          }
+                          #drivers {
+                            position: relative;
+                            height: 100vh;
+                            background-size: cover;
+                            background-position: center;
+                          }
+                        
+                          .overlay {
+                            position: relative;
+                            z-index: 1;
+                          }
+                        
+                          .bg-black::before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: black;
+                            opacity: 0.7; /* Увеличьте значение прозрачности для более сильного затемнения */
+                          }
+                        
+                          .overlay-content {
+                            position: relative;
+                            z-index: 2;
+                            padding: 20px;
+                            color: white;
+                          }
+                        
+                          .rainbow-text {
+                            font-weight: bold;
+                            animation: rainbow-animation 5s ease-in-out infinite;
+                          }
+                        
+                          @keyframes rainbow-animation {
+                            0% { text-shadow: 0 0 3px #ff0000; }
+                            14% { text-shadow: 0 0 3px #ff7f00; }
+                            28% { text-shadow: 0 0 3px #ffff00; }
+                            42% { text-shadow: 0 0 3px #00ff00; }
+                            57% { text-shadow: 0 0 3px #0000ff; }
+                            71% { text-shadow: 0 0 3px #4b0082; }
+                            85% { text-shadow: 0 0 3px #8b00ff; }
+                            100% { text-shadow: 0 0 3px #ff0000; }
+                          }
+                        </style>
+
+              <h2 style="font-size: 35px;" class="My-edit">
+                  
+              </h2>
+              <style>
+                  /* Стили для уменьшения текста на мобильных устройствах */
+                  @media screen and (max-width: 768px) {
+                      .My-edit {
+                          font-size: 30px; /* Задайте меньший размер текста для мобильных устройств */
+                      }
+                  }
+                  </style>
+                  <h2 style="font-size: 20px;">
+
+                      </h2>
+                      <style>
+                          @media (max-width: 767px) {
+                            .mobile-text {
+                              font-size: 10px;
+                            }
+                          }
+                          </style>
+                          <style>
+                            button.secondary-buttons {
+                            text-decoration: none;
+                            position: relative;
+                            border: none;
+                            font-size: 14px;
+                            font-family: inherit;
+                            color: #fff;
+                            width: 9em;
+                            height: 3em;
+                            line-height: 2em;
+                            text-align: center;
+                            background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+                            background-size: 300%;
+                            border-radius: 30px;
+                            z-index: 1;
+                          }
+                          
+                          button.secondary-buttons:hover {
+                            animation: ani 8s linear infinite;
+                            border: none;
+                          }
+                          
+                          @keyframes ani {
+                            0% {
+                              background-position: 0%;
+                            }
+                          
+                            100% {
+                              background-position: 400%;
+                            }
+                          }
+                          
+                          button.secondary-buttons:before {
+                            content: '';
+                            position: absolute;
+                            top: -5px;
+                            left: -5px;
+                            right: -5px;
+                            bottom: -5px;
+                            z-index: -1;
+                            background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+                            background-size: 400%;
+                            border-radius: 35px;
+                            transition: 1s;
+                          }
+                          
+                          button.secondary-buttons:hover::before {
+                            filter: blur(20px);
+                          }
+                          
+                          button.secondary-buttons:active {
+                            background: linear-gradient(32deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+                          } 
+                          @font-face {
+    font-family: 'Library3amSoft';
+    src: url('fonts/Library 3 am soft.otf') format('opentype');
+  }
+
+  @font-face {
+    font-family: 'Basis33';
+    src: url('fonts/basis33.ttf') format('truetype');
+  }
+
+  /* Применение шрифта к основному заголовку */
+  #DRV {
+    font-family: 'Library3amSoft', sans-serif;
+    font-size: 60px; /* Увеличен размер шрифта */
+  }
+
+  /* Применение шрифта ко всем другим заголовкам */
+  h2, h4 {
+    font-family: 'Basis33', sans-serif;
+    font-size: 36px; /* Увеличен размер шрифта */
+  }
+
+  /* Адаптивность для мобильных устройств */
+  @media (max-width: 768px) {
+    #DRV {
+      font-size: 60px; /* Уменьшение размера шрифта для мобильных устройств */
+    }
+
+    h2, h4 {
+      font-size: 30px; /* Уменьшение размера шрифта для мобильных устройств */
+    }
+  }
+                                                          </style> 
+                        
+                                                                                                <div class="title-wrap mb-5">
+                                                  <h2 id="DRV" data-lang='{"UA": "Драйвера та Программи", "EN": "Drivers and Programs"}'>
+                                                    <b>
+                                                      <span class="rainbow-text mobile-next">Драйвера та Программи</span>
+                                                    </b>
+                                                  </h2>
+                                                  <h2 style="font-size: 20px;" data-lang='{"UA": "Realtek Аудiо Драйвера", "EN": "Realtek Audio Drivers"}'>
+                                                    <b>Realtek Аудiо Драйвера</b>
+                                                  </h2>
+                                                  <h2 style="font-size: 20px; display: flex; justify-content: space-between;">
+                                                    <button class="my-button secondary-buttons" onclick="window.location.href='http://www.huananzhi.com/attach/Drive/897AudioDrive/897Audio.rar'" style="width: 50%; height: 50%; margin-right: 15px;">
+                                                      <span class="mobile-text" data-lang='{"UA": "Аудiо драйвера R2.81 (Win7/Win11)", "EN": "Audio Drivers R2.81 (Win7/Win11)"}'>Аудiо драйвера R2.81 (Win7/Win11)</span>
+                                                    </button>
+                                                    <button class="my-button secondary-buttons" onclick="window.location.href='https://drive.google.com/uc?export=download&id=1tjZNnL-j8NNwKGt2HGpoJ__mWPRW6n5H'" style="width: 50%; height: 50%; margin-right: 15px;">
+                                                      <span class="mobile-text" data-lang='{"UA": "Аудiо драйвера R2.76 (Win7/Win11)", "EN": "Audio Drivers R2.76 (Win7/Win11)"}'>Аудiо драйвера R2.76 (Win7/Win11)</span>
+                                                    </button>
+                                                  </h2>
+                                                  <h2 style="font-size: 35px;" data-lang='{"UA": "Драйвера вiдеокарти", "EN": "GPU Drivers"}'>
+                                                    <b>Драйвера вiдеокарти</b>
+                                                  </h2>
+                                                  <h2 style="font-size: 20px;">
+                                                    <button class="my-button secondary-buttons" onclick="window.location.href='https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-5000-series/amd-radeon-rx-5700-xt.html'" style="width: 50%; height: 50%; display: inline-block;" data-lang='{"UA": "Останнi драйвера до AMD RX 5700XT (Win10/Win11)", "EN": "Latest Drivers for AMD RX 5700XT (Win10/Win11)"}'>
+                                                      Останнi драйвера до AMD RX 5700XT (Win10/Win11)
+                                                    </button>
+                                                  </h2>
+                                                </div>
+                    </div>
+        </div>
+</section>
+<!-- End of Portfolio Section -->	<!-- Client Section -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+	<script src="vendor/bootstrap/popper.min.js"></script>
+	<script src="vendor/bootstrap/bootstrap.min.js"></script>
+	<script src="vendor/select2/select2.min.js "></script>
+	<script src="vendor/owlcarousel/owl.carousel.min.js"></script>
+	<script src="vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
+	<script src="vendor/isotope/isotope.min.js"></script>
+	<script src="vendor/lightcase/lightcase.js"></script>
+	<script src="vendor/waypoints/waypoint.min.js"></script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+	<!-- Main JS -->
+	<style>
+    /* Скрыть текст с количеством изображений в Lightbox2 */
+.lb-number {
+  display: none !important;
+}
+</style>
+<script src="js/lang.rx5600xt.js"></script>
+<script>
+      lightbox.option({
+          'resizeDuration': 200, // Длительность анимации (в миллисекундах)
+          'fadeDuration': 300,   // Длительность затемнения
+          'imageFadeDuration': 300, // Длительность появления изображения
+          'wrapAround': true,     // Позволяет листать изображения по кругу
+          'albumLabel': ''        // Убирает текст "1 из X"
+      });
+    !function(n,t,e){console.log("init");var o={init:function(e){o.select2(),o.stellar(),o.carousel(),o.portfolio(),o.lightCase(),o.sideNav(),o.counter(),o.skills(),o.aos(),o.navbarChange()},select2:function(){n(e).ready(function(){n("select").select2()})},stellar:function(){var e=n(t).width();767<=e&&(n(".bg-fixed").attr("data-stellar-background-ratio","0.8"),n.stellar({horizontalScrolling:!1,responsive:!0,parallaxBackgrounds:!0,scrollProperty:"scroll"}))},carousel:function(){n(".testi-carousel").owlCarousel({loop:!0,margin:10,autoplay:!0,nav:!1,dots:!0,dotSpeed:1e3,autoplay:!0,autoplaySpeed:1e3,items:1}),n(".client-slider").owlCarousel({loop:!0,margin:10,nav:!0,navSpeed:1e3,dots:!1,autoplay:!0,autoplaySpeed:1e3,navText:['<span class="fa fa-angle-left"></span>','<span class="fa fa-angle-right"></span>'],responsive:{0:{items:1},600:{items:3},1e3:{items:6}}})},portfolio:function(){var t=n(".grid-portfolio").isotope({itemSelector:".grid-item",masonry:{gutter:".gutter-sizer",columnWidth:".grid-sizer"},percentPosition:!0});return n(".filter-button-group").on("click","a",function(){var e=n(this).attr("data-filter");t.isotope({filter:e})}),n(".btn-filter a.is-checked").addClass("active"),n(".btn-filter a").on("click",function(){n(".btn-filter a").removeClass("active"),n(this).addClass("active")}),!1},lightCase:function(){jQuery(e).ready(function(e){e("a[data-rel^=lightcase]").lightcase()})},sideNav:function(){n("#side-nav-open").click(function(){n("#side-nav").css("width","300"),setTimeout(function(){n("body").addClass("sidenav-open")},200),setTimeout(function(){n("body").addClass("in")},400)}),n("#side-nav-close, #canvas-overlay").click(function(){setTimeout(function(){n("body").removeClass("in")},200),setTimeout(function(){n("body").removeClass("sidenav-open"),n("#side-nav").css("width","0")},400)}),n("#side-search-open").click(function(){n("#side-search").css("width","300"),setTimeout(function(){n("body").addClass("sidesearch-open")},200),setTimeout(function(){n("body").addClass("in")},300)}),n("#side-search-close, #canvas-overlay").click(function(){setTimeout(function(){n("body").removeClass("in")},200),setTimeout(function(){n("body").removeClass("sidesearch-open"),n("#side-search").css("width","0")},300)})},counter:function(){n("#counter").each(function(){n(this).waypoint({handler:function(e){n(".number").countTo({speed:1e3}),this.destroy()},offset:"80%"})})},skills:function(){n("#skills").each(function(){return n(this).waypoint({handler:function(e){n(".progress").each(function(){console.log(n(this).attr("data-percent")),n(this).find(".progress-bar").delay(1e4).css({width:n(this).attr("data-percent")})})},offset:"80%"}),!1})},aos:function(){AOS.init({once:!0})},navbarChange:function(){n(t).scroll(function(){var e=n(t).scrollTop();return 150<e?(n("#header-navbar").removeClass("navbar-transparent"),n("body").addClass("not-on-top")):(n("body").removeClass("not-on-top"),n("#header-navbar").addClass("navbar-transparent")),!1})}};n(e).ready(function(){o.init(n)})}(window.jQuery,window,document);
+</script>
+</body>
+</html>
