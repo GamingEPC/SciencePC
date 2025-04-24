@@ -39,12 +39,12 @@ document.addEventListener("DOMContentLoaded", function () {
       clickSoundCyberEagle.play().then(() => {
         // Ждём завершения воспроизведения звука перед переадресацией
         clickSoundCyberEagle.addEventListener("ended", function () {
-          window.location.href = "index.pc.ua.rx5600xt.html";
+          window.location.href = "index.pc.ua-en.CyberEagle.html";
         });
       }).catch((error) => {
         console.error("Ошибка воспроизведения звука:", error);
         // Если звук не воспроизводится, сразу выполняем переадресацию
-        window.location.href = "index.pc.ua.rx5600xt.html";
+        window.location.href = "index.pc.ua-en.CyberEagle.html";
       });
     });
   }
