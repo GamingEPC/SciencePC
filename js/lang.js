@@ -90,33 +90,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
-  if (cyberEagleButton) {
-    cyberEagleButton.addEventListener("click", function () {
-      clickSoundCyberEagle.currentTime = 0;
-      clickSoundCyberEagle
-        .play()
-        .then(() => {
-          window.location.href = "index.pc.ua.rx5600xt.html";
-        })
-        .catch((error) => {
-          console.error("Ошибка воспроизведения звука:", error);
-          window.location.href = "index.pc.ua.rx5600xt.html";
-        });
-    });
-  }
-
-  if (otherButton) {
-    otherButton.addEventListener("click", function () {
-      clickSoundOtherButton.currentTime = 0;
-      clickSoundOtherButton
-        .play()
-        .then(() => {
-          window.location.href = "index.pc.ua.other.html";
-        })
-        .catch((error) => {
-          console.error("Ошибка воспроизведения звука:", error);
-          window.location.href = "index.pc.ua.other.html";
-        });
-    });
-  }
