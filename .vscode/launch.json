@@ -7,10 +7,10 @@
 
 
         {
-            "type": "msedge",
+            "type": "chrome",
             "request": "launch",
             "name": "Open index.html",
-            "file": "D:\\My Fold\\My Web-sites\\SciencePC\\index.html"
+            "file": "C:\\Users\\USER\\Documents\\GitHub\\SciencePC\\index.html"
         }
     ]
 }
