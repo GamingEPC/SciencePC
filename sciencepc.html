@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="css/style(buttons).css">
+<link rel="stylesheet" href="css/UA and ENG switcher.css">
+<link rel="stylesheet" href="css/seasons.css">
+<link rel="stylesheet" href="css/Style buttons for Mobile and PC version.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=VT323&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Science PC">
+  <meta property="og:description" content="Потужнi та Надiйнi ПК для iгор та роботи.">
+  <meta property="og:image" content="img/Neon Wolf.png">
+  <meta property="og:url" content="img/Neon Wolf.png">
+  <meta property="og:type" content="website">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Science PC</title>
+  <link rel="icon" href="neon-controller.png" type="image/png">
+  <style>
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @font-face {
+      font-family: 'Cyberpunk';
+      src: url('fonts/Cyberpunk-Regular.ttf') format('truetype');
+    }
+
+    @font-face {
+  font-family: 'EpilepsySans';
+  src: url('fonts/EpilepsySans.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EpilepsySansBold';
+  src: url('fonts/EpilepsySansBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+    @keyframes shadowPulse {
+      0% {
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+      }
+      50% {
+        text-shadow: 0 0 20px #ff5733, 0 0 40px #ff5733, 0 0 60px #ff5733;
+      }
+      100% {
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+      }
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 3rem;
+      color: #ff5733;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+      font-family: 'Cyberpunk', Arial, sans-serif;
+      animation: shadowPulse 6s infinite alternate;
+    }
+
+    /* Основные стили */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: url('https://wallpaperaccess.com/full/2510382.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+.ua-font {
+    font-family: 'EpilepsySans', sans-serif;
+}
+
+.ua-font h3 {
+    font-family: 'EpilepsySansBold', sans-serif !important;
+}
+
+/* Английская версия */
+.en-font {
+    font-family: 'Orbitron', sans-serif;
+}
+
+.en-font ul {
+    font-family: 'VT323', monospace;
+}
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      filter: blur(8px); 
+      z-index: -1;
+    }
+
+    .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
+
+@media (orientation: portrait) {
+  .container {
+    flex-direction: column; 
+    align-items: center; 
+  }
+}
+
+@media (orientation: landscape) {
+  .container {
+    flex-direction: row; 
+    justify-content: center; 
+  }
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    width: 300px; 
+    text-align: center;
+    font-size: 30px;
+}
+
+
+    h3 {
+    margin: 10px 0; 
+}
+
+p {
+    margin: 5px 0;
+    line-height: 1.2; 
+}
+
+.specs {
+    margin-top: 5px;
+    font-size: 12px; 
+}
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #00ffff;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4);
+      border-radius: 10px;
+      width: 250px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center; 
+      justify-content: space-between; 
+      padding: 20px;
+      }
+      .card button {
+      margin-top: auto; 
+      align-self: center; 
+    }
+
+    @keyframes rgb-gradient {
+      0% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000; }
+      25% { border-color: #00ff00; box-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00; }
+      50% { border-color: #0000ff; box-shadow: 0 0 15px #0000ff, 0 0 30px #0000ff; }
+      75% { border-color: #ffff00; box-shadow: 0 0 15px #ffff00, 0 0 30px #ffff00; }
+      100% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000; }
+    }
+
+    .card:hover {
+      animation: rgb-gradient 5s infinite;
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.7), 0 0 40px rgba(0, 255, 255, 0.5);
+    }
+
+    .card h3 {
+      text-align: center;
+      font-size: 1.72rem;
+      color: #fff;
+      margin: 10px 0;
+      font-family: 'Cyberpunk', Arial, sans-serif; 
+    }
+
+    .card p {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #d1d1d1;
+      margin-bottom: 15px;
+    }
+
+    .card ul {
+  list-style: none;
+  padding: 0 15px;
+  margin: 0 0 15px;
+  color: #00ffff;
+  font-size: 1.052rem;
+  text-align: left; 
+}
+
+.bottom-links {
+  position: fixed;
+  bottom: 0; 
+  left: 0;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  justify-content: center; 
+  align-items: center;
+  z-index: 1000; 
+  background: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px; 
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); 
+}
+
+
+
+.bottom-links .profile-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+
+.bottom-links .contact-info {
+  font-size: 1.3rem;
+  font-family: 'VT323', monospace !important;
+}
+    ul {
+  list-style-type: disc;
+  padding-left: 25px;
+}
+li {
+  margin-bottom: 8px;
+}
+.vt323-regular {
+  font-family: "VT323", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.large-text {
+  font-size: 5em; 
+}
+.orbitron-regular {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 425;
+  font-style: normal;
+}
+  </style>
+<body>
+  
+  <div class="language-switcher">
+    <input type="checkbox" id="language-toggle" />
+    <label for="language-toggle" class="toggle">
+      <span class="flag us"></span>
+      <span class="flag ua"></span>
+    </label>
+  </div>
+  
+  <!-- Контейнер для сезонных эффектов -->
+  <div id="effect-container"></div> 
+
+<h1>Science PC</h1>
+  <div class="container">
+    <!-- Карточка 1 -->
+    <div class="card">
+      <img src="img/Neon Wolf.png" alt="ПК 1">
+      <style>
+        .card img {
+  width: 100%; 
+  height: auto; 
+  object-fit: cover; 
+  transition: transform 0.3s ease; 
+}
+
+.card img:hover {
+  transform: scale(1.05); 
+}
+      </style>
+      <h3 data-lang='{"UA": "Залізний Вовк", "EN": "Iron Wolf"}'>Iron Wolf</h3>
+      <p data-lang='{"UA": "Надiйний ПК", "EN": "Solid PC"}'>Solid PC</p>
+      <ul>
+        <li data-lang='{"UA": "🎮 Відеокарта: AMD RX 5500XT", "EN": "🎮 GPU: AMD RX 5500XT"}'>🎮 GPU: AMD RX 5500XT</li>
+        <li data-lang='{"UA": "🖥️ Процесор: Intel Xeon 2650V3", "EN": "🖥️ CPU: Intel Xeon 2650V3"}'>🖥️ CPU: Intel Xeon 2650V3</li>
+        <li data-lang='{"UA": "🔋ОЗП (DDR4 2133 МГц): 32 ГБ", "EN": "🔋 RAM (DDR4 2133 MHZ): 32 GB"}'>💾 RAM: 32 GB DDR4 2133 MHZ</li>
+        <li data-lang='{"UA": "📀 SSD NVMe: 512 ГБ", "EN": "📀 SSD Nvme: 512 GB"}'>📀 SSD Nvme: 512 GB</li>
+      </ul>
+<div class="button">
+  <button id="redirectButton" name="checkbox" type="button"></button>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+</div>
+          <div class="card">
+            <img src="img/Neon Eagle.webp" alt="ПК 2">
+            <h3 data-lang='{"UA": "Кібер Сокіл", "EN": "Cyber Eagle"}'>Cyber Eagle</h3>
+            <p data-lang='{"UA": "Швидкий ПК", "EN": "Fastest PC"}'>Fastest PC</p>
+            <ul>
+              <li data-lang='{"UA": "🎮 Відеокарта: GTX 1660 Super", "EN": "🎮 GPU: Nvidia GTX 1660 Super"}'>GPU: Nvidia GTX 1660S</li>
+              <li data-lang='{"UA": "🖥️ Процесор: Ryzen 5 3500X", "EN": "🖥️ CPU: Ryzen 5 3500X"}'>CPU: Ryzen 5 3500X</li>
+              <li data-lang='{"UA": "🔋ОЗП (DDR4 3200 МГц): 32 ГБ", "EN": "🔋 RAM (DDR4 3200 MHZ): 32 GB"}'>RAM: 32 GB DDR4 3200 MHZ</li>
+              <li data-lang='{"UA": "📀 SSD NVMe: 512 ГБ", "EN": "📀 SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
+            </ul>
+      <div class="button">
+        <button id="redirectButton2" name="checkbox" type="button"></button>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      </div>
+
+    <div class="card">
+      <img src="img/Neon Dragon v2.png" alt="ПК 3">
+      <h3 data-lang='{"UA": "Тінь Дракона", "EN": "Shadow Dragon"}'>Shadow Dragon</h3>
+      <p data-lang='{"UA": "Тихий ПК", "EN": "Silent PC"}'>Silent PC</p>
+      <ul>
+        <li data-lang='{"UA": "🎮 Відеокарта: AMD RX 5700XT", "EN": "🎮 GPU: AMD RX 5700XT"}'>GPU: AMD RX 5700XT</li>
+        <li data-lang='{"UA": "🖥️ Процесор: Ryzen 5 2600X", "EN": "🖥️ CPU: Ryzen 5 2600X"}'>CPU: Ryzen 5 2600X</li>
+        <li data-lang='{"UA": "🔋ОЗП (DDR4 3200 Мгц): 32 ГБ", "EN": "🔋 RAM (DDR4 3200 MHZ): 32 GB"}'>RAM: 32 GB DDR4 3200 MHZ</li>
+        <li data-lang='{"UA": "📀 SSD NVMe: 512 ГБ", "EN": "📀 SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
+      </ul>
+<div class="button">
+  <button id="redirectButton3" name="checkbox" type="button"></button>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+</div>
+    <div class="card">
+      <img class="small-img3" src="img/Neon Bear.png" alt="ПК 4">
+      <h3 data-lang='{"UA": "Iгровий Пострiл", "EN": "Gaming Char"}'>Gaming Char</h3>
+      <p data-lang='{"UA": "Потужний ПК", "EN": "Powerful PC"}'>Powerful RGB PC for You</p>
+      <ul>
+        <li data-lang='{"UA": "🎮 Відеокарта: RX 6600m", "EN": "🎮 GPU: RX 6600M"}'>GPU: RX 6600m</li>
+        <li data-lang='{"UA": "🖥️ Процесор: Intel Xeon 2670V3", "EN": "🖥️ CPU: Intel Xeon 2670V3"}'>CPU: Intel Xeon 2670 V3</li>
+        <li data-lang='{"UA": "🔋ОЗП (DDR4 2666 МГц): 32 ГБ", "EN": "🔋 RAM (DDR4 2666 MHZ): 32 GB"}'>RAM: 32 GB DDR4 2666 MHZ</li>
+        <li data-lang='{"UA": "📀 SSD NVMe: 512 ГБ", "EN": "📀 SSD Nvme: 512 GB"}'>SSD Nvme: 512 GB</li>
+      </ul>
+<div class="button">
+  <button id="redirectButton4" name="checkbox" type="button"></button>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+</div>
+
+<audio id="clickSound" src="sounds/click.mp3" preload="auto"></audio>
+<style>
+   .bottom-links {
+    box-shadow: none; 
+    background: none; 
+    padding: 0;       
+    margin: 0;        
+  }
+</style>
+
+<!-- Кнопка для мобильной версии -->
+<button class="menu-toggle" onclick="toggleMenu()">
+  <span class="text" data-lang='{"UA": "Меню", "EN": "Menu"}'>Menu</span>
+  <span class="icon">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </span>
+</button>
+
+<!-- Скрытое меню -->
+<div class="bottom-links hidden" onclick="closeMenu(event)">
+  <a href="https://www.youtube.com/@SciencePC" target="_blank">
+    <img class="profile-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/1280px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube">
+    <div class="contact-info">YouTube</div>
+  </a>
+  <a href="https://www.olx.ua/uk/list/user/5YDry/?tab=ads" target="_blank">
+    <img class="profile-photo" src="img/icons/OLX-01.svg" alt="OLX">
+    <div class="contact-info">OLX</div>
+  </a>
+  <a href="tel:+380993262917">
+    <img class="profile-photo" src="img/icons/123.png" alt="Smartphone">
+    <div class="contact-info">+380993262917</div>
+  </a>
+  <a href="mailto:deluxe.history@outlook.com">
+    <img class="profile-photo" src="img/icons/Outlook.png" alt="Email">
+    <div class="contact-info">deluxe.history@outlook.com</div>
+  </a>
+  <a href="https://satteliteofscience.github.io/planetary_research/" target="_blank">
+    <img class="profile-photo" src="img/Satellite of Science/Black Hole.gif" alt="website">
+    <div class="contact-info">Planetary Research</div>
+  </a>
+  
+  <!-- Переключатель языка для мобильной версии -->
+  <div class="language-switcher">
+    <input type="checkbox" id="language-toggle" />
+    <label for="language-toggle" class="toggle">
+      <span class="flag us"></span>
+      <span class="flag ua"></span>
+    </label>
+  </div>
+</div>
+
+<script src="js/script(buttons).js"></script>
+<script src="js/lang.js"></script>
+<script src="js/seasons.js"></script>
+<script src="js/button(mobile).js"></script>
+</body>
+</html>

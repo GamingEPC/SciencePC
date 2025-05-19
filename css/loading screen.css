@@ -1,0 +1,108 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Фон с плавным градиентом */
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+  overflow: hidden;
+}
+.loader {
+  --ANIMATION-DELAY-MULTIPLIER: 70ms;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 10;
+}
+
+.loader span {
+  padding: 0;
+  margin: 0;
+  letter-spacing: -5rem;
+  animation-delay: 0s;
+  transform: translateY(4rem);
+  animation: hideAndSeek 1s alternate infinite cubic-bezier(0.86, 0, 0.07, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader .l { animation-delay: calc(var(--ANIMATION-DELAY-MULTIPLIER) * 0); }
+.loader .o { animation-delay: calc(var(--ANIMATION-DELAY-MULTIPLIER) * 1); }
+.loader .a { animation-delay: calc(var(--ANIMATION-DELAY-MULTIPLIER) * 2); }
+.loader .d { animation-delay: calc(var(--ANIMATION-DELAY-MULTIPLIER) * 3); }
+.loader .ispan { animation-delay: calc(var(--ANIMATION-DELAY-MULTIPLIER) * 4); }
+.loader .n { animation-delay: calc(var(--ANIMATION-DELAY-MULTIPLIER) * 5); }
+.loader .g { animation-delay: calc(var(--ANIMATION-DELAY-MULTIPLIER) * 6); }
+
+.letter {
+  width: fit-content;
+  height: 3rem;
+  /* Градиент для букв */
+  fill: url(#rainbow-gradient);
+  stroke: none;
+  filter: drop-shadow(0 0 8px rgb(255, 255, 255));
+  animation: colorflow 2.5s linear infinite;
+}
+
+.l .letter { animation-delay: 0s; }
+.o .letter { animation-delay: 0.2s; }
+.a .letter { animation-delay: 0.4s; }
+.d .letter { animation-delay: 0.6s; }
+.ispan .letter { animation-delay: 0.8s; }
+.n .letter { animation-delay: 1s; }
+.g .letter { animation-delay: 1.2s; }
+
+.i {
+  margin-inline: 5px;
+}
+
+@keyframes hideAndSeek {
+  0% { transform: translateY(4rem);}
+  100% { transform: translateY(0rem);}
+}
+
+/* Анимация градиента для букв */
+@keyframes colorflow {
+  0% { filter: drop-shadow(0 0 8px #fff3); }
+  20% { filter: drop-shadow(0 0 16px #ff00cc); }
+  40% { filter: drop-shadow(0 0 16px #00ffe7); }
+  60% { filter: drop-shadow(0 0 16px #ffe600); }
+  80% { filter: drop-shadow(0 0 16px #00ff2a); }
+  100% { filter: drop-shadow(0 0 8px #fff3); }
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+  overflow: hidden;
+}
+#matrix-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+.loader {
+  z-index: 2;
+  position: relative;
+}
