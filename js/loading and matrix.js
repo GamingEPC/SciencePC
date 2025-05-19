@@ -1,7 +1,32 @@
 window.addEventListener('DOMContentLoaded', function () {
+  // Предзагрузка основной страницы
+  let cachedPage = null;
+  fetch('sciencepc.html')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(html => {
+      cachedPage = html; // Сохраняем содержимое страницы
+      console.log('Основная страница загружена в фоновом режиме.');
+    })
+    .catch(error => {
+      console.error('Ошибка при загрузке основной страницы:', error);
+    });
+
   // Устанавливаем таймер для переадресации
   setTimeout(() => {
-    window.location.href = 'sciencepc.html'; // Укажите путь к вашей главной странице
+    if (cachedPage) {
+      // Если страница была загружена, переходим на неё
+      document.open();
+      document.write(cachedPage);
+      document.close();
+    } else {
+      // Если страница не была загружена, выполняем стандартную переадресацию
+      window.location.href = 'sciencepc.html';
+    }
   }, 3000); // Задержка в миллисекундах (3 секунды)
 });
 
