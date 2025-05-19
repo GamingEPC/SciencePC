@@ -1,18 +1,15 @@
 window.addEventListener('DOMContentLoaded', function() {
-  fetch('sciencepc.html')
-    .then(response => {
-      if (response.ok) {
-        setTimeout(() => {
-          window.location.href = 'sciencepc.html';
-        }, 2500);
-      } else {
-        document.querySelector('.text').textContent = 'Ошибка загрузки!';
-      }
-    })
-    .catch(() => {
-      document.querySelector('.text').textContent = 'Ошибка сети!';
-    });
+fetch('sciencepc.html')
+  .then(response => response.text())
+  .then(html => {
+    // Помещаем предзагруженный HTML в элемент на странице.
+    document.getElementById('content').innerHTML = html;
+  })
+  .catch(() => {
+    document.querySelector('.text').textContent = 'Ошибка загрузки!';
+  });
 });
+
 const canvas = document.getElementById('matrix-canvas');
 const ctx = canvas.getContext('2d');
 let width = window.innerWidth;
