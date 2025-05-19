@@ -1,13 +1,13 @@
 window.addEventListener('DOMContentLoaded', function() {
-  // Загружаем весь HTML-контент из sciencepc.html и вставляем его в элемент с id="content"
-  fetch('sciencepc.html')
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById('content').innerHTML = html;
-    })
-    .catch(() => {
-      document.querySelector('.text').textContent = 'Ошибка загрузки!';
-    });
+fetch('sciencepc.html')
+  .then(response => response.text())
+  .then(html => {
+    // Помещаем предзагруженный HTML в элемент на странице.
+    document.getElementById('content').innerHTML = html;
+  })
+  .catch(() => {
+    document.querySelector('.text').textContent = 'Ошибка загрузки!';
+  });
 });
 
 const canvas = document.getElementById('matrix-canvas');
@@ -20,7 +20,6 @@ canvas.height = height;
 const letters = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 const fontSize = 18;
 const columns = Math.floor(width / fontSize);
-// Инициализируем массив со случайными начальными значениями для эффекта
 const drops = Array.from({length: columns}, () => Math.floor(Math.random() * (height / fontSize)));
 
 function drawMatrix() {
