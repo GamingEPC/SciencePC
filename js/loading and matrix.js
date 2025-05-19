@@ -1,15 +1,10 @@
-window.addEventListener('DOMContentLoaded', function() {
-fetch('sciencepc.html')
-  .then(response => response.text())
-  .then(html => {
-    // Помещаем предзагруженный HTML в элемент на странице.
-    document.getElementById('content').innerHTML = html;
-  })
-  .catch(() => {
-    document.querySelector('.text').textContent = 'Ошибка загрузки!';
-  });
-  });
-  
+window.addEventListener('DOMContentLoaded', function () {
+  // Устанавливаем таймер для переадресации
+  setTimeout(() => {
+    window.location.href = 'sciencepc.html'; // Укажите путь к вашей главной странице
+  }, 3000); // Задержка в миллисекундах (3 секунды)
+});
+
 const canvas = document.getElementById('matrix-canvas');
 const ctx = canvas.getContext('2d');
 let width = window.innerWidth;
@@ -20,7 +15,7 @@ canvas.height = height;
 const letters = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 const fontSize = 18;
 const columns = Math.floor(width / fontSize);
-const drops = Array.from({length: columns}, () => Math.floor(Math.random() * (height / fontSize)));
+const drops = Array.from({ length: columns }, () => Math.floor(Math.random() * (height / fontSize)));
 
 function drawMatrix() {
   ctx.fillStyle = 'rgba(255,255,255,0.15)'; // светлый прозрачный фон
