@@ -111,14 +111,14 @@ function createMusicToggleButton() {
   btn.style.animation = "floatBtn 2s infinite ease-in-out";
 
   
-  const img = document.createElement("img");
-  img.src = "img/Aku aku.png";
-  img.alt = "Музыка";
-  img.style.width = "64px";
-  img.style.height = "64px";
-  img.style.pointerEvents = "none";
-  img.style.userSelect = "none";
-  btn.appendChild(img);
+const img = document.createElement("img");
+img.src = "img/aku.png"; 
+img.alt = "Музыка";
+img.style.width = "64px";
+img.style.height = "64px";
+img.style.pointerEvents = "none";
+img.style.userSelect = "none";
+btn.appendChild(img);
 
   
   const style = document.createElement("style");
@@ -153,28 +153,27 @@ function createMusicToggleButton() {
   }
 
   btn.onclick = function () {
-    if (!audio) {
-      audio = document.createElement("audio");
-      audio.id = "seasonal-audio";
-      audio.src = musicSrc;
-      audio.loop = true;
-      audio.style.display = "none";
-      document.body.appendChild(audio);
-    }
-    if (!isPlaying) {
-      audio.play().then(() => {
-        isPlaying = true;
-        img.src = "img/uka.png";
-      }).catch(() => {
-        alert("Автовоспроизведение заблокировано браузером. Попробуйте ещё раз.");
-      });
-    } else {
-      audio.pause();
-      isPlaying = false;
-      img.src = "img/aku.png";
-    }
-  };
-
+  if (!audio) {
+    audio = document.createElement("audio");
+    audio.id = "seasonal-audio";
+    audio.src = musicSrc;
+    audio.loop = true;
+    audio.style.display = "none";
+    document.body.appendChild(audio);
+  }
+  if (!isPlaying) {
+    audio.play().then(() => {
+      isPlaying = true;
+      img.src = "img/uka.png";
+    }).catch(() => {
+      alert("Автовоспроизведение заблокировано браузером. Попробуйте ещё раз.");
+    });
+  } else {
+    audio.pause();
+    isPlaying = false;
+    img.src = "img/aku.png";
+  }
+};
   document.body.appendChild(btn);
 }
 
