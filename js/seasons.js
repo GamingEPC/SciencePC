@@ -164,14 +164,14 @@ function createMusicToggleButton() {
     if (!isPlaying) {
       audio.play().then(() => {
         isPlaying = true;
-        img.src = "img/uka-uka.png";
+        img.src = "img/Uka.png";
       }).catch(() => {
         alert("Автовоспроизведение заблокировано браузером. Попробуйте ещё раз.");
       });
     } else {
       audio.pause();
       isPlaying = false;
-      img.src = "img/Aku aku.png";
+      img.src = "img/Aku.png";
     }
   };
 
